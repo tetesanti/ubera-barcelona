@@ -155,6 +155,24 @@ footer .sig{font-family:var(--display);font-weight:700;letter-spacing:.14em;
 .firma p{font-size:13px;color:#C8D0DE;line-height:1.4;text-wrap:pretty}
 .firma strong{color:var(--txt);font-weight:700}
 .firma .en2{display:block;color:#8F99A8;font-style:italic;font-size:12px;margin-top:2px}
+
+/* botones de pago en el bloque de apoyo */
+.pagos{display:flex;flex-direction:column;gap:9px;margin-top:16px}
+.pago{display:flex;align-items:center;gap:12px;padding:13px 15px;border-radius:12px;
+  background:rgba(16,19,25,.55);border:1px solid rgba(245,247,251,.12);
+  text-decoration:none;transition:border-color .15s}
+.pago:hover{border-color:var(--amber-deep)}
+.pago .ic{width:38px;height:38px;flex:none;border-radius:10px;display:grid;place-items:center;
+  font-family:var(--display);font-weight:800;font-size:14px;color:#fff}
+.pago .ic.bz{background:#0a4bd4}
+.pago .ic.pp{background:#003087}
+.pago .tx{flex:1;min-width:0}
+.pago .tx b{display:block;font-family:var(--display);font-weight:700;font-size:14.5px;color:var(--txt)}
+.pago .tx span{display:block;font-size:13px;color:var(--dim);
+  font-variant-numeric:tabular-nums;word-break:break-all}
+.pago .cp{flex:none;font-size:11.5px;font-weight:700;font-family:var(--display);
+  color:var(--amber);padding:6px 10px;border-radius:8px;background:rgba(242,179,61,.12)}
+.pago .cp.ok{color:var(--ground);background:var(--barato)}
 </style>
 </head>
 <body>
@@ -215,6 +233,18 @@ footer .sig{font-family:var(--display);font-weight:700;letter-spacing:.14em;
         <div class="cifra"><b>0 €</b><span>te cuesta a ti</span></div>
       </div>
       <p>Compruebo cada sitio uno por uno y lleva horas cada semana. Si te ha servido, <strong style="color:var(--txt)">una propina ayuda</strong>.</p>
+      <div class="pagos">
+        <div class="pago" id="pagoBizum" role="button" tabindex="0">
+          <div class="ic bz">B</div>
+          <div class="tx"><b>Bizum · Santiago</b><span>640 236 547</span></div>
+          <div class="cp">Copiar</div>
+        </div>
+        <a class="pago" href="https://paypal.me/santiagotriguero" target="_blank" rel="noopener">
+          <div class="ic pp">PP</div>
+          <div class="tx"><b>PayPal · Santiago</b><span>paypal.me/santiagotriguero</span></div>
+          <div class="cp">Abrir</div>
+        </a>
+      </div>
       <p class="en"><strong style="color:#B9C2D0">I keep this guide myself.</strong> If it helped you, a tip keeps it going.</p>
     </div>
   </section>
@@ -650,6 +680,22 @@ document.querySelectorAll('.tab').forEach(function(t){
     document.querySelectorAll('.tab').forEach(function(o){ o.setAttribute('aria-selected', o===t ? 'true':'false'); });
     activas = (TABS[pestana]||[]).slice();
     pintar();
+
+(function(){
+  var b = document.getElementById('pagoBizum');
+  if (!b) return;
+  b.addEventListener('click', function(){
+    var t = document.createElement('textarea');
+    t.value = "640236547"; t.style.position='fixed'; t.style.top='-1000px';
+    document.body.appendChild(t); t.select();
+    var ok=false; try{ ok=document.execCommand('copy'); }catch(e){}
+    document.body.removeChild(t);
+    if(!ok && navigator.clipboard) navigator.clipboard.writeText("640236547");
+    var c = b.querySelector('.cp');
+    c.classList.add('ok'); c.textContent='\u00a1Copiado!';
+    setTimeout(function(){ c.classList.remove('ok'); c.textContent='Copiar'; }, 1700);
+  });
+})();
     var pts = SITIOS.filter(function(s){ return activas.indexOf(s.p)!==-1; });
     if(pts.length) mapa.fitBounds(L.latLngBounds(pts.map(function(s){ return [s.lat,s.lon]; })), {padding:[40,40], maxZoom:15});
   });
