@@ -76,6 +76,48 @@ footer{margin:34px 0 40px;padding-top:18px;border-top:1px solid var(--line);
   text-align:center;color:var(--dim);font-size:13px}
 footer .sig{font-family:var(--display);font-weight:700;letter-spacing:.14em;
   text-transform:uppercase;font-size:11px;color:var(--amber);margin-top:6px}
+
+/* guia de zonas */
+.guia{margin-top:34px}
+.guia h2{font-family:var(--display);font-weight:800;font-size:19px;color:var(--amber);
+  display:flex;align-items:center;gap:9px;margin-bottom:5px}
+.guia h2 i{width:11px;height:11px;border-radius:50%;background:var(--amber)}
+.guia .sub{color:var(--dim);font-size:14px;margin-bottom:15px}
+.guiaz{display:flex;flex-direction:column;gap:13px}
+.gz{border-radius:16px;overflow:hidden;background:var(--surface);
+  border:1px solid var(--line);cursor:pointer;transition:border-color .18s}
+.gz:hover{border-color:var(--amber-deep)}
+.gz .fotos{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.gz .fotos figure{margin:0;position:relative;background:var(--surface-2)}
+.gz .fotos img{width:100%;height:118px;object-fit:cover;display:block}
+.gz .fotos figcaption{position:absolute;left:0;right:0;bottom:0;padding:15px 8px 5px;
+  font-size:10.5px;font-weight:600;color:#fff;
+  background:linear-gradient(transparent,rgba(0,0,0,.85))}
+.gz .fotos figure:only-child{grid-column:1/-1}
+.gz .txt{padding:15px 16px 17px}
+.gz .tit{display:flex;align-items:center;gap:9px;font-family:var(--display);
+  font-weight:800;font-size:17px;margin-bottom:4px}
+.gz .tit i{width:11px;height:11px;border-radius:50%;flex:none}
+.gz .lema{font-family:var(--display);font-weight:700;font-size:11.5px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:7px}
+.gz .des{font-size:13.5px;color:var(--dim);line-height:1.55}
+.gz .puntos{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.gz .puntos span{padding:5px 10px;border-radius:999px;font-size:11.5px;font-weight:700;
+  font-family:var(--display);background:var(--surface-2);color:var(--dim);
+  border:1px solid var(--line)}
+.gz .datos{margin-top:13px;display:flex;flex-direction:column;gap:8px}
+.gz .dato{display:flex;gap:9px;align-items:flex-start;font-size:13px;color:var(--dim)}
+.gz .dato svg{width:15px;height:15px;flex:none;margin-top:2px;stroke:var(--amber);fill:none;stroke-width:1.9}
+.gz .dato.aviso{color:var(--txt)}
+.gz .dato.aviso svg{stroke:#E5484D}
+.gz .acciones{display:flex;gap:8px;margin-top:15px;flex-wrap:wrap}
+.gz .bt{flex:1;min-width:130px;display:inline-flex;align-items:center;justify-content:center;
+  gap:7px;padding:11px 12px;border-radius:11px;font-family:var(--display);
+  font-weight:700;font-size:13px;text-decoration:none;border:1px solid var(--line);
+  background:var(--surface-2);color:var(--dim);cursor:pointer;transition:all .15s}
+.gz .bt svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2}
+.gz .bt.amb{background:var(--amber);color:var(--ground);border-color:var(--amber)}
+.gz .bt:hover{border-color:var(--amber-deep)}
 </style>
 </head>
 <body>
@@ -105,6 +147,13 @@ footer .sig{font-family:var(--display);font-weight:700;letter-spacing:.14em;
   <div id="mapa"></div>
   <div class="leyenda" id="leyenda"></div>
   <div class="aviso-vacio oculto" id="vacio"></div>
+
+
+  <section class="guia" id="guiazonas">
+    <h2><i></i>Las zonas de Barcelona</h2>
+    <p class="sub">Un vistazo a cada zona. Toca una para verla en el mapa.</p>
+    <div class="guiaz" id="guiaz"></div>
+  </section>
 
   <footer>
     <p>Los horarios cambian. Confirma en Google antes de ir.</p>
@@ -561,6 +610,83 @@ todo.addEventListener('click', function(){
 zonabar.insertBefore(todo, zonabar.firstChild);
 
 pintar();
+var ZONAS_INFO = {"vella": {"lema": "El corazón antiguo de la ciudad", "desc": "Es el Barcelona de hace dos mil años. Aquí estaba la ciudad romana, y todavía se ven trozos de muralla incrustados entre los edificios. Callejuelas estrechas donde el sol no llega, plazas escondidas que aparecen de golpe, y La Rambla partiéndolo todo por la mitad.", "para": "Perderse andando sin rumbo. Es la zona donde no hace falta plan.", "metro": "L3 Liceu · L4 Jaume I · L1/L3 Catalunya", "ojo": "Es la zona con más carteristas de Barcelona. Móvil en el bolsillo de delante y mochila por delante.", "g": "Ciutat Vella, Barcelona"}, "eixample": {"lema": "La cuadrícula modernista", "desc": "Manzanas cuadradas con las esquinas cortadas en chaflán — un diseño de 1859 pensado para que entrara el aire y el sol. Es donde Gaudí y los demás modernistas construyeron sus casas más famosas, una al lado de la otra en el Passeig de Gràcia.", "para": "Ver arquitectura, comprar y comer bien. Aquí están casi todos los restaurantes con estrella.", "metro": "L2/L3/L4 Passeig de Gràcia · L5 Diagonal", "ojo": "Casa Batlló y La Pedrera se reservan por internet. Sin entrada previa, o no entras o son dos horas de cola.", "g": "L'Eixample, Barcelona"}, "sagrada": {"lema": "El barrio del templo", "desc": "Todo el mundo viene por la Sagrada Família y se va sin ver nada más, y es un error: a diez minutos andando está el Recinte Modernista de Sant Pau, un antiguo hospital que parece un pueblo de cuento y por el que no pasa casi nadie.", "para": "Medio día tranquilo. El templo por la mañana y Sant Pau después.", "metro": "L2/L5 Sagrada Família", "ojo": "La entrada al templo se agota con semanas de antelación. Y ojo con los carteristas en la salida del metro.", "g": "Sagrada Familia, Barcelona"}, "gracia": {"lema": "El pueblo dentro de la ciudad", "desc": "Hasta 1897 Gràcia era un municipio aparte, y todavía se nota. Calles estrechas que desembocan en plazas pequeñas llenas de terrazas, donde la gente del barrio se sienta a tomar algo sin prisa. Aquí arriba también está el Park Güell.", "para": "Cenar de terraza y ver cómo vive la gente de Barcelona de verdad.", "metro": "L3 Fontana · L3 Lesseps · L4/L5 Verdaguer", "ojo": "Al Park Güell hay que subir, y se sube de verdad. Hay escaleras mecánicas por la calle Baixada de la Glòria.", "g": "Gracia, Barcelona"}, "sants": {"lema": "La montaña con vistas", "desc": "Montjuïc es una colina entera llena de cosas: un castillo militar arriba del todo, el MNAC en un palacio enorme, jardines, museos, las instalaciones olímpicas del 92 y la Font Màgica al pie de la escalinata.", "para": "Un día entero. Subir en teleférico y bajar andando entre jardines.", "metro": "L1/L3 Espanya · Funicular desde L2/L3 Paral·lel", "ojo": "La Font Màgica no funciona todos los días ni todo el año. Mira el horario antes de ir de noche.", "g": "Montjuic, Barcelona"}, "playa": {"lema": "Playa, puerto y arroces", "desc": "La Barceloneta era el barrio de los pescadores y sigue oliendo a eso. Calles estrechísimas con la ropa tendida, casas de dos ventanas, y al final del todo la playa y los chiringuitos. Aquí están las mejores paellas de la ciudad.", "para": "Comer arroz mirando al mar y quedarse la tarde.", "metro": "L4 Barceloneta · L4 Ciutadella-Vila Olímpica", "ojo": "Nunca dejes nada en la arena si te metes al agua. Se roba en segundos y es el sitio donde más pasa.", "g": "La Barceloneta, Barcelona"}, "martin": {"lema": "Las fábricas convertidas en oficinas", "desc": "Poblenou era la zona industrial, el \"Manchester catalán\". Ahora las viejas naves son oficinas de tecnología y lofts, pero quedan las chimeneas de ladrillo entre los edificios nuevos. Sus playas son más anchas y con mucho menos turista.", "para": "Playa tranquila y una rambla de barrio para comer sin agobios.", "metro": "L4 Poblenou · L4 Llacuna · L1 Glòries", "ojo": "La playa de la Mar Bella tiene un tramo nudista, está señalizado.", "g": "Poblenou, Barcelona"}, "corts": {"lema": "La parte alta y acomodada", "desc": "Zona residencial de casas grandes y calles anchas, donde vive la Barcelona con dinero. Aquí está el Camp Nou, el monasterio de Pedralbes escondido entre jardines, y la Carretera de les Aigües, un camino llano por la montaña con toda la ciudad a tus pies.", "para": "Fútbol, un monasterio del siglo XIV y las mejores vistas para pasear.", "metro": "L3 Palau Reial · L3 Maria Cristina · L9 Camp Nou", "ojo": "El Camp Nou está en obras de remodelación. Comprueba antes si se puede visitar.", "g": "Les Corts, Barcelona"}, "nord": {"lema": "El Barcelona que no sale en las guías", "desc": "Nou Barris, Horta y Sant Andreu son donde vive la mayoría de la gente de esta ciudad. Casi nada de turismo, precios normales y bares de barrio de verdad. Y dos joyas: el Laberint d'Horta, un jardín con laberinto de cipreses de 1791, y los Búnkers del Carmel.", "para": "Comer barato de verdad y ver el atardecer desde los Búnkers.", "metro": "L3 Mundet · L5 Horta · L1 Fabra i Puig", "ojo": "A los Búnkers hay que subir andando un buen rato. Lleva agua y ve con tiempo antes de que se ponga el sol.", "g": "Nou Barris, Barcelona"}};
+
+var FOTOSZONA = {"vella": {"nombre": "Ciutat Vella", "fotos": [{"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/Barcelona_Cathedral_Saint_Eulalia.jpg/960px-Barcelona_Cathedral_Saint_Eulalia.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail", "pie": "Catedral de Barcelona"}, {"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/15-10-27-Vista_des_de_l%27est%C3%A0tua_de_Colom_a_Barcelona-WMA_2791.jpg/960px-15-10-27-Vista_des_de_l%27est%C3%A0tua_de_Colom_a_Barcelona-WMA_2791.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail", "pie": "La Rambla"}]}, "eixample": {"nombre": "L'Eixample", "fotos": [{"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Casa_Batll%C3%B3%2C_Antoni_Gaud%C3%AD.jpg/960px-Casa_Batll%C3%B3%2C_Antoni_Gaud%C3%AD.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail", "pie": "Casa Batlló"}, {"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Casa_Mil%C3%A0%2C_general_view.jpg/960px-Casa_Mil%C3%A0%2C_general_view.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail", "pie": "Casa Milà"}]}, "gracia": {"nombre": "Gràcia", "fotos": [{"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/G%C3%BCell_BCN_edited.jpg/960px-G%C3%BCell_BCN_edited.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail", "pie": "Parque Güell"}]}, "sagrada": {"nombre": "Sagrada Família", "fotos": [{"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/SF_maig_2026.jpg/960px-SF_maig_2026.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail", "pie": "Templo Expiatorio de la Sagrada Familia"}, {"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Hosp_Sant_Pau.jpg/960px-Hosp_Sant_Pau.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail", "pie": "Hospital de la Santa Cruz y San Pablo"}]}, "sants": {"nombre": "Sants i Montjuïc", "fotos": [{"url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Magic_fountain_show_at_the_Montjuic.jpg/960px-Magic_fountain_show_at_the_Montjuic.jpg", "pie": "Fuente Mágica de Montjuic"}, {"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Castell_de_Montjuic_-_Fossat_entrada_-_Barcelona_%28Catalonia%29.jpg/960px-Castell_de_Montjuic_-_Fossat_entrada_-_Barcelona_%28Catalonia%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail", "pie": "Castillo de Montjuic"}]}, "playa": {"nombre": "Platges i Port", "fotos": [{"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/050529_Barcelona_059.jpg/960px-050529_Barcelona_059.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail", "pie": "Playa de la Barceloneta"}, {"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Port_Vell_Rambla_de_Mar_04.JPG/960px-Port_Vell_Rambla_de_Mar_04.JPG?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail", "pie": "Puerto Viejo de Barcelona"}]}, "martin": {"nombre": "Poblenou i Clot", "fotos": [{"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Torre_Agbar_-_Barcelona%2C_Spain_-_Jan_2007.jpg/960px-Torre_Agbar_-_Barcelona%2C_Spain_-_Jan_2007.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail", "pie": "Torre Glòries"}, {"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Festadelcel2010-006.JPG/960px-Festadelcel2010-006.JPG?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail", "pie": "Playa del Bogatell"}]}, "corts": {"nombre": "Les Corts i Sarrià", "fotos": [{"url": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Location_map_Barcelona.png?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled", "pie": "Camp Nou"}, {"url": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Monestir_de_Pedralbes._A%C3%A8ria.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled", "pie": "Monasterio de Pedralbes"}]}, "nord": {"nombre": "Nou Barris, Horta i Sant Andreu", "fotos": [{"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Laberint_d%27Horta01.jpg/960px-Laberint_d%27Horta01.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail", "pie": "Parque del Laberinto de Horta"}]}};
+
+var TEXTOZONA = {"vella": "El casco antiguo. Callejuelas medievales, la catedral y La Rambla. Es la zona más turística y donde más carteristas hay.", "eixample": "La cuadrícula de manzanas achaflanadas. Aquí están Casa Batlló, La Pedrera y el Passeig de Gràcia con las tiendas de lujo.", "gracia": "Antes era un pueblo aparte. Plazas pequeñas llenas de terrazas, ambiente de barrio y menos turistas que el centro.", "sagrada": "El barrio de la Sagrada Família. Además del templo, tienes el recinto modernista de Sant Pau a diez minutos andando.", "sants": "La montaña de Montjuïc: castillo, museos, jardines y la Font Màgica. Buenas vistas de toda la ciudad.", "playa": "La Barceloneta y el puerto. Playa, chiringuitos, arroces y el Aquàrium. Cuidado con las cosas en la arena.", "martin": "Poblenou: antiguas fábricas convertidas en oficinas y lofts. Playas más tranquilas y la Torre Glòries.", "corts": "Zona residencial y acomodada. El Camp Nou, el monasterio de Pedralbes y la parte alta de la ciudad.", "nord": "Los barrios donde vive la gente de Barcelona. Menos turismo, precios reales y sitios como el Laberint d'Horta o los Búnkers."};
+
+
+(function(){
+  var cont = document.getElementById('guiaz');
+  if (!cont) return;
+  ZONAS.forEach(function(z){
+    var info = FOTOSZONA[z.id];
+    var inf  = ZONAS_INFO[z.id] || {};
+    var texto = TEXTOZONA[z.id];
+    if (!info && !texto && !inf.desc) return;
+
+    var sitios = SITIOS.filter(function(s){
+      return s.lat >= z.lat0 && s.lat <= z.lat1 && s.lon >= z.lon0 && s.lon <= z.lon1 && s.p === 'interes';
+    });
+    if (sitios.length < 3){
+      sitios = sitios.concat(SITIOS.filter(function(s){
+        return s.lat >= z.lat0 && s.lat <= z.lat1 && s.lon >= z.lon0 && s.lon <= z.lon1
+               && (s.p === 'familia' || s.p === 'aventura') && sitios.indexOf(s) === -1;
+      }));
+    }
+    sitios = sitios.slice(0,5);
+
+    var col = z.col || '#F2B33D';
+    var gurl = 'https://maps.google.com/?q=' + encodeURIComponent(inf.g || (z.nom + ', Barcelona'));
+
+    var fotos = '';
+    if (info && info.fotos.length){
+      fotos = '<div class="fotos">' + info.fotos.map(function(f){
+        return '<figure><img loading="lazy" src="'+f.url+'" alt="'+f.pie+'">'+
+               '<figcaption>'+f.pie+'</figcaption></figure>';
+      }).join('') + '</div>';
+    }
+    var puntos = sitios.length
+      ? '<div class="puntos">' + sitios.map(function(s){ return '<span>'+s.n+'</span>'; }).join('') + '</div>'
+      : '';
+
+    var svgMetro = '<svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="14" rx="3"/><path d="M4 11h16M8 21l-2-3M16 21l2-3"/></svg>';
+    var svgPara  = '<svg viewBox="0 0 24 24"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>';
+    var svgOjo   = '<svg viewBox="0 0 24 24"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9L2 18a2 2 0 0 0 1.7 3h16.6a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>';
+
+    var datos = '<div class="datos">';
+    if (inf.para)  datos += '<div class="dato">'+svgPara+'<span><strong style="color:var(--txt)">Ideal para:</strong> '+inf.para+'</span></div>';
+    if (inf.metro) datos += '<div class="dato">'+svgMetro+'<span><strong style="color:var(--txt)">Metro:</strong> '+inf.metro+'</span></div>';
+    if (inf.ojo)   datos += '<div class="dato aviso">'+svgOjo+'<span>'+inf.ojo+'</span></div>';
+    datos += '</div>';
+
+    var div = document.createElement('div');
+    div.className = 'gz';
+    div.setAttribute('tabindex','0');
+    div.innerHTML = fotos +
+      '<div class="txt">' +
+        '<div class="tit"><i style="background:'+col+'"></i>'+z.nom+'</div>' +
+        (inf.lema ? '<div class="lema">'+inf.lema+'</div>' : '') +
+        '<div class="des">'+(inf.desc || texto || '')+'</div>' +
+        puntos + datos +
+        '<div class="acciones">' +
+          '<button class="bt amb"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Ver en el mapa</button>' +
+          '<a class="bt" href="'+gurl+'" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Abrir en Google</a>' +
+        '</div>' +
+      '</div>';
+
+    function ir(){
+      mapa.fitBounds([[z.lat0,z.lon0],[z.lat1,z.lon1]], {padding:[20,20]});
+      document.getElementById('mapa').scrollIntoView({behavior:'smooth', block:'center'});
+    }
+    div.addEventListener('click', function(e){ if (e.target.closest('a')) return; ir(); });
+    div.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); ir(); }
+    });
+    cont.appendChild(div);
+  });
+})();
 </script>
 </body>
 </html>
