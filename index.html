@@ -146,6 +146,15 @@ footer .sig{font-family:var(--display);font-weight:700;letter-spacing:.14em;
 .apoyo .nota2{margin-top:15px;padding:13px 15px;border-radius:12px;
   background:rgba(242,179,61,.09);border:1px solid rgba(242,179,61,.22);
   font-size:13.5px;color:var(--txt);text-align:center}
+
+/* firma discreta arriba */
+.firma{display:flex;align-items:center;justify-content:center;gap:9px;
+  margin-top:14px;padding:11px 14px;border-radius:12px;
+  background:rgba(242,179,61,.07);border:1px solid rgba(242,179,61,.18)}
+.firma svg{width:17px;height:17px;stroke:var(--amber);fill:none;stroke-width:1.9;flex:none}
+.firma p{font-size:13px;color:#C8D0DE;line-height:1.4;text-wrap:pretty}
+.firma strong{color:var(--txt);font-weight:700}
+.firma .en2{display:block;color:#8F99A8;font-style:italic;font-size:12px;margin-top:2px}
 </style>
 </head>
 <body>
@@ -156,6 +165,13 @@ footer .sig{font-family:var(--display);font-weight:700;letter-spacing:.14em;
     <h1>Barcelona <em>punto por punto</em></h1>
     <p class="lede">Elige abajo qué buscas. Toca un punto del mapa y se abre en Google Maps con fotos, reseñas y teléfono.</p>
   </header>
+
+
+  <div class="firma">
+    <svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21.2l7.8-7.7 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+    <p><strong>273 sitios comprobados uno a uno por Santiago, tu conductor.</strong>
+       <span class="en2">273 places checked one by one by Santiago, your driver.</span></p>
+  </div>
 
   <div class="tabs" role="tablist">
     <button class="tab" data-tab="buenos" aria-selected="false"><svg viewBox="0 0 24 24"><path d="M5 3v8a3 3 0 0 0 6 0V3M8 11v10"/><path d="M17 3c-1.5 2-2 4-2 6s.5 3 2 3v9"/></svg>Restaurantes buenos</button>
@@ -569,8 +585,8 @@ var COLORES = {
 var mapa = L.map('mapa', { zoomControl:true, scrollWheelZoom:true, attributionControl:false })
             .setView([41.3925, 2.1700], 13);
 
-L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-  attribution:'', maxZoom:20, subdomains:'abcd'
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution:'', maxZoom:19
 }).addTo(mapa);
 L.control.attribution({prefix:false, position:'bottomright'}).addAttribution('&copy; OSM').addTo(mapa);
 
