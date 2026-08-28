@@ -673,11 +673,11 @@ function aplicarIdioma(l){
     if(t) el.textContent = t;
   });
   var s = document.getElementById("selIdioma"); if(s) s.value = l;
-  try{ localStorage.setItem("ubera_idioma", l); }catch(e){}
+  try{ localStorage.setItem("travely-lang", l); }catch(e){}
 }
 document.getElementById("selIdioma").addEventListener("change", function(){ aplicarIdioma(this.value); });
 (function(){
-  var g = null; try{ g = localStorage.getItem("ubera_idioma"); }catch(e){}
+  var g = null; try{ g = localStorage.getItem("travely-lang"); }catch(e){}
   var n = (navigator.language||"es").toLowerCase();
   var auto = g || (n.indexOf("zh-t")===0||n.indexOf("zh-hant")===0||n.indexOf("zh-tw")===0?"zh-Hant":n.split("-")[0]);
   aplicarIdioma(TT[auto] ? auto : "es");

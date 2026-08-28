@@ -80,10 +80,22 @@ h2{font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.16e
 .sos a:focus-visible{outline:2px solid var(--calm);outline-offset:2px}
 
 /* tarjeta grande del mapa */
-.mapa-card{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;
+.mapa-card{position:relative;overflow:hidden;isolation:isolate;
+  display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;
   padding:30px 22px;border-radius:20px;text-decoration:none;color:var(--txt);
   background:linear-gradient(160deg,#1c2434 0%,#161d29 100%);
   border:1.5px solid var(--amber);box-shadow:0 6px 20px rgba(0,0,0,.35);transition:all .2s}
+/* trama del Eixample de fondo, difuminada, sin molestar la lectura */
+.mapa-card::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:
+    linear-gradient(203deg,transparent 68%,rgba(94,200,232,.13) 68%),
+    linear-gradient(45deg,transparent calc(50% - 2px),rgba(242,179,61,.22) calc(50% - 2px),
+      rgba(242,179,61,.22) calc(50% + 2px),transparent calc(50% + 2px)),
+    repeating-linear-gradient(45deg,transparent 0 26px,rgba(242,179,61,.10) 26px 28px),
+    repeating-linear-gradient(-45deg,transparent 0 26px,rgba(242,179,61,.10) 26px 28px);
+  -webkit-mask-image:radial-gradient(120% 100% at 50% 40%,#000 30%,transparent 78%);
+  mask-image:radial-gradient(120% 100% at 50% 40%,#000 30%,transparent 78%)}
+.mapa-card>*{position:relative;z-index:1}
 .mapa-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(242,179,61,.22)}
 .mapa-pin{width:56px;height:56px;display:grid;place-items:center;border-radius:50%;
   background:rgba(242,179,61,.14)}

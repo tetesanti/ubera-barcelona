@@ -89,156 +89,606 @@ h1{font-family:var(--disp);font-weight:700;font-size:clamp(32px,8.5vw,50px);
 .gracias{text-align:center;font-family:var(--disp);font-style:italic;
   font-size:18px;color:var(--suave);margin-top:32px;line-height:1.5}
 footer{text-align:center;margin-top:30px;color:var(--suave);font-size:12.5px;line-height:1.7}
+
+.selidioma{background:var(--tarjeta);border:1px solid var(--linea);border-radius:999px;
+  padding:9px 16px;color:var(--tinta);font-family:var(--texto);font-weight:600;font-size:14px;
+  cursor:pointer;max-width:170px}
+.selidioma:focus-visible{outline:2px solid var(--calido);outline-offset:2px}
+.volver-guia{text-align:center;margin:10px 0 0}
+.volver-guia a{display:inline-block;padding:9px 18px;border-radius:999px;background:var(--tarjeta);
+  border:1px solid var(--calido);color:var(--calido);text-decoration:none;font-weight:600;font-size:13.5px}
+.volver-guia a:hover{background:rgba(242,179,61,.12)}
 </style>
 </head>
 <body>
 <div class="wrap">
 
   <div class="barra">
-    <div class="lang">
-      <button data-lang="es" class="on">Español</button>
-      <button data-lang="en">English</button>
-    </div>
+    <select class="selidioma" id="selIdioma" aria-label="Idioma"><option value="es">Español</option><option value="ca">Català</option><option value="en">English</option><option value="fr">Français</option><option value="de">Deutsch</option><option value="it">Italiano</option><option value="pt">Português</option><option value="nl">Nederlands</option><option value="ru">Русский</option><option value="ja">日本語</option><option value="zh">简体中文</option><option value="zh-Hant">繁體中文</option></select>
     <button class="copiar" id="btnCopiar">
       <svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
-      <span data-es="Copiar texto" data-en="Copy text">Copiar texto</span>
+      <span data-t="k1"></span>
     </button>
   </div>
 
+  <p class="volver-guia"><a href="https://tetesanti.github.io/ubera-barcelona/ubera/" data-t="kvolver"></a></p>
+
   <header>
-    <span class="sos" data-es="Ayuda urgente" data-en="Urgent help">Ayuda urgente</span>
-    <h1 data-es="Mi madre lo dio todo. Hoy está a punto de perder su casa."
-        data-en="My mother gave everything. Now she is about to lose her home.">Mi madre lo dio todo. Hoy está a punto de perder su casa.</h1>
+    <span class="sos" data-t="k2">Ayuda urgente</span>
+    <h1 data-t="k3">Mi madre lo dio todo. Hoy está a punto de perder su casa.</h1>
     <p class="intro"
-       data-es="Josefa tiene cáncer en los dos pulmones, cero ingresos y una deuda que ni siquiera es suya. Necesita ayuda de verdad, y la necesita ya."
-       data-en="Josefa has cancer in both lungs, zero income and a debt that isn't even hers. She needs real help, and she needs it now.">Josefa tiene cáncer en los dos pulmones, cero ingresos y una deuda que ni siquiera es suya. Necesita ayuda de verdad, y la necesita ya.</p>
+       data-t="k4">Josefa tiene cáncer en los dos pulmones, cero ingresos y una deuda que ni siquiera es suya. Necesita ayuda de verdad, y la necesita ya.</p>
     <p class="soyquien"
-       data-es="Soy Santiago, tu conductor. Josefa es mi madre."
-       data-en="I'm Santiago, your driver. Josefa is my mother.">Soy Santiago, tu conductor. Josefa es mi madre.</p>
+       data-t="k5">Soy Santiago, tu conductor. Josefa es mi madre.</p>
   </header>
 
   <div class="historia">
     <div class="bloque">
-    <h2><span class="num">1</span><span data-es="Una vida entera trabajando" data-en="A lifetime of work">Una vida entera trabajando</span></h2>
+    <h2><span class="num">1</span><span data-t="k6">Una vida entera trabajando</span></h2>
     <p
-      data-es="Mi madre ha trabajado toda su vida. Más de 40 años cotizando, pagando autónomos y cumpliendo con todo lo que el sistema exige. Nunca pidió nada. Nunca falló."
-      data-en="My mother has worked all her life. More than 40 years paying her contributions and self-employment fees, doing everything the system demanded. She never asked for anything. She never failed.">Mi madre ha trabajado toda su vida. Más de 40 años cotizando, pagando autónomos y cumpliendo con todo lo que el sistema exige. Nunca pidió nada. Nunca falló.</p></div>
+      data-t="k7">Mi madre ha trabajado toda su vida. Más de 40 años cotizando, pagando autónomos y cumpliendo con todo lo que el sistema exige. Nunca pidió nada. Nunca falló.</p></div>
 
     <div class="bloque">
-    <h2><span class="num">2</span><span data-es="Un accidente que lo cambió todo" data-en="An accident that changed everything">Un accidente que lo cambió todo</span></h2>
+    <h2><span class="num">2</span><span data-t="k8">Un accidente que lo cambió todo</span></h2>
     <p
-      data-es="Hace unos años sufrió un accidente grave. Desde entonces vive con secuelas permanentes: dolor crónico, artrosis avanzada, migrañas incapacitantes y una rodilla que necesita una prótesis urgente."
-      data-en="A few years ago she suffered a serious accident. Since then she lives with permanent damage: chronic pain, advanced arthritis, disabling migraines and a knee that urgently needs a prosthesis.">Hace unos años sufrió un accidente grave. Desde entonces vive con secuelas permanentes: dolor crónico, artrosis avanzada, migrañas incapacitantes y una rodilla que necesita una prótesis urgente.</p></div>
+      data-t="k9">Hace unos años sufrió un accidente grave. Desde entonces vive con secuelas permanentes: dolor crónico, artrosis avanzada, migrañas incapacitantes y una rodilla que necesita una prótesis urgente.</p></div>
 
     <div class="bloque">
-    <h2><span class="num">3</span><span data-es="Ganó el juicio, pero se lo quitaron" data-en="She won her case, but they took it away">Ganó el juicio, pero se lo quitaron</span></h2>
+    <h2><span class="num">3</span><span data-t="k10">Ganó el juicio, pero se lo quitaron</span></h2>
     <p
-      data-es="Ganó el juicio contra la Seguridad Social. Pero la administración recurrió al Supremo. Después de pagar más de 3.000 € en abogados, el Supremo le retiró la incapacidad. Y cuando el Supremo decide, ya no hay vuelta atrás."
-      data-en="She won her case against Social Security. But the administration appealed to the Supreme Court. After paying over €3,000 in lawyers, the Supreme Court took away her disability status. And once the Supreme Court decides, there is no going back.">Ganó el juicio contra la Seguridad Social. Pero la administración recurrió al Supremo. Después de pagar más de 3.000 € en abogados, el Supremo le retiró la incapacidad. Y cuando el Supremo decide, ya no hay vuelta atrás.</p></div>
+      data-t="k11">Ganó el juicio contra la Seguridad Social. Pero la administración recurrió al Supremo. Después de pagar más de 3.000 € en abogados, el Supremo le retiró la incapacidad. Y cuando el Supremo decide, ya no hay vuelta atrás.</p></div>
 
     <div class="bloque">
-      <h2><span class="num">4</span><span data-es="Y entonces, lo peor" data-en="And then, the worst">Y entonces, lo peor</span></h2>
-      <p data-es="Intentó volver a trabajar a tiempo parcial. Un mes después recibió el golpe más duro: le diagnosticaron cáncer de pulmón en ambos pulmones."
-         data-en="She tried to go back to work part-time. A month later came the hardest blow: she was diagnosed with lung cancer in both lungs.">Intentó volver a trabajar a tiempo parcial. Un mes después recibió el golpe más duro: le diagnosticaron cáncer de pulmón en ambos pulmones.</p>
-      <p data-es="La operaron de urgencia. Le extirparon un tercio del pulmón izquierdo. Aún le queda otra operación en el pulmón derecho, además de la cirugía de rodilla que lleva años esperando."
-         data-en="She had emergency surgery. They removed a third of her left lung. She still has another operation pending on the right lung, plus the knee surgery she has been waiting years for.">La operaron de urgencia. Le extirparon un tercio del pulmón izquierdo. Aún le queda otra operación en el pulmón derecho, además de la cirugía de rodilla que lleva años esperando.</p>
+      <h2><span class="num">4</span><span data-t="k12">Y entonces, lo peor</span></h2>
+      <p data-t="k13">Intentó volver a trabajar a tiempo parcial. Un mes después recibió el golpe más duro: le diagnosticaron cáncer de pulmón en ambos pulmones.</p>
+      <p data-t="k14">La operaron de urgencia. Le extirparon un tercio del pulmón izquierdo. Aún le queda otra operación en el pulmón derecho, además de la cirugía de rodilla que lleva años esperando.</p>
     </div>
 
     <div class="cifra-clave">
       <div class="big">0 €</div>
-      <p data-es="Desde entonces, la Seguridad Social y la mutua no le pagan absolutamente nada. Literalmente: 0 €. Dicen que «su caso suena a fraude». Como si el cáncer pulmonar bilateral fuera una estrategia."
-         data-en="Since then, Social Security and the insurance mutual pay her absolutely nothing. Literally: €0. They say her case 'sounds like fraud'. As if bilateral lung cancer were a strategy.">Desde entonces, la Seguridad Social y la mutua no le pagan absolutamente nada. Literalmente: 0 €. Dicen que «su caso suena a fraude». Como si el cáncer pulmonar bilateral fuera una estrategia.</p>
+      <p data-t="k15">Desde entonces, la Seguridad Social y la mutua no le pagan absolutamente nada. Literalmente: 0 €. Dicen que «su caso suena a fraude». Como si el cáncer pulmonar bilateral fuera una estrategia.</p>
     </div>
 
     <div class="bloque">
-      <h2><span class="num">5</span><span data-es="Una deuda que no es suya" data-en="A debt that isn't hers">Una deuda que no es suya</span></h2>
-      <p data-es="A todo esto se suma una deuda que no es suya: su exmarido, Freddy Vincent James Godefroy, se fugó a Bélgica con otra mujer y la dejó sola, cargando con todas las deudas. La dejó como avalista de 31.000 € en préstamos (22.000 € + 9.000 €) y tarjetas que ella nunca pidió."
-         data-en="On top of all this comes a debt that isn't even hers: her ex-husband, Freddy Vincent James Godefroy, fled to Belgium with another woman and left her alone, carrying all the debts. He left her as guarantor of €31,000 in loans (€22,000 + €9,000) and credit cards she never asked for.">A todo esto se suma una deuda que no es suya: su exmarido, Freddy Vincent James Godefroy, se fugó a Bélgica con otra mujer y la dejó sola, cargando con todas las deudas. La dejó como avalista de 31.000 € en préstamos (22.000 € + 9.000 €) y tarjetas que ella nunca pidió.</p>
-      <p data-es="Los intereses anuales siguen subiendo, aumentando la deuda cada mes. Además, los acreedores llaman constantemente, presionando y reclamando pagos que ella no puede asumir."
-         data-en="The annual interest keeps rising, increasing the debt every month. On top of that, creditors call constantly, pressuring her and demanding payments she cannot make.">Los intereses anuales siguen subiendo, aumentando la deuda cada mes. Además, los acreedores llaman constantemente, presionando y reclamando pagos que ella no puede asumir.</p>
+      <h2><span class="num">5</span><span data-t="k16">Una deuda que no es suya</span></h2>
+      <p data-t="k17">A todo esto se suma una deuda que no es suya: su exmarido, Freddy Vincent James Godefroy, se fugó a Bélgica con otra mujer y la dejó sola, cargando con todas las deudas. La dejó como avalista de 31.000 € en préstamos (22.000 € + 9.000 €) y tarjetas que ella nunca pidió.</p>
+      <p data-t="k18">Los intereses anuales siguen subiendo, aumentando la deuda cada mes. Además, los acreedores llaman constantemente, presionando y reclamando pagos que ella no puede asumir.</p>
     </div>
 
     <div class="bloque">
-      <h2><span class="num">6</span><span data-es="El sistema le da la espalda" data-en="The system turns its back on her">El sistema le da la espalda</span></h2>
-      <p data-es="Mi madre vive con uno de sus hijos, que está empadronado en su casa porque vive allí y cobra alrededor de 1.200 € al mes. Los demás hijos ayudamos en lo que podemos."
-         data-en="My mother lives with one of her sons, who is registered at her home because he lives there and earns around €1,200 a month. The rest of us help however we can.">Mi madre vive con uno de sus hijos, que está empadronado en su casa porque vive allí y cobra alrededor de 1.200 € al mes. Los demás hijos ayudamos en lo que podemos.</p>
-      <p data-es="En España, el límite para tener derecho a una ayuda pública está en torno a esos 1.200 € por unidad familiar. Como su hijo ya llega a ese tope y cuentan como una misma unidad familiar, a mi madre no le corresponde ninguna ayuda."
-         data-en="In Spain, the threshold to qualify for public aid is around that €1,200 per household. Since her son already reaches that limit and they count as one household, my mother is entitled to no aid at all.">En España, el límite para tener derecho a una ayuda pública está en torno a esos 1.200 € por unidad familiar. Como su hijo ya llega a ese tope y cuentan como una misma unidad familiar, a mi madre no le corresponde ninguna ayuda.</p>
+      <h2><span class="num">6</span><span data-t="k19">El sistema le da la espalda</span></h2>
+      <p data-t="k20">Mi madre vive con uno de sus hijos, que está empadronado en su casa porque vive allí y cobra alrededor de 1.200 € al mes. Los demás hijos ayudamos en lo que podemos.</p>
+      <p data-t="k21">En España, el límite para tener derecho a una ayuda pública está en torno a esos 1.200 € por unidad familiar. Como su hijo ya llega a ese tope y cuentan como una misma unidad familiar, a mi madre no le corresponde ninguna ayuda.</p>
     </div>
 
     <div class="destaca"
-      data-es="Por este motivo, mi madre no tiene derecho a ninguna ayuda pública, aunque esté enferma, sin ingresos, con cáncer en ambos pulmones y con varias operaciones pendientes."
-      data-en="For this reason, my mother has no right to any public aid — even though she is ill, with no income, with cancer in both lungs and several operations pending.">Por este motivo, mi madre no tiene derecho a ninguna ayuda pública, aunque esté enferma, sin ingresos, con cáncer en ambos pulmones y con varias operaciones pendientes.</div>
+      data-t="k22">Por este motivo, mi madre no tiene derecho a ninguna ayuda pública, aunque esté enferma, sin ingresos, con cáncer en ambos pulmones y con varias operaciones pendientes.</div>
 
     <div class="bloque">
-      <p data-es="Es imposible pagar hipoteca, comida, medicación, operaciones, suministros, abogados y deudas ajenas ahora mismo. Está en riesgo real de desahucio."
-         data-en="It's impossible to pay mortgage, food, medication, operations, utilities, lawyers and others' debts now. She is at real risk of eviction.">Es imposible pagar hipoteca, comida, medicación, operaciones, suministros, abogados y deudas ajenas ahora mismo. Está en riesgo real de desahucio.</p>
-      <p data-es="Por eso pido ayuda. No es fácil. Pero es lo único que puedo hacer. Si puedes colaborar, cualquier aportación es un alivio enorme."
-         data-en="That's why I'm asking for help. It isn't easy. But it's the only thing I can do. If you can contribute, any amount is an enormous relief.">Por eso pido ayuda. No es fácil. Pero es lo único que puedo hacer. Si puedes colaborar, cualquier aportación es un alivio enorme.</p>
+      <p data-t="k23">Es imposible pagar hipoteca, comida, medicación, operaciones, suministros, abogados y deudas ajenas ahora mismo. Está en riesgo real de desahucio.</p>
+      <p data-t="k24">Por eso pido ayuda. No es fácil. Pero es lo único que puedo hacer. Si puedes colaborar, cualquier aportación es un alivio enorme.</p>
     </div>
   </div>
 
   <div class="pagos">
-    <p class="titp" data-es="Cómo puedes ayudar" data-en="How you can help">Cómo puedes ayudar</p>
-    <p class="subp" data-es="Cualquier aportación, por pequeña que sea, es un alivio enorme."
-       data-en="Any contribution, however small, is an enormous relief.">Cualquier aportación, por pequeña que sea, es un alivio enorme.</p>
+    <p class="titp" data-t="k25">Cómo puedes ayudar</p>
+    <p class="subp" data-t="k26">Cualquier aportación, por pequeña que sea, es un alivio enorme.</p>
 
     <div class="metodo" id="mBizum" role="button" tabindex="0">
       <div class="ic bz">B</div>
       <div class="info"><b>Bizum</b><span>+34 640 236 547</span></div>
-      <div class="cta" data-es="Copiar" data-en="Copy">Copiar</div>
+      <div class="cta" data-t="k27">Copiar</div>
     </div>
     <div class="metodo" id="mPaypal" role="button" tabindex="0">
       <div class="ic pp">PP</div>
       <div class="info"><b>PayPal</b><span>santiagotriguero@gmail.com</span></div>
-      <div class="cta" data-es="Copiar" data-en="Copy">Copiar</div>
+      <div class="cta" data-t="k28">Copiar</div>
     </div>
     <a class="metodo" href="https://wa.me/34640236547" target="_blank" rel="noopener">
       <div class="ic wa">WA</div>
-      <div class="info"><b>WhatsApp</b><span data-es="Escríbeme si quieres ayudar de otra forma" data-en="Message me if you'd rather help another way">Escríbeme si quieres ayudar de otra forma</span></div>
-      <div class="cta" data-es="Abrir" data-en="Open">Abrir</div>
+      <div class="info"><b>WhatsApp</b><span data-t="k29">Escríbeme si quieres ayudar de otra forma</span></div>
+      <div class="cta" data-t="k30">Abrir</div>
     </a>
   </div>
 
   <div class="compartir">
-    <p data-es="¿No puedes ayudar con dinero? Compartir esta página ya es muchísimo. Cuanta más gente la vea, más cerca está mi madre de estar tranquila en su casa."
-       data-en="Can't help with money? Just sharing this page means a lot. The more people see it, the closer my mother is to staying safely in her home.">¿No puedes ayudar con dinero? Compartir esta página ya es muchísimo. Cuanta más gente la vea, más cerca está mi madre de estar tranquila en su casa.</p>
+    <p data-t="k31">¿No puedes ayudar con dinero? Compartir esta página ya es muchísimo. Cuanta más gente la vea, más cerca está mi madre de estar tranquila en su casa.</p>
     <button class="btn-comp" id="btnComp">
       <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>
-      <span data-es="Compartir esta página" data-en="Share this page">Compartir esta página</span>
+      <span data-t="k32">Compartir esta página</span>
     </button>
   </div>
 
-  <p class="gracias" data-es="Gracias por leer. Gracias por ayudar. Gracias por compartir."
-     data-en="Thank you for reading. Thank you for helping. Thank you for sharing.">Gracias por leer. Gracias por ayudar. Gracias por compartir.</p>
+  <p class="gracias" data-t="k33">Gracias por leer. Gracias por ayudar. Gracias por compartir.</p>
 
-  <footer data-es="¿Hablas otro idioma? Pulsa «Copiar texto» arriba y pégalo en tu traductor."
-     data-en="Speak another language? Tap 'Copy text' at the top and paste it into your translator.">¿Hablas otro idioma? Pulsa «Copiar texto» arriba y pégalo en tu traductor.</footer>
+  <footer data-t="k34">¿Hablas otro idioma? Pulsa «Copiar texto» arriba y pégalo en tu traductor.</footer>
 </div>
 
 <script>
+var TT = {
+ "es": {
+  "k1": "Copiar texto",
+  "k2": "Ayuda urgente",
+  "k3": "Mi madre lo dio todo. Hoy está a punto de perder su casa.",
+  "k4": "Josefa tiene cáncer en los dos pulmones, cero ingresos y una deuda que ni siquiera es suya. Necesita ayuda de verdad, y la necesita ya.",
+  "k5": "Soy Santiago, tu conductor. Josefa es mi madre.",
+  "k6": "Una vida entera trabajando",
+  "k7": "Mi madre ha trabajado toda su vida. Más de 40 años cotizando, pagando autónomos y cumpliendo con todo lo que el sistema exige. Nunca pidió nada. Nunca falló.",
+  "k8": "Un accidente que lo cambió todo",
+  "k9": "Hace unos años sufrió un accidente grave. Desde entonces vive con secuelas permanentes: dolor crónico, artrosis avanzada, migrañas incapacitantes y una rodilla que necesita una prótesis urgente.",
+  "k10": "Ganó el juicio, pero se lo quitaron",
+  "k11": "Ganó el juicio contra la Seguridad Social. Pero la administración recurrió al Supremo. Después de pagar más de 3.000 € en abogados, el Supremo le retiró la incapacidad. Y cuando el Supremo decide, ya no hay vuelta atrás.",
+  "k12": "Y entonces, lo peor",
+  "k13": "Intentó volver a trabajar a tiempo parcial. Un mes después recibió el golpe más duro: le diagnosticaron cáncer de pulmón en ambos pulmones.",
+  "k14": "La operaron de urgencia. Le extirparon un tercio del pulmón izquierdo. Aún le queda otra operación en el pulmón derecho, además de la cirugía de rodilla que lleva años esperando.",
+  "k15": "Desde entonces, la Seguridad Social y la mutua no le pagan absolutamente nada. Literalmente: 0 €. Dicen que «su caso suena a fraude». Como si el cáncer pulmonar bilateral fuera una estrategia.",
+  "k16": "Una deuda que no es suya",
+  "k17": "A todo esto se suma una deuda que no es suya: su exmarido, Freddy Vincent James Godefroy, se fugó a Bélgica con otra mujer y la dejó sola, cargando con todas las deudas. La dejó como avalista de 31.000 € en préstamos (22.000 € + 9.000 €) y tarjetas que ella nunca pidió.",
+  "k18": "Los intereses anuales siguen subiendo, aumentando la deuda cada mes. Además, los acreedores llaman constantemente, presionando y reclamando pagos que ella no puede asumir.",
+  "k19": "El sistema le da la espalda",
+  "k20": "Mi madre vive con uno de sus hijos, que está empadronado en su casa porque vive allí y cobra alrededor de 1.200 € al mes. Los demás hijos ayudamos en lo que podemos.",
+  "k21": "En España, el límite para tener derecho a una ayuda pública está en torno a esos 1.200 € por unidad familiar. Como su hijo ya llega a ese tope y cuentan como una misma unidad familiar, a mi madre no le corresponde ninguna ayuda.",
+  "k22": "Por este motivo, mi madre no tiene derecho a ninguna ayuda pública, aunque esté enferma, sin ingresos, con cáncer en ambos pulmones y con varias operaciones pendientes.",
+  "k23": "Es imposible pagar hipoteca, comida, medicación, operaciones, suministros, abogados y deudas ajenas ahora mismo. Está en riesgo real de desahucio.",
+  "k24": "Por eso pido ayuda. No es fácil. Pero es lo único que puedo hacer. Si puedes colaborar, cualquier aportación es un alivio enorme.",
+  "k25": "Cómo puedes ayudar",
+  "k26": "Cualquier aportación, por pequeña que sea, es un alivio enorme.",
+  "k27": "Copiar",
+  "k28": "Copiar",
+  "k29": "Escríbeme si quieres ayudar de otra forma",
+  "k30": "Abrir",
+  "k31": "¿No puedes ayudar con dinero? Compartir esta página ya es muchísimo. Cuanta más gente la vea, más cerca está mi madre de estar tranquila en su casa.",
+  "k32": "Compartir esta página",
+  "k33": "Gracias por leer. Gracias por ayudar. Gracias por compartir.",
+  "k34": "¿Hablas otro idioma? Pulsa «Copiar texto» arriba y pégalo en tu traductor.",
+  "kvolver": "Volver a la guía De Santiago",
+  "kcopiado": "¡Copiado!"
+ },
+ "ca": {
+  "k1": "Copiar text",
+  "k2": "Ajuda urgent",
+  "k3": "La meva mare ho va donar tot. Avui està a punt de perdre casa seva.",
+  "k4": "La Josefa té càncer als dos pulmons, cap ingrés i un deute que ni tan sols és seu. Necessita ajuda de veritat, i la necessita ja.",
+  "k5": "Sóc en Santiago, el teu conductor. La Josefa és la meva mare.",
+  "k6": "Tota una vida treballant",
+  "k7": "La meva mare ha treballat tota la vida. Més de 40 anys cotitzant, pagant autònoms i complint amb tot el que el sistema exigeix. Mai va demanar res. Mai va fallar.",
+  "k8": "Un accident que ho va canviar tot",
+  "k9": "Fa uns anys va patir un accident greu. Des de llavors viu amb seqüeles permanents: dolor crònic, artrosi avançada, migranyes incapacitants i un genoll que necessita una pròtesi urgent.",
+  "k10": "Va guanyar el judici, però l'hi van treure",
+  "k11": "Va guanyar el judici contra la Seguretat Social. Però l'administració va recórrer al Suprem. Després de pagar més de 3.000 € en advocats, el Suprem li va retirar la incapacitat. I quan el Suprem decideix, ja no hi ha marxa enrere.",
+  "k12": "I llavors, el pitjor",
+  "k13": "Va intentar tornar a treballar a temps parcial. Un mes després va rebre el cop més dur: li van diagnosticar càncer de pulmó als dos pulmons.",
+  "k14": "La van operar d'urgència. Li van extirpar un terç del pulmó esquerre. Encara li queda una altra operació al pulmó dret, a més de la cirurgia de genoll que fa anys que espera.",
+  "k15": "Des de llavors, la Seguretat Social i la mútua no li paguen absolutament res. Literalment: 0 €. Diuen que «el seu cas sona a frau». Com si el càncer pulmonar bilateral fos una estratègia.",
+  "k16": "Un deute que no és seu",
+  "k17": "A tot això s'hi suma un deute que no és seu: el seu exmarit, Freddy Vincent James Godefroy, va fugir a Bèlgica amb una altra dona i la va deixar sola, carregant amb tots els deutes. La va deixar com a avaladora de 31.000 € en préstecs (22.000 € + 9.000 €) i targetes que ella mai va demanar.",
+  "k18": "Els interessos anuals continuen pujant i augmenten el deute cada mes. A més, els creditors truquen constantment, pressionant i reclamant pagaments que ella no pot assumir.",
+  "k19": "El sistema li gira l'esquena",
+  "k20": "La meva mare viu amb un dels seus fills, que està empadronat a casa seva perquè hi viu i cobra al voltant de 1.200 € al mes. La resta de fills ajudem en el que podem.",
+  "k21": "A Espanya, el límit per tenir dret a un ajut públic està al voltant d'aquests 1.200 € per unitat familiar. Com que el seu fill ja arriba a aquest topall i compten com una mateixa unitat familiar, a la meva mare no li correspon cap ajut.",
+  "k22": "Per aquest motiu, la meva mare no té dret a cap ajut públic, encara que estigui malalta, sense ingressos, amb càncer als dos pulmons i amb diverses operacions pendents.",
+  "k23": "És impossible pagar hipoteca, menjar, medicació, operacions, subministraments, advocats i deutes d'altri ara mateix. Està en risc real de desnonament.",
+  "k24": "Per això demano ajuda. No és fàcil. Però és l'únic que puc fer. Si pots col·laborar, qualsevol aportació és un alleujament enorme.",
+  "k25": "Com pots ajudar",
+  "k26": "Qualsevol aportació, per petita que sigui, és un alleujament enorme.",
+  "k27": "Copiar",
+  "k28": "Copiar",
+  "k29": "Escriu-me si vols ajudar d'una altra manera",
+  "k30": "Obrir",
+  "k31": "No pots ajudar amb diners? Compartir aquesta pàgina ja és moltíssim. Com més gent la vegi, més a prop està la meva mare d'estar tranquil·la a casa seva.",
+  "k32": "Compartir aquesta pàgina",
+  "k33": "Gràcies per llegir. Gràcies per ajudar. Gràcies per compartir.",
+  "k34": "No hi és el teu idioma? Prem «Copiar text» a dalt i enganxa'l al teu traductor.",
+  "kvolver": "Tornar a la guia D'en Santiago",
+  "kcopiado": "Copiat!"
+ },
+ "en": {
+  "k1": "Copy text",
+  "k2": "Urgent help",
+  "k3": "My mother gave everything. Now she is about to lose her home.",
+  "k4": "Josefa has cancer in both lungs, no income at all and a debt that isn't even hers. She needs real help, and she needs it now.",
+  "k5": "I'm Santiago, your driver. Josefa is my mother.",
+  "k6": "A whole life of work",
+  "k7": "My mother has worked her entire life. More than 40 years paying into the system, paying self-employment contributions and meeting every requirement. She never asked for anything. She never let anyone down.",
+  "k8": "An accident that changed everything",
+  "k9": "A few years ago she had a serious accident. Since then she has lived with permanent damage: chronic pain, advanced arthritis, disabling migraines and a knee that urgently needs a replacement.",
+  "k10": "She won the case, then they took it away",
+  "k11": "She won her case against Social Security. But the administration appealed to the Supreme Court. After paying more than €3,000 in legal fees, the Supreme Court withdrew her disability status. And once the Supreme Court decides, there is no way back.",
+  "k12": "And then, the worst part",
+  "k13": "She tried to go back to work part-time. A month later came the hardest blow: she was diagnosed with lung cancer in both lungs.",
+  "k14": "She had emergency surgery. A third of her left lung was removed. She still faces another operation on the right lung, plus the knee surgery she has been waiting years for.",
+  "k15": "Since then, Social Security and the insurance company have paid her absolutely nothing. Literally: €0. They say her case \"sounds like fraud\". As if bilateral lung cancer were a strategy.",
+  "k16": "A debt that isn't hers",
+  "k17": "On top of all this comes a debt that isn't even hers: her ex-husband, Freddy Vincent James Godefroy, fled to Belgium with another woman and left her alone, carrying every debt. He left her as guarantor of €31,000 in loans (€22,000 + €9,000) and credit cards she never asked for.",
+  "k18": "The annual interest keeps rising, increasing the debt every month. On top of that, creditors call constantly, pressuring her and demanding payments she simply cannot make.",
+  "k19": "The system turns its back on her",
+  "k20": "My mother lives with one of her sons, who is registered at her address because he lives there and earns around €1,200 a month. The rest of us children help however we can.",
+  "k21": "In Spain, the threshold to qualify for public assistance sits at around that same €1,200 per household. Because her son already reaches that ceiling and they count as a single household, my mother does not qualify for any aid at all.",
+  "k22": "For this reason, my mother is entitled to no public assistance whatsoever, even though she is ill, has no income, has cancer in both lungs and several operations still pending.",
+  "k23": "It is impossible to pay the mortgage, food, medication, surgery, utilities, lawyers and someone else's debts right now. She is at real risk of eviction.",
+  "k24": "That is why I am asking for help. It isn't easy. But it is the only thing I can do. If you can contribute, any amount is an enormous relief.",
+  "k25": "How you can help",
+  "k26": "Any contribution, however small, is an enormous relief.",
+  "k27": "Copy",
+  "k28": "Copy",
+  "k29": "Write to me if you'd like to help another way",
+  "k30": "Open",
+  "k31": "Can't help with money? Sharing this page already means a great deal. The more people who see it, the closer my mother is to being safe in her own home.",
+  "k32": "Share this page",
+  "k33": "Thank you for reading. Thank you for helping. Thank you for sharing.",
+  "k34": "Your language not here? Press \"Copy text\" above and paste it into your translator.",
+  "kvolver": "Back to Santiago's guide",
+  "kcopiado": "Copied!"
+ },
+ "fr": {
+  "k1": "Copier le texte",
+  "k2": "Aide urgente",
+  "k3": "Ma mère a tout donné. Aujourd'hui elle est sur le point de perdre sa maison.",
+  "k4": "Josefa a un cancer aux deux poumons, aucun revenu et une dette qui n'est même pas la sienne. Elle a besoin d'une aide réelle, et tout de suite.",
+  "k5": "Je suis Santiago, votre chauffeur. Josefa est ma mère.",
+  "k6": "Toute une vie de travail",
+  "k7": "Ma mère a travaillé toute sa vie. Plus de 40 ans de cotisations, de charges d'indépendante et de respect de tout ce que le système exige. Elle n'a jamais rien demandé. Elle n'a jamais failli.",
+  "k8": "Un accident qui a tout changé",
+  "k9": "Il y a quelques années, elle a eu un grave accident. Depuis, elle vit avec des séquelles permanentes : douleurs chroniques, arthrose avancée, migraines invalidantes et un genou qui nécessite une prothèse urgente.",
+  "k10": "Elle a gagné le procès, puis on le lui a retiré",
+  "k11": "Elle a gagné son procès contre la Sécurité sociale. Mais l'administration s'est pourvue en Cour suprême. Après avoir payé plus de 3 000 € d'avocats, la Cour suprême lui a retiré son invalidité. Et quand la Cour suprême tranche, il n'y a plus de recours.",
+  "k12": "Et puis, le pire",
+  "k13": "Elle a essayé de reprendre le travail à temps partiel. Un mois plus tard est arrivé le coup le plus dur : on lui a diagnostiqué un cancer aux deux poumons.",
+  "k14": "Elle a été opérée en urgence. On lui a retiré un tiers du poumon gauche. Il lui reste encore une opération du poumon droit, en plus de l'opération du genou qu'elle attend depuis des années.",
+  "k15": "Depuis, la Sécurité sociale et la mutuelle ne lui versent absolument rien. Littéralement : 0 €. Ils disent que son cas « ressemble à une fraude ». Comme si un cancer bilatéral des poumons était une stratégie.",
+  "k16": "Une dette qui n'est pas la sienne",
+  "k17": "À tout cela s'ajoute une dette qui n'est même pas la sienne : son ex-mari, Freddy Vincent James Godefroy, s'est enfui en Belgique avec une autre femme et l'a laissée seule, avec toutes les dettes. Il l'a laissée caution de 31 000 € de prêts (22 000 € + 9 000 €) et de cartes qu'elle n'a jamais demandées.",
+  "k18": "Les intérêts annuels continuent d'augmenter et la dette grossit chaque mois. En plus, les créanciers appellent sans arrêt, la harcèlent et réclament des paiements qu'elle ne peut pas assumer.",
+  "k19": "Le système lui tourne le dos",
+  "k20": "Ma mère vit avec l'un de ses fils, domicilié chez elle parce qu'il y habite, et qui gagne environ 1 200 € par mois. Les autres enfants, nous aidons comme nous pouvons.",
+  "k21": "En Espagne, le seuil pour avoir droit à une aide publique se situe autour de ces mêmes 1 200 € par foyer. Comme son fils atteint déjà ce plafond et qu'ils comptent comme un seul foyer, ma mère n'a droit à aucune aide.",
+  "k22": "Pour cette raison, ma mère n'a droit à aucune aide publique, même malade, sans revenus, avec un cancer aux deux poumons et plusieurs opérations en attente.",
+  "k23": "Il est impossible de payer le prêt immobilier, la nourriture, les médicaments, les opérations, les factures, les avocats et les dettes d'autrui en ce moment. Elle risque réellement l'expulsion.",
+  "k24": "C'est pour cela que je demande de l'aide. Ce n'est pas facile. Mais c'est la seule chose que je puisse faire. Si vous pouvez contribuer, chaque don est un immense soulagement.",
+  "k25": "Comment vous pouvez aider",
+  "k26": "Chaque contribution, même la plus petite, est un immense soulagement.",
+  "k27": "Copier",
+  "k28": "Copier",
+  "k29": "Écrivez-moi si vous voulez aider autrement",
+  "k30": "Ouvrir",
+  "k31": "Vous ne pouvez pas aider financièrement ? Partager cette page compte déjà énormément. Plus il y a de gens qui la voient, plus ma mère est proche d'être tranquille chez elle.",
+  "k32": "Partager cette page",
+  "k33": "Merci d'avoir lu. Merci d'aider. Merci de partager.",
+  "k34": "Votre langue n'y est pas ? Appuyez sur « Copier le texte » en haut et collez-le dans votre traducteur.",
+  "kvolver": "Retour au guide de Santiago",
+  "kcopiado": "Copié !"
+ },
+ "de": {
+  "k1": "Text kopieren",
+  "k2": "Dringende Hilfe",
+  "k3": "Meine Mutter hat alles gegeben. Heute steht sie kurz davor, ihr Zuhause zu verlieren.",
+  "k4": "Josefa hat Krebs in beiden Lungen, kein Einkommen und Schulden, die nicht einmal ihre eigenen sind. Sie braucht echte Hilfe, und zwar jetzt.",
+  "k5": "Ich bin Santiago, dein Fahrer. Josefa ist meine Mutter.",
+  "k6": "Ein ganzes Leben Arbeit",
+  "k7": "Meine Mutter hat ihr ganzes Leben gearbeitet. Über 40 Jahre Beiträge gezahlt, als Selbstständige eingezahlt und alles erfüllt, was das System verlangt. Sie hat nie etwas verlangt. Sie hat nie versagt.",
+  "k8": "Ein Unfall, der alles veränderte",
+  "k9": "Vor einigen Jahren hatte sie einen schweren Unfall. Seitdem lebt sie mit bleibenden Folgen: chronischen Schmerzen, fortgeschrittener Arthrose, lähmenden Migräneanfällen und einem Knie, das dringend eine Prothese braucht.",
+  "k10": "Sie gewann den Prozess, dann nahm man ihn ihr weg",
+  "k11": "Sie gewann den Prozess gegen die Sozialversicherung. Doch die Behörde ging vor den Obersten Gerichtshof. Nachdem sie über 3.000 € für Anwälte gezahlt hatte, entzog ihr das Gericht die Erwerbsunfähigkeit. Und wenn dieses Gericht entscheidet, gibt es kein Zurück.",
+  "k12": "Und dann kam das Schlimmste",
+  "k13": "Sie versuchte, in Teilzeit zurück in die Arbeit zu gehen. Einen Monat später kam der härteste Schlag: die Diagnose Lungenkrebs in beiden Lungenflügeln.",
+  "k14": "Sie wurde notoperiert. Ein Drittel des linken Lungenflügels wurde entfernt. Eine weitere Operation an der rechten Lunge steht noch aus, dazu die Knie-OP, auf die sie seit Jahren wartet.",
+  "k15": "Seitdem zahlen ihr die Sozialversicherung und die Versicherung absolut nichts. Wörtlich: 0 €. Sie sagen, ihr Fall „klinge nach Betrug\". Als wäre beidseitiger Lungenkrebs eine Strategie.",
+  "k16": "Schulden, die nicht ihre sind",
+  "k17": "Dazu kommen Schulden, die nicht einmal ihre sind: Ihr Ex-Mann, Freddy Vincent James Godefroy, floh mit einer anderen Frau nach Belgien und ließ sie allein mit sämtlichen Schulden zurück. Er ließ sie als Bürgin für 31.000 € an Krediten (22.000 € + 9.000 €) und Karten zurück, die sie nie beantragt hat.",
+  "k18": "Die jährlichen Zinsen steigen weiter und lassen die Schulden Monat für Monat wachsen. Dazu rufen die Gläubiger ständig an, setzen sie unter Druck und fordern Zahlungen, die sie nicht leisten kann.",
+  "k19": "Das System lässt sie im Stich",
+  "k20": "Meine Mutter lebt mit einem ihrer Söhne, der bei ihr gemeldet ist, weil er dort wohnt, und rund 1.200 € im Monat verdient. Wir anderen Kinder helfen, so gut wir können.",
+  "k21": "In Spanien liegt die Grenze für staatliche Hilfe bei etwa diesen 1.200 € pro Haushalt. Da ihr Sohn diese Grenze bereits erreicht und beide als ein Haushalt zählen, steht meiner Mutter keinerlei Hilfe zu.",
+  "k22": "Aus diesem Grund hat meine Mutter keinerlei Anspruch auf staatliche Hilfe, obwohl sie krank ist, kein Einkommen hat, Krebs in beiden Lungen und mehrere ausstehende Operationen.",
+  "k23": "Es ist derzeit unmöglich, Hypothek, Essen, Medikamente, Operationen, Nebenkosten, Anwälte und fremde Schulden zu bezahlen. Ihr droht wirklich die Zwangsräumung.",
+  "k24": "Deshalb bitte ich um Hilfe. Es fällt mir nicht leicht. Aber es ist das Einzige, was ich tun kann. Wenn du helfen kannst, ist jeder Beitrag eine enorme Erleichterung.",
+  "k25": "Wie du helfen kannst",
+  "k26": "Jeder Beitrag, so klein er auch ist, ist eine enorme Erleichterung.",
+  "k27": "Kopieren",
+  "k28": "Kopieren",
+  "k29": "Schreib mir, wenn du anders helfen möchtest",
+  "k30": "Öffnen",
+  "k31": "Du kannst nicht mit Geld helfen? Diese Seite zu teilen bedeutet schon unglaublich viel. Je mehr Menschen sie sehen, desto näher ist meine Mutter daran, in ihrem Zuhause bleiben zu können.",
+  "k32": "Diese Seite teilen",
+  "k33": "Danke fürs Lesen. Danke fürs Helfen. Danke fürs Teilen.",
+  "k34": "Deine Sprache fehlt? Drücke oben auf „Text kopieren\" und füge ihn in deinen Übersetzer ein.",
+  "kvolver": "Zurück zu Santiagos Guide",
+  "kcopiado": "Kopiert!"
+ },
+ "it": {
+  "k1": "Copia il testo",
+  "k2": "Aiuto urgente",
+  "k3": "Mia madre ha dato tutto. Oggi sta per perdere la sua casa.",
+  "k4": "Josefa ha un tumore a entrambi i polmoni, nessun reddito e un debito che non è nemmeno suo. Ha bisogno di aiuto vero, e ne ha bisogno adesso.",
+  "k5": "Sono Santiago, il tuo autista. Josefa è mia madre.",
+  "k6": "Una vita intera di lavoro",
+  "k7": "Mia madre ha lavorato tutta la vita. Più di 40 anni di contributi, pagando da lavoratrice autonoma e rispettando tutto ciò che il sistema richiede. Non ha mai chiesto nulla. Non ha mai mancato.",
+  "k8": "Un incidente che ha cambiato tutto",
+  "k9": "Qualche anno fa ha avuto un grave incidente. Da allora convive con danni permanenti: dolore cronico, artrosi avanzata, emicranie invalidanti e un ginocchio che ha bisogno urgente di una protesi.",
+  "k10": "Ha vinto la causa, ma gliel'hanno tolta",
+  "k11": "Ha vinto la causa contro la Previdenza sociale. Ma l'amministrazione ha fatto ricorso alla Corte suprema. Dopo aver pagato più di 3.000 € di avvocati, la Corte le ha revocato l'invalidità. E quando decide la Corte suprema, non si torna indietro.",
+  "k12": "E poi, il peggio",
+  "k13": "Ha provato a tornare a lavorare part-time. Un mese dopo è arrivato il colpo più duro: le hanno diagnosticato un tumore a entrambi i polmoni.",
+  "k14": "È stata operata d'urgenza. Le hanno asportato un terzo del polmone sinistro. Le resta ancora un'operazione al polmone destro, oltre all'intervento al ginocchio che aspetta da anni.",
+  "k15": "Da allora la Previdenza sociale e l'assicurazione non le pagano assolutamente nulla. Letteralmente: 0 €. Dicono che il suo caso «sa di frode». Come se un tumore bilaterale ai polmoni fosse una strategia.",
+  "k16": "Un debito che non è suo",
+  "k17": "A tutto questo si aggiunge un debito che non è nemmeno suo: il suo ex marito, Freddy Vincent James Godefroy, è fuggito in Belgio con un'altra donna e l'ha lasciata sola, con tutti i debiti addosso. L'ha lasciata garante di 31.000 € di prestiti (22.000 € + 9.000 €) e di carte che lei non ha mai chiesto.",
+  "k18": "Gli interessi annuali continuano a salire e il debito cresce ogni mese. In più i creditori chiamano di continuo, la pressano e reclamano pagamenti che lei non può sostenere.",
+  "k19": "Il sistema le volta le spalle",
+  "k20": "Mia madre vive con uno dei figli, residente in casa sua perché ci abita, che guadagna circa 1.200 € al mese. Noi altri figli aiutiamo come possiamo.",
+  "k21": "In Spagna la soglia per avere diritto a un aiuto pubblico è proprio intorno a quei 1.200 € per nucleo familiare. Poiché suo figlio raggiunge già quel tetto e contano come un unico nucleo, a mia madre non spetta alcun aiuto.",
+  "k22": "Per questo motivo mia madre non ha diritto a nessun aiuto pubblico, pur essendo malata, senza reddito, con un tumore a entrambi i polmoni e diverse operazioni in attesa.",
+  "k23": "È impossibile pagare mutuo, cibo, medicine, operazioni, utenze, avvocati e debiti altrui in questo momento. Rischia davvero lo sfratto.",
+  "k24": "Per questo chiedo aiuto. Non è facile. Ma è l'unica cosa che posso fare. Se puoi contribuire, qualsiasi somma è un sollievo enorme.",
+  "k25": "Come puoi aiutare",
+  "k26": "Qualsiasi contributo, per quanto piccolo, è un sollievo enorme.",
+  "k27": "Copia",
+  "k28": "Copia",
+  "k29": "Scrivimi se vuoi aiutare in un altro modo",
+  "k30": "Apri",
+  "k31": "Non puoi aiutare con del denaro? Condividere questa pagina è già moltissimo. Più persone la vedono, più mia madre è vicina a stare tranquilla a casa sua.",
+  "k32": "Condividi questa pagina",
+  "k33": "Grazie per aver letto. Grazie per aiutare. Grazie per condividere.",
+  "k34": "La tua lingua non c'è? Premi «Copia il testo» in alto e incollalo nel tuo traduttore.",
+  "kvolver": "Torna alla guida di Santiago",
+  "kcopiado": "Copiato!"
+ },
+ "pt": {
+  "k1": "Copiar texto",
+  "k2": "Ajuda urgente",
+  "k3": "A minha mãe deu tudo. Hoje está prestes a perder a casa.",
+  "k4": "A Josefa tem cancro nos dois pulmões, zero rendimentos e uma dívida que nem sequer é dela. Precisa de ajuda a sério, e precisa já.",
+  "k5": "Sou o Santiago, o teu motorista. A Josefa é a minha mãe.",
+  "k6": "Uma vida inteira a trabalhar",
+  "k7": "A minha mãe trabalhou a vida toda. Mais de 40 anos a descontar, a pagar como trabalhadora independente e a cumprir tudo o que o sistema exige. Nunca pediu nada. Nunca falhou.",
+  "k8": "Um acidente que mudou tudo",
+  "k9": "Há uns anos sofreu um acidente grave. Desde então vive com sequelas permanentes: dor crónica, artrose avançada, enxaquecas incapacitantes e um joelho que precisa de prótese com urgência.",
+  "k10": "Ganhou o processo, mas tiraram-lho",
+  "k11": "Ganhou o processo contra a Segurança Social. Mas a administração recorreu para o Supremo. Depois de pagar mais de 3.000 € em advogados, o Supremo retirou-lhe a incapacidade. E quando o Supremo decide, já não há volta a dar.",
+  "k12": "E então, o pior",
+  "k13": "Tentou voltar a trabalhar a tempo parcial. Um mês depois recebeu o golpe mais duro: foi diagnosticada com cancro nos dois pulmões.",
+  "k14": "Foi operada de urgência. Retiraram-lhe um terço do pulmão esquerdo. Ainda lhe falta outra operação ao pulmão direito, além da cirurgia ao joelho que espera há anos.",
+  "k15": "Desde então, a Segurança Social e a seguradora não lhe pagam absolutamente nada. Literalmente: 0 €. Dizem que o caso dela «cheira a fraude». Como se um cancro bilateral do pulmão fosse uma estratégia.",
+  "k16": "Uma dívida que não é dela",
+  "k17": "A tudo isto junta-se uma dívida que nem sequer é dela: o seu ex-marido, Freddy Vincent James Godefroy, fugiu para a Bélgica com outra mulher e deixou-a sozinha, a carregar com todas as dívidas. Deixou-a como fiadora de 31.000 € em empréstimos (22.000 € + 9.000 €) e cartões que ela nunca pediu.",
+  "k18": "Os juros anuais continuam a subir e a dívida cresce todos os meses. Além disso, os credores telefonam constantemente, a pressionar e a exigir pagamentos que ela não consegue assumir.",
+  "k19": "O sistema vira-lhe as costas",
+  "k20": "A minha mãe vive com um dos filhos, que tem morada na casa dela porque vive lá, e ganha cerca de 1.200 € por mês. Os outros filhos ajudamos no que podemos.",
+  "k21": "Em Espanha, o limite para ter direito a apoio público situa-se à volta desses mesmos 1.200 € por agregado familiar. Como o filho já atinge esse tecto e contam como um único agregado, a minha mãe não tem direito a qualquer apoio.",
+  "k22": "Por este motivo, a minha mãe não tem direito a nenhum apoio público, apesar de estar doente, sem rendimentos, com cancro nos dois pulmões e várias operações pendentes.",
+  "k23": "É impossível pagar a hipoteca, comida, medicação, operações, contas, advogados e dívidas alheias neste momento. Está em risco real de despejo.",
+  "k24": "É por isso que peço ajuda. Não é fácil. Mas é a única coisa que posso fazer. Se puderes contribuir, qualquer quantia é um alívio enorme.",
+  "k25": "Como podes ajudar",
+  "k26": "Qualquer contribuição, por mais pequena que seja, é um alívio enorme.",
+  "k27": "Copiar",
+  "k28": "Copiar",
+  "k29": "Escreve-me se quiseres ajudar de outra forma",
+  "k30": "Abrir",
+  "k31": "Não podes ajudar com dinheiro? Partilhar esta página já é imenso. Quantas mais pessoas a virem, mais perto está a minha mãe de ficar tranquila em casa.",
+  "k32": "Partilhar esta página",
+  "k33": "Obrigado por leres. Obrigado por ajudares. Obrigado por partilhares.",
+  "k34": "O teu idioma não está aqui? Carrega em «Copiar texto» em cima e cola-o no teu tradutor.",
+  "kvolver": "Voltar ao guia do Santiago",
+  "kcopiado": "Copiado!"
+ },
+ "nl": {
+  "k1": "Tekst kopiëren",
+  "k2": "Dringend hulp",
+  "k3": "Mijn moeder gaf alles. Vandaag staat ze op het punt haar huis te verliezen.",
+  "k4": "Josefa heeft kanker in beide longen, geen enkel inkomen en een schuld die niet eens van haar is. Ze heeft echte hulp nodig, en nu meteen.",
+  "k5": "Ik ben Santiago, je chauffeur. Josefa is mijn moeder.",
+  "k6": "Een heel leven werken",
+  "k7": "Mijn moeder heeft haar hele leven gewerkt. Meer dan 40 jaar premies betaald, als zelfstandige afgedragen en alles gedaan wat het systeem eist. Ze vroeg nooit iets. Ze liet nooit iemand in de steek.",
+  "k8": "Een ongeluk dat alles veranderde",
+  "k9": "Een paar jaar geleden kreeg ze een zwaar ongeluk. Sindsdien leeft ze met blijvende schade: chronische pijn, vergevorderde artrose, invaliderende migraine en een knie die dringend een prothese nodig heeft.",
+  "k10": "Ze won de zaak, maar het werd haar afgenomen",
+  "k11": "Ze won haar zaak tegen de sociale zekerheid. Maar de overheid ging in beroep bij de Hoge Raad. Nadat ze meer dan € 3.000 aan advocaten had betaald, nam de Hoge Raad haar arbeidsongeschiktheid af. En als de Hoge Raad beslist, is er geen weg terug.",
+  "k12": "En toen, het ergste",
+  "k13": "Ze probeerde in deeltijd weer aan het werk te gaan. Een maand later kwam de hardste klap: de diagnose longkanker in beide longen.",
+  "k14": "Ze werd met spoed geopereerd. Een derde van haar linkerlong werd weggehaald. Er wacht nog een operatie aan de rechterlong, plus de knieoperatie waar ze al jaren op wacht.",
+  "k15": "Sindsdien betalen de sociale zekerheid en de verzekeraar haar helemaal niets. Letterlijk: € 0. Ze zeggen dat haar zaak \"naar fraude ruikt\". Alsof longkanker in beide longen een strategie is.",
+  "k16": "Een schuld die niet van haar is",
+  "k17": "Daar komt nog een schuld bij die niet eens van haar is: haar ex-man, Freddy Vincent James Godefroy, vluchtte met een andere vrouw naar België en liet haar alleen achter met alle schulden. Hij liet haar achter als borg voor € 31.000 aan leningen (€ 22.000 + € 9.000) en kaarten waar ze nooit om heeft gevraagd.",
+  "k18": "De jaarlijkse rente blijft stijgen en de schuld groeit elke maand. Daarbovenop bellen schuldeisers voortdurend, zetten haar onder druk en eisen betalingen die ze niet kan opbrengen.",
+  "k19": "Het systeem keert haar de rug toe",
+  "k20": "Mijn moeder woont met een van haar zonen, die op haar adres staat ingeschreven omdat hij er woont en ongeveer € 1.200 per maand verdient. De rest van de kinderen helpen we waar we kunnen.",
+  "k21": "In Spanje ligt de grens voor recht op overheidssteun rond diezelfde € 1.200 per huishouden. Omdat haar zoon dat plafond al haalt en ze als één huishouden tellen, heeft mijn moeder nergens recht op.",
+  "k22": "Om die reden heeft mijn moeder recht op geen enkele overheidssteun, ook al is ze ziek, zonder inkomen, met kanker in beide longen en meerdere operaties in het vooruitzicht.",
+  "k23": "Het is op dit moment onmogelijk om hypotheek, eten, medicijnen, operaties, energie, advocaten en andermans schulden te betalen. Ze loopt een reëel risico uit huis gezet te worden.",
+  "k24": "Daarom vraag ik om hulp. Het is niet makkelijk. Maar het is het enige wat ik kan doen. Als je kunt bijdragen, is elk bedrag een enorme opluchting.",
+  "k25": "Hoe je kunt helpen",
+  "k26": "Elke bijdrage, hoe klein ook, is een enorme opluchting.",
+  "k27": "Kopiëren",
+  "k28": "Kopiëren",
+  "k29": "Schrijf me als je op een andere manier wilt helpen",
+  "k30": "Openen",
+  "k31": "Kun je niet met geld helpen? Deze pagina delen betekent al ontzettend veel. Hoe meer mensen haar zien, hoe dichter mijn moeder bij rust in haar eigen huis is.",
+  "k32": "Deze pagina delen",
+  "k33": "Bedankt voor het lezen. Bedankt voor het helpen. Bedankt voor het delen.",
+  "k34": "Staat jouw taal er niet bij? Druk hierboven op \"Tekst kopiëren\" en plak het in je vertaler.",
+  "kvolver": "Terug naar Santiago's gids",
+  "kcopiado": "Gekopieerd!"
+ },
+ "ru": {
+  "k1": "Скопировать текст",
+  "k2": "Срочная помощь",
+  "k3": "Моя мама отдала всё. Сегодня она вот-вот потеряет свой дом.",
+  "k4": "У Хосефы рак обоих лёгких, нет никакого дохода и долг, который даже не её. Ей нужна настоящая помощь, и нужна сейчас.",
+  "k5": "Я Сантьяго, ваш водитель. Хосефа — моя мама.",
+  "k6": "Целая жизнь в работе",
+  "k7": "Моя мама работала всю жизнь. Более 40 лет отчислений, взносы как самозанятая и выполнение всего, что требует система. Она никогда ничего не просила. Она никогда не подводила.",
+  "k8": "Авария, которая изменила всё",
+  "k9": "Несколько лет назад она попала в тяжёлую аварию. С тех пор живёт с постоянными последствиями: хроническая боль, запущенный артроз, изнуряющие мигрени и колено, которому срочно нужен протез.",
+  "k10": "Она выиграла суд, но всё отняли",
+  "k11": "Она выиграла дело против службы социального страхования. Но ведомство подало жалобу в Верховный суд. Заплатив более 3 000 € адвокатам, она лишилась статуса нетрудоспособности по решению Верховного суда. А когда решает Верховный суд, пути назад уже нет.",
+  "k12": "А потом — самое худшее",
+  "k13": "Она попыталась вернуться к работе на неполный день. Через месяц пришёл самый тяжёлый удар: ей диагностировали рак обоих лёгких.",
+  "k14": "Её экстренно прооперировали. Удалили треть левого лёгкого. Впереди ещё операция на правом лёгком, плюс операция на колене, которую она ждёт уже годы.",
+  "k15": "С тех пор ни соцстрах, ни страховая не платят ей абсолютно ничего. Буквально: 0 €. Говорят, что её случай «похож на мошенничество». Как будто двусторонний рак лёгких — это стратегия.",
+  "k16": "Долг, который не её",
+  "k17": "Ко всему этому добавляется долг, который даже не её: её бывший муж, Фредди Винсент Джеймс Годефруа, сбежал в Бельгию с другой женщиной и оставил её одну со всеми долгами. Он оставил её поручителем по кредитам на 31 000 € (22 000 € + 9 000 €) и по картам, которые она никогда не оформляла.",
+  "k18": "Годовые проценты продолжают расти, и долг увеличивается каждый месяц. Вдобавок кредиторы звонят постоянно, давят и требуют платежей, которые она не может внести.",
+  "k19": "Система отворачивается от неё",
+  "k20": "Моя мама живёт с одним из сыновей, который прописан у неё, потому что там живёт, и зарабатывает около 1 200 € в месяц. Остальные дети помогаем чем можем.",
+  "k21": "В Испании порог для получения государственной помощи как раз около этих 1 200 € на семью. Поскольку её сын уже достигает этого потолка, а считаются они одной семьёй, моей маме не положено никакой помощи.",
+  "k22": "По этой причине моя мама не имеет права ни на какую государственную помощь, хотя она больна, без доходов, с раком обоих лёгких и несколькими предстоящими операциями.",
+  "k23": "Сейчас невозможно платить за ипотеку, еду, лекарства, операции, коммунальные услуги, адвокатов и чужие долги. Ей реально грозит выселение.",
+  "k24": "Поэтому я прошу о помощи. Это нелегко. Но это единственное, что я могу сделать. Если вы можете помочь, любая сумма — огромное облегчение.",
+  "k25": "Как вы можете помочь",
+  "k26": "Любой вклад, каким бы маленьким он ни был, — огромное облегчение.",
+  "k27": "Копировать",
+  "k28": "Копировать",
+  "k29": "Напишите мне, если хотите помочь другим способом",
+  "k30": "Открыть",
+  "k31": "Не можете помочь деньгами? Поделиться этой страницей — уже очень много. Чем больше людей её увидят, тем ближе моя мама к спокойной жизни в своём доме.",
+  "k32": "Поделиться этой страницей",
+  "k33": "Спасибо, что прочитали. Спасибо, что помогаете. Спасибо, что делитесь.",
+  "k34": "Вашего языка здесь нет? Нажмите «Скопировать текст» вверху и вставьте в переводчик.",
+  "kvolver": "Назад к путеводителю Сантьяго",
+  "kcopiado": "Скопировано!"
+ },
+ "ja": {
+  "k1": "テキストをコピー",
+  "k2": "緊急のお願い",
+  "k3": "母はすべてを捧げてきました。今、その家を失おうとしています。",
+  "k4": "ホセファは両方の肺にがんがあり、収入はゼロ、そして自分のものですらない借金を抱えています。今すぐ、本当の助けが必要です。",
+  "k5": "運転手のサンティアゴです。ホセファは私の母です。",
+  "k6": "働きづめの一生",
+  "k7": "母は生涯ずっと働いてきました。40年以上социальные保険料を納め、自営業者として支払い、制度が求めることをすべて果たしてきました。何も求めず、一度も投げ出しませんでした。",
+  "k8": "すべてを変えた事故",
+  "k9": "数年前、母は大きな事故に遭いました。それ以来、慢性的な痛み、進行した関節症、日常を奪う偏頭痛、そして人工関節が急務の膝という、消えない後遺症とともに生きています。",
+  "k10": "裁判に勝ったのに、取り上げられた",
+  "k11": "母は社会保障当局との裁判に勝ちました。しかし当局は最高裁に上訴。弁護士費用を3,000ユーロ以上支払った末、最高裁は母の障害認定を取り消しました。最高裁が決めてしまえば、もう覆せません。",
+  "k12": "そして、最悪の知らせ",
+  "k13": "母はパートタイムで働き直そうとしました。その1か月後、最も重い knocks が届きます。両肺の肺がんと診断されたのです。",
+  "k14": "緊急手術を受け、左肺の3分の1を摘出しました。右肺の手術がまだ残っており、さらに何年も待っている膝の手術も控えています。",
+  "k15": "それ以来、社会保障も保険会社も母には一切支払っていません。文字どおり0ユーロです。「この件は詐欺のようだ」と言われました。両肺のがんが戦略だとでもいうように。",
+  "k16": "母のものではない借金",
+  "k17": "さらに、母のものですらない借金が重なります。元夫のフレディ・ヴィンセント・ジェームズ・ゴドフロワは別の女性とベルギーへ逃げ、すべての借金を母に残しました。母が申し込んだこともないローン31,000ユーロ（22,000ユーロ＋9,000ユーロ）とカードの保証人にされたのです。",
+  "k18": "年利は上がり続け、借金は毎月ふくらんでいます。その上、債権者からは絶えず電話があり、母には払えない金額を迫られています。",
+  "k19": "制度は母に背を向ける",
+  "k20": "母は息子の一人と暮らしています。その子はそこに住んでいるため同じ住所に登録されており、月におよそ1,200ユーロを得ています。ほかの子どもたちも、できる範囲で支えています。",
+  "k21": "スペインでは公的支援を受けられる上限が、まさにこの世帯あたり1,200ユーロ前後です。息子がすでにその上限に達し、同一世帯として扱われるため、母には何の支援も認められません。",
+  "k22": "そのため母は、病気で、収入がなく、両肺にがんがあり、複数の手術を控えていても、公的支援を一切受けられません。",
+  "k23": "住宅ローン、食費、薬、手術、光熱費、弁護士費用、そして他人の借金を今払うことは不可能です。母は本当に立ち退きの危機にあります。",
+  "k24": "だから私は助けを求めます。簡単なことではありません。でも、これが私にできる唯一のことです。ご協力いただけるなら、どんな額でも大きな救いになります。",
+  "k25": "できること",
+  "k26": "どんなに小さなご支援でも、大きな救いになります。",
+  "k27": "コピー",
+  "k28": "コピー",
+  "k29": "別の形で力になりたい方はご連絡ください",
+  "k30": "開く",
+  "k31": "お金での支援が難しいですか？このページを共有していただくだけでも大きな力になります。見てくれる人が増えるほど、母が自分の家で安心して暮らせる日が近づきます。",
+  "k32": "このページを共有",
+  "k33": "読んでくださりありがとう。助けてくださりありがとう。広めてくださりありがとう。",
+  "k34": "あなたの言語がありませんか？上の「テキストをコピー」を押して、翻訳ツールに貼り付けてください。",
+  "kvolver": "サンティアゴのガイドに戻る",
+  "kcopiado": "コピーしました"
+ },
+ "zh": {
+  "k1": "复制文字",
+  "k2": "紧急求助",
+  "k3": "我的母亲付出了一切。今天，她就要失去自己的家。",
+  "k4": "何塞法双肺患癌，没有任何收入，还背着一笔根本不属于她的债。她需要真正的帮助，而且是现在。",
+  "k5": "我是圣地亚哥，您的司机。何塞法是我的母亲。",
+  "k6": "辛劳的一生",
+  "k7": "母亲工作了一辈子。缴纳社保超过40年，以自雇身份缴费，制度要求的一切她都做到了。她从未开口要过什么，也从未让人失望。",
+  "k8": "一场改变一切的事故",
+  "k9": "几年前，她遭遇了一场严重事故。从那以后，她带着永久性的后遗症生活：慢性疼痛、严重关节炎、令人无法工作的偏头痛，还有一个急需置换的膝关节。",
+  "k10": "官司赢了，却又被夺走",
+  "k11": "她赢了对社会保障部门的官司。但行政部门上诉到最高法院。在支付了超过3,000欧元的律师费之后，最高法院撤销了她的伤残认定。而最高法院一旦裁定，就再无回旋余地。",
+  "k12": "接着，是最坏的消息",
+  "k13": "她试着回去做兼职工作。一个月后，最沉重的一击到来：她被确诊双肺肺癌。",
+  "k14": "她接受了紧急手术，左肺被切除了三分之一。右肺还需要再做一次手术，此外还有等了多年的膝关节手术。",
+  "k15": "从那以后，社会保障机构和保险公司没有支付她一分钱。字面意义上的：0欧元。他们说她的情况“听起来像骗保”。仿佛双肺癌症是一种策略。",
+  "k16": "一笔不属于她的债",
+  "k17": "除此之外，还有一笔根本不属于她的债：她的前夫弗雷迪·文森特·詹姆斯·戈德弗鲁瓦带着另一个女人逃到了比利时，把所有债务丢给她一个人。他让她成为31,000欧元贷款（22,000欧元＋9,000欧元）和她从未申请过的信用卡的担保人。",
+  "k18": "年利息不断上涨，债务每个月都在增加。此外，债主不停打电话，施加压力，索要她根本无力支付的款项。",
+  "k19": "制度对她视而不见",
+  "k20": "母亲和她的一个儿子同住，他因为住在那里而登记在她的户口上，月收入约1,200欧元。我们其他子女也在力所能及地帮忙。",
+  "k21": "在西班牙，享受公共补助的门槛正是每户约1,200欧元。由于她儿子已经达到这个上限，而他们被视为同一户，母亲便无法获得任何补助。",
+  "k22": "正因如此，尽管母亲重病在身、没有收入、双肺患癌、还有多台手术待做，她却得不到任何公共援助。",
+  "k23": "眼下，房贷、食物、药品、手术、水电、律师费和别人的债务，根本无力同时支付。她真的面临被赶出家门的风险。",
+  "k24": "所以我开口求助。这并不容易，但这是我唯一能做的事。如果您能出一份力，任何金额都是巨大的宽慰。",
+  "k25": "您可以怎样帮忙",
+  "k26": "任何一份心意，无论多小，都是巨大的宽慰。",
+  "k27": "复制",
+  "k28": "复制",
+  "k29": "如果想以其他方式帮忙，请写信给我",
+  "k30": "打开",
+  "k31": "无法用金钱帮忙？分享这个页面已经意义重大。看到的人越多，母亲就越接近安心留在自己家里。",
+  "k32": "分享这个页面",
+  "k33": "谢谢您阅读。谢谢您帮助。谢谢您分享。",
+  "k34": "没有您的语言？请点击上方的“复制文字”，粘贴到您的翻译工具中。",
+  "kvolver": "返回圣地亚哥的指南",
+  "kcopiado": "已复制"
+ },
+ "zh-Hant": {
+  "k1": "複製文字",
+  "k2": "緊急求助",
+  "k3": "我的母親付出了一切。今天，她就要失去自己的家。",
+  "k4": "何塞法雙肺罹癌，沒有任何收入，還背著一筆根本不屬於她的債。她需要真正的幫助，而且是現在。",
+  "k5": "我是聖地牙哥，您的司機。何塞法是我的母親。",
+  "k6": "辛勞的一生",
+  "k7": "母親工作了一輩子。繳納社會保險超過40年，以自僱身分繳費，制度要求的一切她都做到了。她從未開口要過什麼，也從未讓人失望。",
+  "k8": "一場改變一切的事故",
+  "k9": "幾年前，她遭遇了一場嚴重事故。從那之後，她帶著永久性的後遺症生活：慢性疼痛、嚴重關節炎、令人無法工作的偏頭痛，還有一個急需置換的膝關節。",
+  "k10": "官司贏了，卻又被奪走",
+  "k11": "她贏了對社會保障部門的官司。但行政部門上訴到最高法院。在支付了超過3,000歐元的律師費之後，最高法院撤銷了她的傷殘認定。而最高法院一旦裁定，就再無轉圜餘地。",
+  "k12": "接著，是最壞的消息",
+  "k13": "她試著回去做兼職工作。一個月後，最沉重的一擊到來：她被確診雙肺肺癌。",
+  "k14": "她接受了緊急手術，左肺被切除了三分之一。右肺還需要再開一次刀，此外還有等了多年的膝關節手術。",
+  "k15": "從那之後，社會保障機構和保險公司沒有支付她一分錢。字面意義上的：0歐元。他們說她的情況「聽起來像詐領」。彷彿雙肺癌症是一種策略。",
+  "k16": "一筆不屬於她的債",
+  "k17": "除此之外，還有一筆根本不屬於她的債：她的前夫弗雷迪·文森特·詹姆斯·戈德弗魯瓦帶著另一個女人逃到了比利時，把所有債務丟給她一個人。他讓她成為31,000歐元貸款（22,000歐元＋9,000歐元）和她從未申請過的信用卡的保證人。",
+  "k18": "年利息不斷上漲，債務每個月都在增加。此外，債主不停打電話，施加壓力，索討她根本無力支付的款項。",
+  "k19": "制度對她視而不見",
+  "k20": "母親和她的一個兒子同住，他因為住在那裡而登記在她的戶籍上，月收入約1,200歐元。我們其他子女也在力所能及地幫忙。",
+  "k21": "在西班牙，申請公共補助的門檻正是每戶約1,200歐元。由於她兒子已經達到這個上限，而他們被視為同一戶，母親便無法獲得任何補助。",
+  "k22": "正因如此，儘管母親重病在身、沒有收入、雙肺罹癌、還有多台手術待做，她卻得不到任何公共援助。",
+  "k23": "眼下，房貸、食物、藥品、手術、水電、律師費和別人的債務，根本無力同時支付。她真的面臨被趕出家門的風險。",
+  "k24": "所以我開口求助。這並不容易，但這是我唯一能做的事。如果您能出一份力，任何金額都是巨大的寬慰。",
+  "k25": "您可以怎麼幫忙",
+  "k26": "任何一份心意，無論多小，都是巨大的寬慰。",
+  "k27": "複製",
+  "k28": "複製",
+  "k29": "如果想以其他方式幫忙，請寫信給我",
+  "k30": "開啟",
+  "k31": "無法用金錢幫忙？分享這個頁面已經意義重大。看到的人越多，母親就越接近安心留在自己家裡。",
+  "k32": "分享這個頁面",
+  "k33": "謝謝您閱讀。謝謝您幫助。謝謝您分享。",
+  "k34": "沒有您的語言？請點選上方的「複製文字」，貼到您的翻譯工具中。",
+  "kvolver": "返回聖地牙哥的指南",
+  "kcopiado": "已複製"
+ }
+};
 var idioma = 'es';
 function aplicarIdioma(l){
+  if(!TT[l]) l = "es";
   idioma = l;
   document.documentElement.lang = l;
-  document.querySelectorAll('[data-es]').forEach(function(el){
-    var t = el.getAttribute('data-'+l);
-    if(t !== null) el.textContent = t;
+  document.querySelectorAll("[data-t]").forEach(function(el){
+    var t = TT[l][el.getAttribute("data-t")];
+    if(t) el.textContent = t;
   });
-  document.querySelectorAll('.lang button').forEach(function(b){
-    b.classList.toggle('on', b.dataset.lang === l);
-  });
+  var s = document.getElementById("selIdioma"); if(s) s.value = l;
+  try{ localStorage.setItem("travely-lang", l); }catch(e){}
 }
-document.querySelectorAll('.lang button').forEach(function(b){
-  b.addEventListener('click', function(){ aplicarIdioma(b.dataset.lang); });
-});
+document.getElementById("selIdioma").addEventListener("change", function(){ aplicarIdioma(this.value); });
+(function(){
+  var g = null; try{ g = localStorage.getItem("travely-lang"); }catch(e){}
+  var n = (navigator.language||"es").toLowerCase();
+  var auto = g || (n.indexOf("zh-t")===0||n.indexOf("zh-hant")===0||n.indexOf("zh-tw")===0?"zh-Hant":n.split("-")[0]);
+  aplicarIdioma(TT[auto] ? auto : "es");
+})();
 
 /* copiar toda la historia en el idioma actual */
 document.getElementById('btnCopiar').addEventListener('click', function(){
   var partes = [];
   document.querySelectorAll('h1, .intro, .historia p, .cifra-clave p, .destaca, .compartir p').forEach(function(el){
-    var t = el.getAttribute('data-'+idioma);
-    if(t) partes.push(t);
+    var k = el.getAttribute('data-t');
+    if(k && TT[idioma][k]) partes.push(TT[idioma][k]);
   });
   var texto = partes.join('\n\n');
   var ta = document.createElement('textarea');
@@ -248,8 +698,8 @@ document.getElementById('btnCopiar').addEventListener('click', function(){
   document.body.removeChild(ta);
   if(!ok && navigator.clipboard) navigator.clipboard.writeText(texto);
   var el = this, sp = el.querySelector('span');
-  el.classList.add('ok'); sp.textContent = idioma==='es' ? '¡Copiado!' : 'Copied!';
-  setTimeout(function(){ el.classList.remove('ok'); sp.textContent = idioma==='es'?'Copiar texto':'Copy text'; }, 1800);
+  el.classList.add('ok'); sp.textContent = TT[idioma].kcopiado;
+  setTimeout(function(){ el.classList.remove('ok'); sp.textContent = TT[idioma].k1; }, 1800);
 });
 
 function copiarValor(el, valor){
@@ -260,13 +710,13 @@ function copiarValor(el, valor){
   document.body.removeChild(t);
   if(!ok && navigator.clipboard) navigator.clipboard.writeText(valor);
   var c=el.querySelector('.cta');
-  c.classList.add('ok'); c.textContent = idioma==='es'?'¡Copiado!':'Copied!';
-  setTimeout(function(){ c.classList.remove('ok'); c.textContent = idioma==='es'?'Copiar':'Copy'; },1800);
+  c.classList.add('ok'); c.textContent = TT[idioma].kcopiado;
+  setTimeout(function(){ c.classList.remove('ok'); c.textContent = TT[idioma].k27; },1800);
 }
 document.getElementById('mBizum').addEventListener('click',function(){ copiarValor(this,'640236547'); });
 document.getElementById('mPaypal').addEventListener('click',function(){ copiarValor(this,'santiagotriguero@gmail.com'); });
 document.getElementById('btnComp').addEventListener('click',function(){
-  var datos={title:'Ayuda a Josefa', text: idioma==='es'?'Mi madre tiene cáncer en ambos pulmones, cero ingresos y riesgo de desahucio. Cualquier ayuda cuenta.':'My mother has cancer in both lungs, no income and faces eviction. Any help counts.', url:location.href};
+  var datos={title:'Ayuda a Josefa', text: TT[idioma].k4, url:location.href};
   if(navigator.share){ navigator.share(datos).catch(function(){}); }
 });
 </script>
