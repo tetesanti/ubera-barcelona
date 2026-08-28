@@ -29,45 +29,47 @@ body{background:var(--papel);color:var(--tinta);font-family:var(--texto);
   font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
 .wrap{max-width:620px;margin:0 auto;padding:0 20px 70px}
 
-/* cabecera con el grito de ayuda */
-header{text-align:center;padding:48px 0 10px}
-.sos{display:inline-block;font-family:var(--texto);font-size:12.5px;font-weight:700;
-  letter-spacing:.18em;text-transform:uppercase;color:#fff;background:var(--alerta);
-  padding:7px 16px;border-radius:999px;margin-bottom:22px}
+.barra{display:flex;align-items:center;justify-content:center;gap:8px;padding:16px 0 4px;
+  position:sticky;top:0;background:var(--papel);z-index:10}
+.lang{display:inline-flex;gap:4px;background:var(--tarjeta);border:1px solid var(--linea);
+  border-radius:999px;padding:4px}
+.lang button{border:0;background:none;cursor:pointer;font-family:var(--texto);
+  font-weight:600;font-size:13.5px;color:var(--suave);padding:7px 15px;border-radius:999px}
+.lang button.on{background:var(--calido);color:#fff}
+.copiar{display:inline-flex;align-items:center;gap:6px;background:var(--tarjeta);
+  border:1px solid var(--linea);border-radius:999px;padding:8px 14px;cursor:pointer;
+  font-family:var(--texto);font-weight:600;font-size:13px;color:var(--suave)}
+.copiar svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2}
+.copiar.ok{background:var(--verde);color:#fff;border-color:var(--verde)}
+
+header{text-align:center;padding:26px 0 10px}
+.sos{display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:#fff;background:var(--alerta);padding:7px 16px;
+  border-radius:999px;margin-bottom:22px}
 h1{font-family:var(--disp);font-weight:700;font-size:clamp(32px,8.5vw,50px);
   line-height:1.04;letter-spacing:-.015em;text-wrap:balance}
 .intro{color:var(--suave);font-size:17.5px;margin-top:18px;text-wrap:pretty}
+.soyquien{margin-top:14px;font-size:14px;color:var(--calido);font-weight:600}
 
-/* foto */
-.foto{margin:30px 0 8px;border-radius:20px;overflow:hidden;border:1px solid var(--linea);
-  aspect-ratio:16/10;background:var(--tarjeta);display:grid;place-items:center}
-.foto img{width:100%;height:100%;object-fit:cover;display:block}
-.foto .ph{text-align:center;color:var(--suave);font-size:14px;padding:24px}
-.foto .ph svg{width:44px;height:44px;stroke:var(--linea);fill:none;stroke-width:1.5;margin-bottom:10px}
-
-/* la historia */
 .historia{margin-top:26px}
-.historia .bloque{margin-bottom:22px}
-.historia h2{font-family:var(--disp);font-weight:600;font-size:14px;
-  letter-spacing:.02em;color:var(--calido);margin-bottom:9px;
-  display:flex;align-items:center;gap:9px}
-.historia h2 .num{width:24px;height:24px;flex:none;border-radius:50%;
+.historia .bloque{margin-bottom:24px}
+.historia h2{font-family:var(--disp);font-weight:600;font-size:15px;letter-spacing:.01em;
+  color:var(--calido);margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.historia h2 .num{width:26px;height:26px;flex:none;border-radius:50%;
   background:var(--calido);color:var(--papel);display:grid;place-items:center;
-  font-family:var(--texto);font-weight:700;font-size:12px}
+  font-family:var(--texto);font-weight:700;font-size:13px}
 .historia p{font-size:16px;color:var(--tinta);margin-bottom:10px;text-wrap:pretty}
 .historia p:last-child{margin-bottom:0}
 .historia strong{font-weight:700;color:var(--tinta)}
 .destaca{font-family:var(--disp);font-style:italic;font-size:19px;line-height:1.4;
   color:var(--calido-hondo);padding:18px 20px;margin:22px 0;border-left:3px solid var(--calido);
   background:rgba(192,96,58,.05);border-radius:0 12px 12px 0}
+.cifra-clave{display:flex;gap:20px;align-items:center;background:var(--alerta-bg);
+  border:2px solid var(--alerta);border-radius:18px;padding:24px 22px;margin:28px 0}
+.cifra-clave .big{font-family:var(--disp);font-weight:700;font-size:64px;color:var(--alerta);
+  line-height:.9;flex:none;letter-spacing:-.02em}
+.cifra-clave p{font-size:15px;color:var(--tinta);margin:0}
 
-.cifra-clave{display:flex;gap:16px;align-items:center;background:var(--alerta-bg);
-  border:1px solid var(--alerta);border-radius:16px;padding:18px 20px;margin:24px 0}
-.cifra-clave .big{font-family:var(--disp);font-weight:700;font-size:38px;color:var(--alerta);
-  line-height:1;flex:none}
-.cifra-clave p{font-size:14.5px;color:var(--tinta);margin:0}
-
-/* pagos */
 .pagos{margin-top:34px}
 .pagos .titp{font-family:var(--disp);font-weight:600;font-size:22px;text-align:center;margin-bottom:5px}
 .pagos .subp{text-align:center;color:var(--suave);font-size:14.5px;margin-bottom:20px;text-wrap:pretty}
@@ -82,7 +84,7 @@ h1{font-family:var(--disp);font-weight:700;font-size:clamp(32px,8.5vw,50px);
 .metodo .ic.pp{background:#003087}
 .metodo .ic.wa{background:#25D366}
 .metodo .info{flex:1;min-width:0}
-.metodo .info b{display:block;font-family:var(--texto);font-weight:600;font-size:16px}
+.metodo .info b{display:block;font-weight:600;font-size:16px}
 .metodo .info span{display:block;color:var(--suave);font-size:14px;word-break:break-all}
 .metodo .cta{flex:none;font-size:12.5px;font-weight:600;color:var(--calido);
   padding:8px 13px;border-radius:10px;background:rgba(192,96,58,.12)}
@@ -96,108 +98,173 @@ h1{font-family:var(--disp);font-weight:700;font-size:clamp(32px,8.5vw,50px);
   background:var(--verde);color:#fff;border:0;font-family:var(--texto);font-weight:600;
   font-size:15px;cursor:pointer}
 .btn-comp svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:2}
-
 .gracias{text-align:center;font-family:var(--disp);font-style:italic;
   font-size:18px;color:var(--suave);margin-top:32px;line-height:1.5}
-
 footer{text-align:center;margin-top:30px;color:var(--suave);font-size:12.5px;line-height:1.7}
-.editable{background:rgba(192,96,58,.08);border:1px dashed var(--calido);
-  border-radius:12px;padding:13px 16px;margin:20px 0;font-size:13px;color:var(--calido-hondo)}
 </style>
 </head>
 <body>
 <div class="wrap">
+
+  <div class="barra">
+    <div class="lang">
+      <button data-lang="es" class="on">Español</button>
+      <button data-lang="en">English</button>
+    </div>
+    <button class="copiar" id="btnCopiar">
+      <svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+      <span data-es="Copiar texto" data-en="Copy text">Copiar texto</span>
+    </button>
+  </div>
+
   <header>
-    <span class="sos">Ayuda urgente</span>
-    <h1>Mi madre lo dio todo. Hoy está a punto de perder su casa.</h1>
-    <p class="intro">Josefa tiene cáncer en los dos pulmones, cero ingresos y una deuda que ni siquiera es suya. Necesita ayuda de verdad, y la necesita ya.</p>
-    <p style="margin-top:14px;font-size:14px;color:var(--calido);font-weight:600">Soy Santiago, tu conductor. Josefa es mi madre.</p>
+    <span class="sos" data-es="Ayuda urgente" data-en="Urgent help">Ayuda urgente</span>
+    <h1 data-es="Mi madre lo dio todo. Hoy está a punto de perder su casa."
+        data-en="My mother gave everything. Now she is about to lose her home.">Mi madre lo dio todo. Hoy está a punto de perder su casa.</h1>
+    <p class="intro"
+       data-es="Josefa tiene cáncer en los dos pulmones, cero ingresos y una deuda que ni siquiera es suya. Necesita ayuda de verdad, y la necesita ya."
+       data-en="Josefa has cancer in both lungs, zero income and a debt that isn't even hers. She needs real help, and she needs it now.">Josefa tiene cáncer en los dos pulmones, cero ingresos y una deuda que ni siquiera es suya. Necesita ayuda de verdad, y la necesita ya.</p>
+    <p class="soyquien"
+       data-es="Soy Santiago, tu conductor. Josefa es mi madre."
+       data-en="I'm Santiago, your driver. Josefa is my mother.">Soy Santiago, tu conductor. Josefa es mi madre.</p>
   </header>
 
   <div class="historia">
+    <div class="bloque">
+    <h2><span class="num">1</span><span data-es="Una vida entera trabajando" data-en="A lifetime of work">Una vida entera trabajando</span></h2>
+    <p
+      data-es="Mi madre ha trabajado toda su vida. Más de 40 años cotizando, pagando autónomos y cumpliendo con todo lo que el sistema exige. Nunca pidió nada. Nunca falló."
+      data-en="My mother has worked all her life. More than 40 years paying her contributions and self-employment fees, doing everything the system demanded. She never asked for anything. She never failed.">Mi madre ha trabajado toda su vida. Más de 40 años cotizando, pagando autónomos y cumpliendo con todo lo que el sistema exige. Nunca pidió nada. Nunca falló.</p></div>
 
     <div class="bloque">
-      <p>Mi madre ha trabajado toda su vida. <strong>Más de 40 años cotizando</strong>, pagando autónomos y cumpliendo con todo lo que el sistema exige. Nunca pidió nada. Nunca falló.</p>
-    </div>
+    <h2><span class="num">2</span><span data-es="Un accidente que lo cambió todo" data-en="An accident that changed everything">Un accidente que lo cambió todo</span></h2>
+    <p
+      data-es="Hace unos años sufrió un accidente grave. Desde entonces vive con secuelas permanentes: dolor crónico, artrosis avanzada, migrañas incapacitantes y una rodilla que necesita una prótesis urgente."
+      data-en="A few years ago she suffered a serious accident. Since then she lives with permanent damage: chronic pain, advanced arthritis, disabling migraines and a knee that urgently needs a prosthesis.">Hace unos años sufrió un accidente grave. Desde entonces vive con secuelas permanentes: dolor crónico, artrosis avanzada, migrañas incapacitantes y una rodilla que necesita una prótesis urgente.</p></div>
 
     <div class="bloque">
-      <p>Hace unos años sufrió un <strong>accidente grave</strong>. Desde entonces vive con secuelas permanentes: dolor crónico, artrosis avanzada, migrañas incapacitantes y una rodilla que necesita una prótesis urgente.</p>
-    </div>
+    <h2><span class="num">3</span><span data-es="Ganó el juicio, pero se lo quitaron" data-en="She won her case, but they took it away">Ganó el juicio, pero se lo quitaron</span></h2>
+    <p
+      data-es="Ganó el juicio contra la Seguridad Social. Pero la administración recurrió al Supremo. Después de pagar más de 3.000 € en abogados, el Supremo le retiró la incapacidad. Y cuando el Supremo decide, ya no hay vuelta atrás."
+      data-en="She won her case against Social Security. But the administration appealed to the Supreme Court. After paying over €3,000 in lawyers, the Supreme Court took away her disability status. And once the Supreme Court decides, there is no going back.">Ganó el juicio contra la Seguridad Social. Pero la administración recurrió al Supremo. Después de pagar más de 3.000 € en abogados, el Supremo le retiró la incapacidad. Y cuando el Supremo decide, ya no hay vuelta atrás.</p></div>
 
     <div class="bloque">
-      <p>Ganó el juicio contra la Seguridad Social. Pero la administración recurrió al Supremo. Después de pagar más de <strong>3.000 € en abogados</strong>, el Supremo le retiró la incapacidad. Y cuando el Supremo decide, ya no hay vuelta atrás.</p>
-    </div>
-
-    <div class="bloque">
-      <p>Intentó volver a trabajar a tiempo parcial. Un mes después recibió el golpe más duro: le diagnosticaron <strong>cáncer de pulmón en ambos pulmones</strong>.</p>
-      <p>La operaron de urgencia. Le extirparon un tercio del pulmón izquierdo. Aún le queda otra operación en el pulmón derecho, además de la cirugía de rodilla que lleva años esperando.</p>
+      <h2><span class="num">4</span><span data-es="Y entonces, lo peor" data-en="And then, the worst">Y entonces, lo peor</span></h2>
+      <p data-es="Intentó volver a trabajar a tiempo parcial. Un mes después recibió el golpe más duro: le diagnosticaron cáncer de pulmón en ambos pulmones."
+         data-en="She tried to go back to work part-time. A month later came the hardest blow: she was diagnosed with lung cancer in both lungs.">Intentó volver a trabajar a tiempo parcial. Un mes después recibió el golpe más duro: le diagnosticaron cáncer de pulmón en ambos pulmones.</p>
+      <p data-es="La operaron de urgencia. Le extirparon un tercio del pulmón izquierdo. Aún le queda otra operación en el pulmón derecho, además de la cirugía de rodilla que lleva años esperando."
+         data-en="She had emergency surgery. They removed a third of her left lung. She still has another operation pending on the right lung, plus the knee surgery she has been waiting years for.">La operaron de urgencia. Le extirparon un tercio del pulmón izquierdo. Aún le queda otra operación en el pulmón derecho, además de la cirugía de rodilla que lleva años esperando.</p>
     </div>
 
     <div class="cifra-clave">
       <div class="big">0 €</div>
-      <p>Desde entonces, la Seguridad Social y la mutua no le pagan absolutamente nada. Literalmente: <strong>0 €</strong>. Dicen que «su caso suena a fraude». Como si el cáncer pulmonar bilateral fuera una estrategia.</p>
+      <p data-es="Desde entonces, la Seguridad Social y la mutua no le pagan absolutamente nada. Literalmente: 0 €. Dicen que «su caso suena a fraude». Como si el cáncer pulmonar bilateral fuera una estrategia."
+         data-en="Since then, Social Security and the insurance mutual pay her absolutely nothing. Literally: €0. They say her case 'sounds like fraud'. As if bilateral lung cancer were a strategy.">Desde entonces, la Seguridad Social y la mutua no le pagan absolutamente nada. Literalmente: 0 €. Dicen que «su caso suena a fraude». Como si el cáncer pulmonar bilateral fuera una estrategia.</p>
     </div>
 
     <div class="bloque">
-      <p>A todo esto se suma una <strong>deuda que no es suya</strong>: su exmarido, <strong>Freddy Vincent James Godefroy</strong>, se fugó a Bélgica con otra mujer y la dejó sola, cargando con todas las deudas. La dejó como avalista de <strong>31.000 €</strong> en préstamos (22.000 € + 9.000 €) y tarjetas que ella nunca pidió.</p>
-      <p>Los intereses anuales siguen subiendo, aumentando la deuda cada mes. Además, los acreedores llaman constantemente, presionando y reclamando pagos que ella no puede asumir.</p>
+      <h2><span class="num">5</span><span data-es="Una deuda que no es suya" data-en="A debt that isn't hers">Una deuda que no es suya</span></h2>
+      <p data-es="A todo esto se suma una deuda que no es suya: su exmarido, Freddy Vincent James Godefroy, se fugó a Bélgica con otra mujer y la dejó sola, cargando con todas las deudas. La dejó como avalista de 31.000 € en préstamos (22.000 € + 9.000 €) y tarjetas que ella nunca pidió."
+         data-en="On top of all this comes a debt that isn't even hers: her ex-husband, Freddy Vincent James Godefroy, fled to Belgium with another woman and left her alone, carrying all the debts. He left her as guarantor of €31,000 in loans (€22,000 + €9,000) and credit cards she never asked for.">A todo esto se suma una deuda que no es suya: su exmarido, Freddy Vincent James Godefroy, se fugó a Bélgica con otra mujer y la dejó sola, cargando con todas las deudas. La dejó como avalista de 31.000 € en préstamos (22.000 € + 9.000 €) y tarjetas que ella nunca pidió.</p>
+      <p data-es="Los intereses anuales siguen subiendo, aumentando la deuda cada mes. Además, los acreedores llaman constantemente, presionando y reclamando pagos que ella no puede asumir."
+         data-en="The annual interest keeps rising, increasing the debt every month. On top of that, creditors call constantly, pressuring her and demanding payments she cannot make.">Los intereses anuales siguen subiendo, aumentando la deuda cada mes. Además, los acreedores llaman constantemente, presionando y reclamando pagos que ella no puede asumir.</p>
     </div>
 
     <div class="bloque">
-      <p>Mi madre vive con uno de sus hijos, que está <strong>empadronado en su casa</strong> porque vive allí y cobra alrededor de <strong>1.200 € al mes</strong>. Los demás hijos ayudamos en lo que podemos.</p>
-      <p>En España, el límite para tener derecho a una ayuda pública está en torno a esos <strong>1.200 € por unidad familiar</strong>. Como su hijo ya llega a ese tope y cuentan como una misma unidad familiar, a mi madre no le corresponde ninguna ayuda.</p>
+      <h2><span class="num">6</span><span data-es="El sistema le da la espalda" data-en="The system turns its back on her">El sistema le da la espalda</span></h2>
+      <p data-es="Mi madre vive con uno de sus hijos, que está empadronado en su casa porque vive allí y cobra alrededor de 1.200 € al mes. Los demás hijos ayudamos en lo que podemos."
+         data-en="My mother lives with one of her sons, who is registered at her home because he lives there and earns around €1,200 a month. The rest of us help however we can.">Mi madre vive con uno de sus hijos, que está empadronado en su casa porque vive allí y cobra alrededor de 1.200 € al mes. Los demás hijos ayudamos en lo que podemos.</p>
+      <p data-es="En España, el límite para tener derecho a una ayuda pública está en torno a esos 1.200 € por unidad familiar. Como su hijo ya llega a ese tope y cuentan como una misma unidad familiar, a mi madre no le corresponde ninguna ayuda."
+         data-en="In Spain, the threshold to qualify for public aid is around that €1,200 per household. Since her son already reaches that limit and they count as one household, my mother is entitled to no aid at all.">En España, el límite para tener derecho a una ayuda pública está en torno a esos 1.200 € por unidad familiar. Como su hijo ya llega a ese tope y cuentan como una misma unidad familiar, a mi madre no le corresponde ninguna ayuda.</p>
     </div>
 
-    <div class="destaca">Por este motivo, mi madre no tiene derecho a ninguna ayuda pública, aunque esté enferma, sin ingresos, con cáncer en ambos pulmones y con varias operaciones pendientes.</div>
+    <div class="destaca"
+      data-es="Por este motivo, mi madre no tiene derecho a ninguna ayuda pública, aunque esté enferma, sin ingresos, con cáncer en ambos pulmones y con varias operaciones pendientes."
+      data-en="For this reason, my mother has no right to any public aid — even though she is ill, with no income, with cancer in both lungs and several operations pending.">Por este motivo, mi madre no tiene derecho a ninguna ayuda pública, aunque esté enferma, sin ingresos, con cáncer en ambos pulmones y con varias operaciones pendientes.</div>
 
     <div class="bloque">
-      <p>Con 1.200 € no se puede pagar hipoteca, comida, medicación, operaciones, suministros y deudas ajenas. Ahora mismo está en <strong>riesgo real de desahucio</strong>.</p>
-      <p>Por eso pido ayuda. No es fácil. Pero es lo único que puedo hacer. Si puedes colaborar, cualquier aportación es un alivio enorme.</p>
+      <p data-es="Con 1.200 € no se puede pagar hipoteca, comida, medicación, operaciones, suministros y deudas ajenas. Ahora mismo está en riesgo real de desahucio."
+         data-en="With €1,200 you cannot pay a mortgage, food, medication, operations, utility bills and someone else's debts. Right now she is at real risk of eviction.">Con 1.200 € no se puede pagar hipoteca, comida, medicación, operaciones, suministros y deudas ajenas. Ahora mismo está en riesgo real de desahucio.</p>
+      <p data-es="Por eso pido ayuda. No es fácil. Pero es lo único que puedo hacer. Si puedes colaborar, cualquier aportación es un alivio enorme."
+         data-en="That's why I'm asking for help. It isn't easy. But it's the only thing I can do. If you can contribute, any amount is an enormous relief.">Por eso pido ayuda. No es fácil. Pero es lo único que puedo hacer. Si puedes colaborar, cualquier aportación es un alivio enorme.</p>
     </div>
-
   </div>
 
   <div class="pagos">
-    <p class="titp">Cómo puedes ayudar</p>
-    <p class="subp">Cualquier aportación, por pequeña que sea, es un alivio enorme.</p>
+    <p class="titp" data-es="Cómo puedes ayudar" data-en="How you can help">Cómo puedes ayudar</p>
+    <p class="subp" data-es="Cualquier aportación, por pequeña que sea, es un alivio enorme."
+       data-en="Any contribution, however small, is an enormous relief.">Cualquier aportación, por pequeña que sea, es un alivio enorme.</p>
 
     <div class="metodo" id="mBizum" role="button" tabindex="0">
       <div class="ic bz">B</div>
       <div class="info"><b>Bizum</b><span>+34 640 236 547</span></div>
-      <div class="cta">Copiar</div>
+      <div class="cta" data-es="Copiar" data-en="Copy">Copiar</div>
     </div>
-
     <div class="metodo" id="mPaypal" role="button" tabindex="0">
       <div class="ic pp">PP</div>
       <div class="info"><b>PayPal</b><span>santiagotriguero@gmail.com</span></div>
-      <div class="cta">Copiar</div>
+      <div class="cta" data-es="Copiar" data-en="Copy">Copiar</div>
     </div>
-
     <a class="metodo" href="https://wa.me/34640236547" target="_blank" rel="noopener">
       <div class="ic wa">WA</div>
-      <div class="info"><b>WhatsApp</b><span>Escríbeme si quieres ayudar de otra forma</span></div>
-      <div class="cta">Abrir</div>
+      <div class="info"><b>WhatsApp</b><span data-es="Escríbeme si quieres ayudar de otra forma" data-en="Message me if you'd rather help another way">Escríbeme si quieres ayudar de otra forma</span></div>
+      <div class="cta" data-es="Abrir" data-en="Open">Abrir</div>
     </a>
   </div>
 
   <div class="compartir">
-    <p><strong>¿No puedes ayudar con dinero?</strong> Compartir esta página ya es muchísimo. Cuanta más gente la vea, más cerca está mi madre de estar tranquila en su casa.</p>
+    <p data-es="¿No puedes ayudar con dinero? Compartir esta página ya es muchísimo. Cuanta más gente la vea, más cerca está mi madre de estar tranquila en su casa."
+       data-en="Can't help with money? Just sharing this page means a lot. The more people see it, the closer my mother is to staying safely in her home.">¿No puedes ayudar con dinero? Compartir esta página ya es muchísimo. Cuanta más gente la vea, más cerca está mi madre de estar tranquila en su casa.</p>
     <button class="btn-comp" id="btnComp">
       <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>
-      Compartir esta página
+      <span data-es="Compartir esta página" data-en="Share this page">Compartir esta página</span>
     </button>
   </div>
 
-  <p class="gracias">Gracias por leer. Gracias por ayudar. Gracias por compartir.</p>
+  <p class="gracias" data-es="Gracias por leer. Gracias por ayudar. Gracias por compartir."
+     data-en="Thank you for reading. Thank you for helping. Thank you for sharing.">Gracias por leer. Gracias por ayudar. Gracias por compartir.</p>
 
-  <footer>
-    Recaudación personal para ayudar a Josefa · Teià, Barcelona<br>
-    El dinero va directo a cubrir sus necesidades más urgentes.
-  </footer>
+  <footer data-es="¿Hablas otro idioma? Pulsa «Copiar texto» arriba y pégalo en tu traductor."
+     data-en="Speak another language? Tap 'Copy text' at the top and paste it into your translator.">¿Hablas otro idioma? Pulsa «Copiar texto» arriba y pégalo en tu traductor.</footer>
 </div>
 
 <script>
-function copiar(el, valor){
+var idioma = 'es';
+function aplicarIdioma(l){
+  idioma = l;
+  document.documentElement.lang = l;
+  document.querySelectorAll('[data-es]').forEach(function(el){
+    var t = el.getAttribute('data-'+l);
+    if(t !== null) el.textContent = t;
+  });
+  document.querySelectorAll('.lang button').forEach(function(b){
+    b.classList.toggle('on', b.dataset.lang === l);
+  });
+}
+document.querySelectorAll('.lang button').forEach(function(b){
+  b.addEventListener('click', function(){ aplicarIdioma(b.dataset.lang); });
+});
+
+/* copiar toda la historia en el idioma actual */
+document.getElementById('btnCopiar').addEventListener('click', function(){
+  var partes = [];
+  document.querySelectorAll('h1, .intro, .historia p, .cifra-clave p, .destaca, .compartir p').forEach(function(el){
+    var t = el.getAttribute('data-'+idioma);
+    if(t) partes.push(t);
+  });
+  var texto = partes.join('\n\n');
+  var ta = document.createElement('textarea');
+  ta.value = texto; ta.style.position='fixed'; ta.style.top='-2000px';
+  document.body.appendChild(ta); ta.select();
+  var ok=false; try{ ok=document.execCommand('copy'); }catch(e){}
+  document.body.removeChild(ta);
+  if(!ok && navigator.clipboard) navigator.clipboard.writeText(texto);
+  var el = this, sp = el.querySelector('span');
+  el.classList.add('ok'); sp.textContent = idioma==='es' ? '¡Copiado!' : 'Copied!';
+  setTimeout(function(){ el.classList.remove('ok'); sp.textContent = idioma==='es'?'Copiar texto':'Copy text'; }, 1800);
+});
+
+function copiarValor(el, valor){
   var t=document.createElement('textarea');
   t.value=valor; t.style.position='fixed'; t.style.top='-1000px';
   document.body.appendChild(t); t.select();
@@ -205,20 +272,14 @@ function copiar(el, valor){
   document.body.removeChild(t);
   if(!ok && navigator.clipboard) navigator.clipboard.writeText(valor);
   var c=el.querySelector('.cta');
-  c.classList.add('ok'); c.textContent='¡Copiado!';
-  setTimeout(function(){c.classList.remove('ok'); c.textContent='Copiar';},1800);
+  c.classList.add('ok'); c.textContent = idioma==='es'?'¡Copiado!':'Copied!';
+  setTimeout(function(){ c.classList.remove('ok'); c.textContent = idioma==='es'?'Copiar':'Copy'; },1800);
 }
-document.getElementById('mBizum').addEventListener('click',function(){ copiar(this,'640236547'); });
-document.getElementById('mPaypal').addEventListener('click',function(){ copiar(this,'santiagotriguero@gmail.com'); });
+document.getElementById('mBizum').addEventListener('click',function(){ copiarValor(this,'640236547'); });
+document.getElementById('mPaypal').addEventListener('click',function(){ copiarValor(this,'santiagotriguero@gmail.com'); });
 document.getElementById('btnComp').addEventListener('click',function(){
-  var datos={title:'Ayuda a Josefa', text:'Mi madre tiene cáncer en ambos pulmones, cero ingresos y riesgo de desahucio. Cualquier ayuda cuenta.', url:location.href};
+  var datos={title:'Ayuda a Josefa', text: idioma==='es'?'Mi madre tiene cáncer en ambos pulmones, cero ingresos y riesgo de desahucio. Cualquier ayuda cuenta.':'My mother has cancer in both lungs, no income and faces eviction. Any help counts.', url:location.href};
   if(navigator.share){ navigator.share(datos).catch(function(){}); }
-  else {
-    copiar({querySelector:function(){return {classList:{add:function(){},remove:function(){}},textContent:''};}}, location.href);
-    this.textContent='¡Enlace copiado!';
-    var b=this;
-    setTimeout(function(){ b.innerHTML='<svg viewBox=\"0 0 24 24\"><circle cx=\"18\" cy=\"5\" r=\"3\"/><circle cx=\"6\" cy=\"12\" r=\"3\"/><circle cx=\"18\" cy=\"19\" r=\"3\"/><path d=\"M8.6 13.5l6.8 4M15.4 6.5l-6.8 4\"/></svg> Compartir esta página'; },1800);
-  }
 });
 </script>
 </body>
