@@ -78,6 +78,12 @@ h2{font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.16e
   transition:border-color .15s,background .15s}
 .sos a:hover,.sos a:focus-visible{border-color:var(--alert);background:var(--surface-2)}
 .sos a:focus-visible{outline:2px solid var(--calm);outline-offset:2px}
+
+.sos-btn-uber{display:inline-block;padding:20px 40px;background:var(--alert);color:#fff;
+  text-decoration:none;border-radius:16px;font-family:var(--display);font-weight:800;
+  font-size:24px;letter-spacing:.1em;text-transform:uppercase;margin-top:16px;
+  transition:all .2s;box-shadow:0 4px 12px rgba(229,72,77,.3)}
+.sos-btn-uber:hover{transform:scale(1.08);box-shadow:0 6px 18px rgba(229,72,77,.45)}
 .sos b{display:block;font-family:var(--display);font-weight:800;font-size:28px;
   line-height:1.1;color:var(--alert);font-variant-numeric:tabular-nums}
 .sos span{display:block;font-size:11.5px;color:var(--dim);margin-top:5px;line-height:1.3}
@@ -192,6 +198,12 @@ footer .sig{font-family:var(--display);font-weight:700;letter-spacing:.14em;
   </section>
 
   <section>
+    <h2 data-t="s_map"></h2>
+    <div class="card"><p data-t="map_desc"></p></div>
+    <a href="https://tetesanti.github.io/ubera-barcelona/" class="card-link">Ver el mapa</a>
+  </section>
+
+  <section>
     <h2 data-t="s_uber"></h2>
     <div class="card"><p data-t="uber"></p></div>
   </section>
@@ -303,6 +315,8 @@ sos_hint:"Toca el número para llamar directamente.",
 s_uber:"Uber y VTC",
 
 uber:"Usa siempre Uber o un VTC con licencia: el conductor te lleva de forma segura y legal. <span class=\"warn\">No subas nunca a un vehículo sin licencia.</span>",
+
+s_map:"Mapa de Barcelona", map_desc:"273 sitios verificados. Restaurantes, playas, qué ver, seguridad y más.",
 
 s_video:"El vídeo", video:"Aquí va el vídeo de Travely<br>(pendiente de subirlo a YouTube)",
 
@@ -451,6 +465,8 @@ sos_hint:"Tap a number to call straight away.",
 s_uber:"Uber &amp; VTC",
 
 uber:"Always use Uber or a licensed VTC: the driver takes you safely and legally. <span class=\"warn\">Never get into an unlicensed vehicle.</span>",
+
+s_map:"Barcelona Map", map_desc:"273 verified venues. Restaurants, beaches, things to see, safety tips and more.",
 
 s_video:"The video", video:"Travely's video goes here<br>(pending YouTube upload)",
 
