@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ayuda a Josefa</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --papel:#FBF7F0; --tinta:#2A2521; --suave:#6B6259; --linea:#E7DFD3;
+  --calido:#C0603A; --calido-hondo:#9E4A2A; --verde:#4E8468; --tarjeta:#FFFFFF;
+  --alerta:#B23B32; --alerta-bg:rgba(178,59,50,.07);
+  --disp:"Fraunces",Georgia,serif; --texto:"Inter",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --papel:#17140F; --tinta:#F2ECE3; --suave:#A89E92; --linea:#2E2820;
+    --calido:#E08A5A; --calido-hondo:#C0603A; --verde:#77AC90; --tarjeta:#211C16;
+    --alerta:#E5675C; --alerta-bg:rgba(229,103,92,.09);
+  }
+}
+:root[data-theme="dark"]{
+  --papel:#17140F; --tinta:#F2ECE3; --suave:#A89E92; --linea:#2E2820;
+  --calido:#E08A5A; --calido-hondo:#C0603A; --verde:#77AC90; --tarjeta:#211C16;
+  --alerta:#E5675C; --alerta-bg:rgba(229,103,92,.09);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--papel);color:var(--tinta);font-family:var(--texto);
+  font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+.wrap{max-width:620px;margin:0 auto;padding:0 20px 70px}
+
+/* cabecera con el grito de ayuda */
+header{text-align:center;padding:48px 0 10px}
+.sos{display:inline-block;font-family:var(--texto);font-size:12.5px;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;color:#fff;background:var(--alerta);
+  padding:7px 16px;border-radius:999px;margin-bottom:22px}
+h1{font-family:var(--disp);font-weight:700;font-size:clamp(32px,8.5vw,50px);
+  line-height:1.04;letter-spacing:-.015em;text-wrap:balance}
+.intro{color:var(--suave);font-size:17.5px;margin-top:18px;text-wrap:pretty}
+
+/* foto */
+.foto{margin:30px 0 8px;border-radius:20px;overflow:hidden;border:1px solid var(--linea);
+  aspect-ratio:16/10;background:var(--tarjeta);display:grid;place-items:center}
+.foto img{width:100%;height:100%;object-fit:cover;display:block}
+.foto .ph{text-align:center;color:var(--suave);font-size:14px;padding:24px}
+.foto .ph svg{width:44px;height:44px;stroke:var(--linea);fill:none;stroke-width:1.5;margin-bottom:10px}
+
+/* la historia */
+.historia{margin-top:26px}
+.historia .bloque{margin-bottom:22px}
+.historia h2{font-family:var(--disp);font-weight:600;font-size:14px;
+  letter-spacing:.02em;color:var(--calido);margin-bottom:9px;
+  display:flex;align-items:center;gap:9px}
+.historia h2 .num{width:24px;height:24px;flex:none;border-radius:50%;
+  background:var(--calido);color:var(--papel);display:grid;place-items:center;
+  font-family:var(--texto);font-weight:700;font-size:12px}
+.historia p{font-size:16px;color:var(--tinta);margin-bottom:10px;text-wrap:pretty}
+.historia p:last-child{margin-bottom:0}
+.historia strong{font-weight:700;color:var(--tinta)}
+.destaca{font-family:var(--disp);font-style:italic;font-size:19px;line-height:1.4;
+  color:var(--calido-hondo);padding:18px 20px;margin:22px 0;border-left:3px solid var(--calido);
+  background:rgba(192,96,58,.05);border-radius:0 12px 12px 0}
+
+.cifra-clave{display:flex;gap:16px;align-items:center;background:var(--alerta-bg);
+  border:1px solid var(--alerta);border-radius:16px;padding:18px 20px;margin:24px 0}
+.cifra-clave .big{font-family:var(--disp);font-weight:700;font-size:38px;color:var(--alerta);
+  line-height:1;flex:none}
+.cifra-clave p{font-size:14.5px;color:var(--tinta);margin:0}
+
+/* pagos */
+.pagos{margin-top:34px}
+.pagos .titp{font-family:var(--disp);font-weight:600;font-size:22px;text-align:center;margin-bottom:5px}
+.pagos .subp{text-align:center;color:var(--suave);font-size:14.5px;margin-bottom:20px;text-wrap:pretty}
+.metodo{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:16px;
+  background:var(--tarjeta);border:1px solid var(--linea);margin-bottom:11px;
+  text-decoration:none;color:inherit;transition:border-color .16s,transform .1s;cursor:pointer}
+.metodo:hover{border-color:var(--calido)}
+.metodo:active{transform:scale(.99)}
+.metodo .ic{width:46px;height:46px;flex:none;border-radius:13px;display:grid;place-items:center;
+  color:#fff;font-family:var(--disp);font-weight:700;font-size:15px}
+.metodo .ic.bz{background:#0a4bd4}
+.metodo .ic.pp{background:#003087}
+.metodo .ic.wa{background:#25D366}
+.metodo .info{flex:1;min-width:0}
+.metodo .info b{display:block;font-family:var(--texto);font-weight:600;font-size:16px}
+.metodo .info span{display:block;color:var(--suave);font-size:14px;word-break:break-all}
+.metodo .cta{flex:none;font-size:12.5px;font-weight:600;color:var(--calido);
+  padding:8px 13px;border-radius:10px;background:rgba(192,96,58,.12)}
+.metodo .cta.ok{color:#fff;background:var(--verde)}
+
+.compartir{text-align:center;margin-top:28px;padding:24px 20px;border-radius:16px;
+  background:rgba(78,132,104,.09);border:1px solid rgba(78,132,104,.28)}
+.compartir p{color:var(--tinta);font-size:15.5px;margin-bottom:14px}
+.compartir strong{color:var(--verde)}
+.btn-comp{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:12px;
+  background:var(--verde);color:#fff;border:0;font-family:var(--texto);font-weight:600;
+  font-size:15px;cursor:pointer}
+.btn-comp svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:2}
+
+.gracias{text-align:center;font-family:var(--disp);font-style:italic;
+  font-size:18px;color:var(--suave);margin-top:32px;line-height:1.5}
+
+footer{text-align:center;margin-top:30px;color:var(--suave);font-size:12.5px;line-height:1.7}
+.editable{background:rgba(192,96,58,.08);border:1px dashed var(--calido);
+  border-radius:12px;padding:13px 16px;margin:20px 0;font-size:13px;color:var(--calido-hondo)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="sos">Ayuda urgente</span>
+    <h1>Mi madre lo dio todo. Hoy está a punto de perder su casa.</h1>
+    <p class="intro">Josefa tiene cáncer en los dos pulmones, cero ingresos y una deuda que ni siquiera es suya. Necesita ayuda de verdad, y la necesita ya.</p>
+    <p style="margin-top:14px;font-size:14px;color:var(--calido);font-weight:600">Soy Santiago, tu conductor. Josefa es mi madre.</p>
+  </header>
+
+  <div class="foto">
+    <div class="ph">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+      Santiago: pon aquí una foto de tu madre
+    </div>
+  </div>
+  <div class="editable">✏️ Sustituye este hueco por una foto real de tu madre — es lo que más conecta con quien lee.</div>
+
+  <div class="historia">
+
+    <div class="bloque">
+      <h2><span class="num">1</span>Una vida entera trabajando</h2>
+      <p>Mi madre ha trabajado toda su vida. <strong>Más de 40 años cotizando</strong>, pagando autónomos y cumpliendo con todo lo que el sistema le exigía. Nunca pidió nada. Nunca falló.</p>
+    </div>
+
+    <div class="bloque">
+      <h2><span class="num">2</span>Un accidente que lo cambió todo</h2>
+      <p>Hace unos años sufrió un accidente grave. Desde entonces vive con secuelas permanentes: dolor crónico, artrosis avanzada, migrañas incapacitantes y una rodilla que necesita una prótesis urgente.</p>
+    </div>
+
+    <div class="bloque">
+      <h2><span class="num">3</span>Ganó el juicio, pero se lo quitaron</h2>
+      <p>Ganó el juicio contra la Seguridad Social. Pero la administración recurrió al Supremo. Después de pagar más de <strong>3.000 € en abogados</strong>, el Supremo le retiró la incapacidad. Y cuando el Supremo decide, ya no hay vuelta atrás.</p>
+    </div>
+
+    <div class="bloque">
+      <h2><span class="num">4</span>Y entonces, lo peor</h2>
+      <p>Intentó volver a trabajar a tiempo parcial. Un mes después recibió el golpe más duro: le diagnosticaron <strong>cáncer de pulmón en ambos pulmones</strong>.</p>
+      <p>La operaron de urgencia. Le extirparon un tercio del pulmón izquierdo. Aún le queda otra operación en el pulmón derecho, además de la cirugía de rodilla que lleva años esperando.</p>
+    </div>
+
+    <div class="destaca">La Seguridad Social y la mutua le dijeron que su caso «suena a fraude». Como si un cáncer bilateral fuera una estrategia.</div>
+
+    <div class="cifra-clave">
+      <div class="big">0 €</div>
+      <p>Es lo que cobra al mes de la Seguridad Social y la mutua. Enferma, con cáncer, sin ingresos, y con varias operaciones pendientes.</p>
+    </div>
+
+    <div class="bloque">
+      <h2><span class="num">5</span>Una deuda que no es suya</h2>
+      <p>Su exmarido desapareció en Bélgica y la dejó como avalista de <strong>31.000 €</strong> en préstamos y tarjetas que ella nunca pidió. Los intereses suben cada mes, y los acreedores llaman sin parar reclamando pagos que no puede asumir.</p>
+    </div>
+
+    <div class="bloque">
+      <h2><span class="num">6</span>El sistema le ha dado la espalda</h2>
+      <p>Vive con uno de sus hijos, que cobra 1.200 € al mes. Los demás ayudamos en lo que podemos. Pero para la Seguridad Social eso es «una unidad familiar con ingresos suficientes», así que <strong>no tiene derecho a ninguna ayuda pública</strong>.</p>
+      <p>Con 1.200 € no se paga hipoteca, comida, medicación, operaciones, luz y deudas ajenas. Ahora mismo está en <strong>riesgo real de desahucio</strong>.</p>
+    </div>
+
+  </div>
+
+  <div class="pagos">
+    <p class="titp">Cómo puedes ayudar</p>
+    <p class="subp">Cualquier aportación, por pequeña que sea, es un alivio enorme.</p>
+
+    <div class="metodo" id="mBizum" role="button" tabindex="0">
+      <div class="ic bz">B</div>
+      <div class="info"><b>Bizum</b><span>+34 640 236 547</span></div>
+      <div class="cta">Copiar</div>
+    </div>
+
+    <div class="metodo" id="mPaypal" role="button" tabindex="0">
+      <div class="ic pp">PP</div>
+      <div class="info"><b>PayPal</b><span>santiagotriguero@gmail.com</span></div>
+      <div class="cta">Copiar</div>
+    </div>
+
+    <a class="metodo" href="https://wa.me/34640236547" target="_blank" rel="noopener">
+      <div class="ic wa">WA</div>
+      <div class="info"><b>WhatsApp</b><span>Escríbeme si quieres ayudar de otra forma</span></div>
+      <div class="cta">Abrir</div>
+    </a>
+  </div>
+
+  <div class="compartir">
+    <p><strong>¿No puedes ayudar con dinero?</strong> Compartir esta página ya es muchísimo. Cuanta más gente la vea, más cerca está mi madre de estar tranquila en su casa.</p>
+    <button class="btn-comp" id="btnComp">
+      <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>
+      Compartir esta página
+    </button>
+  </div>
+
+  <p class="gracias">Gracias por leer. Gracias por ayudar. Gracias por compartir.</p>
+
+  <footer>
+    Recaudación personal para ayudar a Josefa · Teià, Barcelona<br>
+    El dinero va directo a cubrir sus necesidades más urgentes.
+  </footer>
+</div>
+
+<script>
+function copiar(el, valor){
+  var t=document.createElement('textarea');
+  t.value=valor; t.style.position='fixed'; t.style.top='-1000px';
+  document.body.appendChild(t); t.select();
+  var ok=false; try{ok=document.execCommand('copy');}catch(e){}
+  document.body.removeChild(t);
+  if(!ok && navigator.clipboard) navigator.clipboard.writeText(valor);
+  var c=el.querySelector('.cta');
+  c.classList.add('ok'); c.textContent='¡Copiado!';
+  setTimeout(function(){c.classList.remove('ok'); c.textContent='Copiar';},1800);
+}
+document.getElementById('mBizum').addEventListener('click',function(){ copiar(this,'640236547'); });
+document.getElementById('mPaypal').addEventListener('click',function(){ copiar(this,'santiagotriguero@gmail.com'); });
+document.getElementById('btnComp').addEventListener('click',function(){
+  var datos={title:'Ayuda a Josefa', text:'Mi madre tiene cáncer en ambos pulmones, cero ingresos y riesgo de desahucio. Cualquier ayuda cuenta.', url:location.href};
+  if(navigator.share){ navigator.share(datos).catch(function(){}); }
+  else {
+    copiar({querySelector:function(){return {classList:{add:function(){},remove:function(){}},textContent:''};}}, location.href);
+    this.textContent='¡Enlace copiado!';
+    var b=this;
+    setTimeout(function(){ b.innerHTML='<svg viewBox=\"0 0 24 24\"><circle cx=\"18\" cy=\"5\" r=\"3\"/><circle cx=\"6\" cy=\"12\" r=\"3\"/><circle cx=\"18\" cy=\"19\" r=\"3\"/><path d=\"M8.6 13.5l6.8 4M15.4 6.5l-6.8 4\"/></svg> Compartir esta página'; },1800);
+  }
+});
+</script>
+</body>
+</html>
