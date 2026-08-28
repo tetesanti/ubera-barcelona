@@ -159,13 +159,13 @@ footer{text-align:center;margin-top:30px;color:var(--suave);font-size:12.5px;lin
 
   <div class="pagos">
     <p class="titp">Cómo puedes ayudar</p>
-    <p class="subp">Cualquier aportación, por pequeña que sea, es un alivio enorme.</p>
-
-    <div class="metodo" id="mBizum" role="button" tabindex="0">
-      <div class="ic bz">B</div>
-      <div class="info"><b>Bizum</b><span>+34 640 236 547</span></div>
-      <div class="cta">Copiar</div>
-    </div>
+    <p class="subp">Escríbeme y te paso las formas de colaborar. Cualquier aportación, por pequeña que sea, es un alivio enorme.</p>
+    <a class="metodo" href="https://wa.me/34640236547?text=Hola%20Santiago%2C%20quiero%20ayudar%20a%20tu%20madre" target="_blank" rel="noopener">
+      <div class="ic wa">WA</div>
+      <div class="info"><b>Quiero ayudar</b><span>Escríbeme y te cuento cómo colaborar</span></div>
+      <div class="cta">Abrir</div>
+    </a>
+  </div>
 
     <div class="metodo" id="mPaypal" role="button" tabindex="0">
       <div class="ic pp">PP</div>
@@ -208,8 +208,6 @@ function copiar(el, valor){
   c.classList.add('ok'); c.textContent='¡Copiado!';
   setTimeout(function(){c.classList.remove('ok'); c.textContent='Copiar';},1800);
 }
-document.getElementById('mBizum').addEventListener('click',function(){ copiar(this,'640236547'); });
-document.getElementById('mPaypal').addEventListener('click',function(){ copiar(this,'santiagotriguero@gmail.com'); });
 document.getElementById('btnComp').addEventListener('click',function(){
   var datos={title:'Ayuda a Josefa', text:'Mi madre tiene cáncer en ambos pulmones, cero ingresos y riesgo de desahucio. Cualquier ayuda cuenta.', url:location.href};
   if(navigator.share){ navigator.share(datos).catch(function(){}); }
