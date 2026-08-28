@@ -79,6 +79,22 @@ h2{font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.16e
 .sos a:hover,.sos a:focus-visible{border-color:var(--alert);background:var(--surface-2)}
 .sos a:focus-visible{outline:2px solid var(--calm);outline-offset:2px}
 
+/* tarjeta grande del mapa */
+.mapa-card{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;
+  padding:30px 22px;border-radius:20px;text-decoration:none;color:var(--txt);
+  background:linear-gradient(160deg,#1c2434 0%,#161d29 100%);
+  border:1.5px solid var(--amber);box-shadow:0 6px 20px rgba(0,0,0,.35);transition:all .2s}
+.mapa-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(242,179,61,.22)}
+.mapa-pin{width:56px;height:56px;display:grid;place-items:center;border-radius:50%;
+  background:rgba(242,179,61,.14)}
+.mapa-pin svg{width:30px;height:30px;stroke:var(--amber);fill:none;stroke-width:1.7;
+  stroke-linecap:round;stroke-linejoin:round}
+.mapa-num{font-family:var(--display);font-weight:800;font-size:clamp(44px,13vw,64px);
+  line-height:1;color:var(--amber);font-variant-numeric:tabular-nums}
+.mapa-desc{font-size:15px;line-height:1.55;color:var(--dim);max-width:34ch;text-wrap:pretty}
+.mapa-cta{margin-top:6px;padding:14px 34px;border-radius:999px;background:var(--amber);
+  color:#101319;font-family:var(--display);font-weight:800;font-size:17px;letter-spacing:.02em}
+
 .sos-btn-uber{display:inline-block;padding:20px 40px;background:var(--alert);color:#fff;
   text-decoration:none;border-radius:16px;font-family:var(--display);font-weight:800;
   font-size:24px;letter-spacing:.1em;text-transform:uppercase;margin-top:16px;
@@ -199,8 +215,14 @@ footer .sig{font-family:var(--display);font-weight:700;letter-spacing:.14em;
 
   <section>
     <h2 data-t="s_map"></h2>
-    <div class="card"><p data-t="map_desc"></p></div>
-    <a href="https://tetesanti.github.io/ubera-barcelona/" class="card-link">Ver el mapa</a>
+    <a href="https://tetesanti.github.io/ubera-barcelona/" class="mapa-card">
+      <span class="mapa-pin" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+      </span>
+      <span class="mapa-num">273</span>
+      <span class="mapa-desc" data-t="map_desc"></span>
+      <span class="mapa-cta" data-t="map_btn"></span>
+    </a>
   </section>
 
   <section>
@@ -271,911 +293,630 @@ const LANGS = [
 
 
 const T = {
-
-
-
-es:{
-
-eyebrow:"Una iniciativa de tu conductor", byline:"Soy Santiago, tu conductor. He preparado esta página para ti.", hero_ask:"Gracias por las propinas. Y si el viaje ha ido bien, tus <strong>cinco estrellas</strong> me ayudan muchísimo.", welcome:"Bienvenido a",
-
-lede:"Sal de fiesta, disfruta la ciudad — pero siempre con cabeza. Estos consejos te ahorran el disgusto.",
-
-s_tips:"Consejos de seguridad",
-
-t1:"<strong>Móvil bien sujeto y mochila cerrada.</strong> No dejes nada en el suelo, en la mesa ni colgado de la silla.",
-
-t2:"<strong>Vigila tu copa.</strong> No la dejes sola, no aceptes bebidas de desconocidos y si algo sabe raro, déjala.",
-
-t3:"<strong>Ve siempre en grupo.</strong> Evita calles solas y pide transporte seguro para volver a casa.",
-
-t4:"<strong>En metro y bus, la mochila delante.</strong> Joyas discretas y el móvil guardado al caminar.",
-
-t5:"<strong>En la playa, nunca dejes tus cosas en la arena</strong> mientras te bañas. Los robos son rápidos.",
-
-t6:"<strong>Si alguien intenta distraerte, aléjate.</strong> Es la técnica más común de los carteristas.",
-
-t7:"<strong>Pasaporte en la caja fuerte del hotel</strong> o en riñonera interior. Paga con tarjeta o móvil siempre que puedas.",
-
-s_zones:"Dónde ir con más cuidado",
-
-z_intro:"Por la noche hay muchos carteristas y gente que se aprovecha de los despistes, sobre todo en estas zonas:",
-
-z_gothic:"Barrio Gótico", z_beaches:"Las playas", z_metro:"Metro L1 y L3",
-
-s_fines:"Multas nuevas 2026",
-
-f_intro:"Desde el 15 de febrero de 2026 rige una ordenanza de civismo más dura. La Guardia Urbana lleva datáfono y puede cobrarte la multa en el momento.",
-
-f1:"Ir sin camiseta o en bañador fuera de la playa",
-
-f2:"Beber alcohol en la calle con menores cerca, o de noche en zonas con restricción de ruido",
-
-f3:"Organizar o promocionar rutas de borrachera",
-
-f_caveat:"La policía debe avisarte antes de multar; solo sanciona si insistes.",
-
-s_help:"Si necesitas ayuda",
-
-sos1:"Emergencias", sos2:"Policía Nacional", sos3:"Guardia Urbana",
-
-sos_hint:"Toca el número para llamar directamente.",
-
-s_uber:"Uber y VTC",
-
-uber:"Usa siempre Uber o un VTC con licencia: el conductor te lleva de forma segura y legal. <span class=\"warn\">No subas nunca a un vehículo sin licencia.</span>",
-
-s_map:"Mapa de Barcelona", map_desc:"273 sitios verificados por Santiago, tu conductor. Restaurantes, playas, qué ver, seguridad y más.", sos_thanks:"Santiago te lo agradece por mirar",
-
-s_video:"El vídeo", video:"Aquí va el vídeo de Travely<br>(pendiente de subirlo a YouTube)",
-
-th_title:"¡Gracias por viajar conmigo!",
-
-th1:"Si el viaje te ha ido bien, tu valoración de <strong>5 estrellas</strong> me ayuda muchísimo.",
-
-th2:"Las propinas nunca son obligatorias, pero siempre se agradecen mucho.",
-
-th_btn:"Dejar propina", th_hint:"Elige el método que te vaya mejor.", th_bizum_note:"Solo desde un banco español", th_copy:"Copiar número", th_copied:"¡Copiado!",
-
-s_ngo:"Ayudar a quien lo necesita",
-
-ngo_q:"<strong>¿Prefieres que ese dinero ayude a otra persona?</strong>",
-
-ngo_t:"Puedes donar directamente a una entidad que trabaja con personas sin hogar en Barcelona. El dinero va íntegro a ellos: no pasa por mí en ningún momento.",
-
-ngo_btn:"Donar a la entidad",
-
-foot:"Disfruta de Barcelona y ten una estancia segura."
-
-},
-
-
-
-ca:{
-
-eyebrow:"Una iniciativa del teu conductor", byline:"Soc en Santiago, el teu conductor. He preparat aquesta pàgina per a tu.", hero_ask:"Gràcies per les propines. I si el viatge ha anat bé, les teves <strong>cinc estrelles</strong> m'ajuden moltíssim.", welcome:"Benvingut a",
-
-lede:"Surt de festa, gaudeix de la ciutat — però sempre amb cap. Aquests consells t'estalvien el disgust.",
-
-s_tips:"Consells de seguretat",
-
-t1:"<strong>Mòbil ben agafat i motxilla tancada.</strong> No deixis res a terra, a la taula ni penjat de la cadira.",
-
-t2:"<strong>Vigila la teva copa.</strong> No la deixis sola, no acceptis begudes de desconeguts i si té un gust estrany, deixa-la.",
-
-t3:"<strong>Vés sempre en grup.</strong> Evita carrers solitaris i demana transport segur per tornar a casa.",
-
-t4:"<strong>Al metro i al bus, la motxilla al davant.</strong> Joies discretes i el mòbil guardat mentre camines.",
-
-t5:"<strong>A la platja, no deixis mai les teves coses a la sorra</strong> mentre et banyes. Els robatoris són ràpids.",
-
-t6:"<strong>Si algú intenta distreure't, allunya't.</strong> És la tècnica més comuna dels carteristes.",
-
-t7:"<strong>Passaport a la caixa forta de l'hotel</strong> o en una ronyonera interior. Paga amb targeta o mòbil sempre que puguis.",
-
-s_zones:"On anar amb més compte",
-
-z_intro:"De nit hi ha molts carteristes i gent que s'aprofita dels despistats, sobretot en aquestes zones:",
-
-z_gothic:"Barri Gòtic", z_beaches:"Les platges", z_metro:"Metro L1 i L3",
-
-s_fines:"Multes noves 2026",
-
-f_intro:"Des del 15 de febrer de 2026 hi ha una ordenança de civisme més dura. La Guàrdia Urbana porta datàfon i et pot cobrar la multa a l'instant.",
-
-f1:"Anar sense samarreta o en banyador fora de la platja",
-
-f2:"Beure alcohol al carrer amb menors a prop, o de nit en zones amb restricció de soroll",
-
-f3:"Organitzar o promocionar rutes de borratxera",
-
-f_caveat:"La policia t'ha d'avisar abans de multar; només sanciona si insisteixes.",
-
-s_help:"Si necessites ajuda",
-
-sos1:"Emergències", sos2:"Policia Nacional", sos3:"Guàrdia Urbana",
-
-sos_hint:"Toca el número per trucar directament.",
-
-s_uber:"Uber i VTC",
-
-uber:"Fes servir sempre Uber o un VTC amb llicència: el conductor et porta de manera segura i legal. <span class=\"warn\">No pugis mai a un vehicle sense llicència.</span>",
-
-s_video:"El vídeo", video:"Aquí va el vídeo d'en Travely<br>(pendent de pujar-lo a YouTube)",
-
-th_title:"Gràcies per viatjar amb mi!",
-
-th1:"Si el viatge t'ha anat bé, la teva valoració de <strong>5 estrelles</strong> m'ajuda moltíssim.",
-
-th2:"Les propines no són mai obligatòries, però sempre s'agraeixen molt.",
-
-th_btn:"Deixar propina", th_hint:"Tria el mètode que et vagi millor.", th_bizum_note:"Només des d'un banc espanyol", th_copy:"Copiar número", th_copied:"Copiat!",
-
-s_ngo:"Ajudar qui ho necessita",
-
-ngo_q:"<strong>Prefereixes que aquests diners ajudin una altra persona?</strong>",
-
-ngo_t:"Pots donar directament a una entitat que treballa amb persones sense llar a Barcelona. Els diners hi van íntegrament: no passen per mi en cap moment.",
-
-ngo_btn:"Donar a l'entitat",
-
-foot:"Gaudeix de Barcelona i tingues una estada segura.",
-sos_thanks:"En Santiago t'ho agraeix per mirar-ho",
-
-},
-
-
-
-en:{
-
-eyebrow:"An initiative by your driver", byline:"I'm Santiago, your driver. I put this page together for you.", hero_ask:"Thank you for the tips. And if the ride went well, your <strong>five stars</strong> help me a lot.", welcome:"Welcome to",
-
-lede:"Go out, enjoy the city — but stay sharp. These tips save you the bad night.",
-
-s_tips:"Safety tips",
-
-t1:"<strong>Hold your phone tight, keep your bag zipped.</strong> Never leave anything on the floor, on the table or hanging off your chair.",
-
-t2:"<strong>Watch your drink.</strong> Never leave it unattended, don't accept drinks from strangers, and if it tastes odd, leave it.",
-
-t3:"<strong>Always stay in a group.</strong> Avoid empty streets and book a safe ride home.",
-
-t4:"<strong>On the metro and bus, wear your bag in front.</strong> Discreet jewelry, phone away while walking.",
-
-t5:"<strong>At the beach, never leave your things on the sand</strong> while you swim. Thefts are fast.",
-
-t6:"<strong>If someone tries to distract you, walk away.</strong> It's the most common pickpocket trick.",
-
-t7:"<strong>Passport in the hotel safe</strong> or a concealed belt. Pay by card or phone whenever you can.",
-
-s_zones:"Where to be extra careful",
-
-z_intro:"At night there are plenty of pickpockets and people who prey on distracted tourists, especially here:",
-
-z_gothic:"Gothic Quarter", z_beaches:"The beaches", z_metro:"Metro L1 &amp; L3",
-
-s_fines:"New 2026 fines",
-
-f_intro:"Since 15 February 2026 a stricter public-conduct by-law applies. The Guardia Urbana carries card readers and can charge you on the spot.",
-
-f1:"Going shirtless or in swimwear away from the beach",
-
-f2:"Drinking in the street near minors, or at night in noise-restricted areas",
-
-f3:"Organising or promoting pub-crawl drinking routes",
-
-f_caveat:"Police must warn you first; they only fine you if you persist.",
-
-s_help:"If you need help",
-
-sos1:"Emergency", sos2:"National Police", sos3:"Local Police",
-
-sos_hint:"Tap a number to call straight away.",
-
-s_uber:"Uber &amp; VTC",
-
-uber:"Always use Uber or a licensed VTC: the driver takes you safely and legally. <span class=\"warn\">Never get into an unlicensed vehicle.</span>",
-
-s_map:"Barcelona Map", map_desc:"273 verified venues. Restaurants, beaches, things to see, safety tips and more.", sos_thanks:"Santiago thanks you for looking",
-
-s_video:"The video", video:"Travely's video goes here<br>(pending YouTube upload)",
-
-th_title:"Thanks for riding with me!",
-
-th1:"If the ride went well, your <strong>5-star</strong> rating helps me a lot.",
-
-th2:"Tips are never required, but they're always hugely appreciated.",
-
-th_btn:"Leave a tip", th_hint:"Pick whichever works for you.", th_bizum_note:"Spanish bank accounts only", th_copy:"Copy number", th_copied:"Copied!",
-
-s_ngo:"Help someone in need",
-
-ngo_q:"<strong>Would you rather that money helped someone else?</strong>",
-
-ngo_t:"You can donate straight to an organisation working with homeless people in Barcelona. The money goes entirely to them — it never passes through me.",
-
-ngo_btn:"Donate to the charity",
-
-foot:"Enjoy Barcelona and have a safe stay."
-
-},
-
-
-
-fr:{
-
-eyebrow:"Une initiative de votre chauffeur", byline:"Je suis Santiago, votre chauffeur. J'ai préparé cette page pour vous.", hero_ask:"Merci pour les pourboires. Et si le trajet s'est bien passé, vos <strong>cinq étoiles</strong> m'aident énormément.", welcome:"Bienvenue à",
-
-lede:"Sortez, profitez de la ville — mais gardez la tête froide. Ces conseils vous évitent la mauvaise soirée.",
-
-s_tips:"Conseils de sécurité",
-
-t1:"<strong>Téléphone bien tenu, sac fermé.</strong> Ne laissez rien par terre, sur la table ni accroché à la chaise.",
-
-t2:"<strong>Surveillez votre verre.</strong> Ne le laissez jamais sans surveillance, n'acceptez pas de boisson d'un inconnu et si le goût est bizarre, laissez-le.",
-
-t3:"<strong>Restez toujours en groupe.</strong> Évitez les rues désertes et réservez un transport sûr pour rentrer.",
-
-t4:"<strong>Dans le métro et le bus, sac devant vous.</strong> Bijoux discrets et téléphone rangé quand vous marchez.",
-
-t5:"<strong>À la plage, ne laissez jamais vos affaires sur le sable</strong> pendant que vous vous baignez. Les vols sont rapides.",
-
-t6:"<strong>Si quelqu'un cherche à vous distraire, éloignez-vous.</strong> C'est la technique la plus courante des pickpockets.",
-
-t7:"<strong>Passeport dans le coffre de l'hôtel</strong> ou dans une ceinture cachée. Payez par carte ou téléphone dès que possible.",
-
-s_zones:"Où redoubler de prudence",
-
-z_intro:"La nuit, il y a beaucoup de pickpockets et de personnes qui profitent des touristes distraits, surtout ici :",
-
-z_gothic:"Quartier Gothique", z_beaches:"Les plages", z_metro:"Métro L1 et L3",
-
-s_fines:"Nouvelles amendes 2026",
-
-f_intro:"Depuis le 15 février 2026, un règlement de civisme plus strict s'applique. La Guardia Urbana dispose de terminaux de paiement et peut encaisser l'amende sur place.",
-
-f1:"Être torse nu ou en maillot de bain hors de la plage",
-
-f2:"Boire de l'alcool dans la rue près de mineurs, ou la nuit dans les zones à restriction de bruit",
-
-f3:"Organiser ou promouvoir des tournées de beuverie",
-
-f_caveat:"La police doit vous avertir avant de verbaliser ; elle n'inflige l'amende que si vous insistez.",
-
-s_help:"Si vous avez besoin d'aide",
-
-sos1:"Urgences", sos2:"Police Nationale", sos3:"Police Municipale",
-
-sos_hint:"Touchez le numéro pour appeler directement.",
-
-s_uber:"Uber et VTC",
-
-uber:"Utilisez toujours Uber ou un VTC agréé : le chauffeur vous conduit en toute sécurité et en toute légalité. <span class=\"warn\">Ne montez jamais dans un véhicule sans licence.</span>",
-
-s_video:"La vidéo", video:"La vidéo de Travely arrive ici<br>(en attente de mise en ligne sur YouTube)",
-
-th_title:"Merci d'avoir voyagé avec moi !",
-
-th1:"Si le trajet s'est bien passé, votre note <strong>5 étoiles</strong> m'aide énormément.",
-
-th2:"Les pourboires ne sont jamais obligatoires, mais ils font toujours très plaisir.",
-
-th_btn:"Laisser un pourboire", th_hint:"Choisissez ce qui vous arrange.", th_bizum_note:"Uniquement depuis une banque espagnole", th_copy:"Copier le numéro", th_copied:"Copié !",
-
-s_ngo:"Aider ceux qui en ont besoin",
-
-ngo_q:"<strong>Vous préférez que cet argent aide quelqu'un d'autre ?</strong>",
-
-ngo_t:"Vous pouvez faire un don directement à une association qui travaille avec les personnes sans abri à Barcelone. L'argent leur revient intégralement : il ne passe jamais par moi.",
-
-ngo_btn:"Faire un don à l'association",
-
-foot:"Profitez de Barcelone et passez un séjour en toute sécurité.",
-sos_thanks:"Santiago vous remercie d'avoir regardé"
-
-},
-
-
-
-de:{
-
-eyebrow:"Eine Initiative deines Fahrers", byline:"Ich bin Santiago, dein Fahrer. Diese Seite habe ich für dich gemacht.", hero_ask:"Danke für das Trinkgeld. Und wenn die Fahrt gut war, helfen mir deine <strong>fünf Sterne</strong> sehr.", welcome:"Willkommen in",
-
-lede:"Geh aus, genieß die Stadt — aber bleib wachsam. Diese Tipps ersparen dir den Ärger.",
-
-s_tips:"Sicherheitstipps",
-
-t1:"<strong>Handy gut festhalten, Rucksack geschlossen.</strong> Lass nichts auf dem Boden, auf dem Tisch oder über der Stuhllehne liegen.",
-
-t2:"<strong>Pass auf dein Getränk auf.</strong> Lass es nie unbeaufsichtigt, nimm keine Getränke von Fremden an, und wenn es komisch schmeckt, lass es stehen.",
-
-t3:"<strong>Geh immer in der Gruppe.</strong> Meide leere Straßen und buche eine sichere Fahrt nach Hause.",
-
-t4:"<strong>In Metro und Bus den Rucksack vorne tragen.</strong> Dezenter Schmuck, Handy weg beim Gehen.",
-
-t5:"<strong>Am Strand nie deine Sachen im Sand liegen lassen</strong>, während du schwimmst. Diebstähle gehen schnell.",
-
-t6:"<strong>Wenn dich jemand ablenken will, geh weiter.</strong> Das ist der häufigste Trick der Taschendiebe.",
-
-t7:"<strong>Reisepass in den Hotelsafe</strong> oder in eine verdeckte Gürteltasche. Zahl mit Karte oder Handy, wann immer es geht.",
-
-s_zones:"Wo besondere Vorsicht gilt",
-
-z_intro:"Nachts sind viele Taschendiebe unterwegs, die abgelenkte Touristen ausnutzen — vor allem hier:",
-
-z_gothic:"Gotisches Viertel", z_beaches:"Die Strände", z_metro:"Metro L1 und L3",
-
-s_fines:"Neue Bußgelder 2026",
-
-f_intro:"Seit dem 15. Februar 2026 gilt eine strengere Verordnung. Die Guardia Urbana hat Kartenlesegeräte dabei und kann das Bußgeld sofort kassieren.",
-
-f1:"Ohne T-Shirt oder in Badekleidung abseits des Strandes",
-
-f2:"Alkohol auf der Straße in der Nähe von Minderjährigen oder nachts in lärmgeschützten Zonen",
-
-f3:"Sauftouren organisieren oder bewerben",
-
-f_caveat:"Die Polizei muss dich erst verwarnen; ein Bußgeld gibt es nur, wenn du weitermachst.",
-
-s_help:"Wenn du Hilfe brauchst",
-
-sos1:"Notruf", sos2:"Nationalpolizei", sos3:"Stadtpolizei",
-
-sos_hint:"Tippe auf die Nummer, um direkt anzurufen.",
-
-s_uber:"Uber und VTC",
-
-uber:"Nutze immer Uber oder einen lizenzierten VTC: Der Fahrer bringt dich sicher und legal ans Ziel. <span class=\"warn\">Steig nie in ein Fahrzeug ohne Lizenz.</span>",
-
-s_video:"Das Video", video:"Hier kommt das Travely-Video hin<br>(YouTube-Upload steht noch aus)",
-
-th_title:"Danke, dass du mitgefahren bist!",
-
-th1:"Wenn die Fahrt gut war, hilft mir deine <strong>5-Sterne-Bewertung</strong> enorm.",
-
-th2:"Trinkgeld ist nie Pflicht, aber ich freue mich immer riesig darüber.",
-
-th_btn:"Trinkgeld geben", th_hint:"Wähl, was für dich am einfachsten ist.", th_bizum_note:"Nur von spanischen Banken", th_copy:"Nummer kopieren", th_copied:"Kopiert!",
-
-s_ngo:"Jemandem in Not helfen",
-
-ngo_q:"<strong>Soll das Geld lieber jemand anderem helfen?</strong>",
-
-ngo_t:"Du kannst direkt an eine Organisation spenden, die sich in Barcelona um Obdachlose kümmert. Das Geld geht vollständig an sie — es läuft zu keinem Zeitpunkt über mich.",
-
-ngo_btn:"An die Organisation spenden",
-
-foot:"Genieß Barcelona und hab einen sicheren Aufenthalt.",
-sos_thanks:"Santiago dankt dir fürs Anschauen"
-
-},
-
-
-
-it:{
-
-eyebrow:"Un'iniziativa del tuo autista", byline:"Sono Santiago, il tuo autista. Ho preparato questa pagina per te.", hero_ask:"Grazie per le mance. E se il viaggio è andato bene, le tue <strong>cinque stelle</strong> mi aiutano moltissimo.", welcome:"Benvenuto a",
-
-lede:"Esci, goditi la città — ma sempre con la testa. Questi consigli ti evitano il dispiacere.",
-
-s_tips:"Consigli di sicurezza",
-
-t1:"<strong>Cellulare ben stretto e zaino chiuso.</strong> Non lasciare niente per terra, sul tavolo o appeso alla sedia.",
-
-t2:"<strong>Tieni d'occhio il tuo drink.</strong> Non lasciarlo mai incustodito, non accettare bevande da sconosciuti e se ha un sapore strano, lascialo.",
-
-t3:"<strong>Vai sempre in gruppo.</strong> Evita le strade deserte e prenota un trasporto sicuro per tornare.",
-
-t4:"<strong>In metro e sul bus, zaino davanti.</strong> Gioielli discreti e cellulare riposto mentre cammini.",
-
-t5:"<strong>In spiaggia non lasciare mai le tue cose sulla sabbia</strong> mentre fai il bagno. I furti sono rapidi.",
-
-t6:"<strong>Se qualcuno cerca di distrarti, allontanati.</strong> È la tecnica più comune dei borseggiatori.",
-
-t7:"<strong>Passaporto nella cassaforte dell'hotel</strong> o in un marsupio interno. Paga con carta o cellulare quando puoi.",
-
-s_zones:"Dove fare più attenzione",
-
-z_intro:"Di notte ci sono molti borseggiatori e persone che approfittano dei turisti distratti, soprattutto qui:",
-
-z_gothic:"Quartiere Gotico", z_beaches:"Le spiagge", z_metro:"Metro L1 e L3",
-
-s_fines:"Nuove multe 2026",
-
-f_intro:"Dal 15 febbraio 2026 è in vigore un regolamento più severo. La Guardia Urbana ha il POS e può farti pagare la multa sul posto.",
-
-f1:"Girare senza maglietta o in costume fuori dalla spiaggia",
-
-f2:"Bere alcolici per strada vicino a minori, o di notte in zone con limiti di rumore",
-
-f3:"Organizzare o promuovere giri di locali per ubriacarsi",
-
-f_caveat:"La polizia deve avvisarti prima di multare; sanziona solo se insisti.",
-
-s_help:"Se hai bisogno di aiuto",
-
-sos1:"Emergenze", sos2:"Polizia Nazionale", sos3:"Polizia Locale",
-
-sos_hint:"Tocca il numero per chiamare subito.",
-
-s_uber:"Uber e VTC",
-
-uber:"Usa sempre Uber o un VTC autorizzato: l'autista ti porta in modo sicuro e legale. <span class=\"warn\">Non salire mai su un veicolo senza licenza.</span>",
-
-s_video:"Il video", video:"Qui andrà il video di Travely<br>(in attesa di caricarlo su YouTube)",
-
-th_title:"Grazie per aver viaggiato con me!",
-
-th1:"Se il viaggio è andato bene, la tua valutazione a <strong>5 stelle</strong> mi aiuta moltissimo.",
-
-th2:"Le mance non sono mai obbligatorie, ma fanno sempre molto piacere.",
-
-th_btn:"Lascia una mancia", th_hint:"Scegli il metodo che preferisci.", th_bizum_note:"Solo da una banca spagnola", th_copy:"Copia il numero", th_copied:"Copiato!",
-
-s_ngo:"Aiutare chi ne ha bisogno",
-
-ngo_q:"<strong>Preferisci che quei soldi aiutino un'altra persona?</strong>",
-
-ngo_t:"Puoi donare direttamente a un'associazione che lavora con le persone senza dimora a Barcellona. Il denaro va interamente a loro: non passa mai da me.",
-
-ngo_btn:"Dona all'associazione",
-
-foot:"Goditi Barcellona e fai un soggiorno sicuro.",
-sos_thanks:"Santiago ti ringrazia per aver guardato"
-
-},
-
-
-
-pt:{
-
-eyebrow:"Uma iniciativa do seu motorista", byline:"Sou o Santiago, seu motorista. Preparei esta página para você.", hero_ask:"Obrigado pelas gorjetas. E se a viagem foi boa, suas <strong>cinco estrelas</strong> me ajudam demais.", welcome:"Bem-vindo a",
-
-lede:"Saia, aproveite a cidade — mas sempre com cabeça. Estas dicas evitam o perrengue.",
-
-s_tips:"Dicas de segurança",
-
-t1:"<strong>Celular bem seguro e mochila fechada.</strong> Não deixe nada no chão, na mesa nem pendurado na cadeira.",
-
-t2:"<strong>Fique de olho no seu copo.</strong> Nunca deixe sozinho, não aceite bebida de estranhos e se o gosto estiver estranho, largue.",
-
-t3:"<strong>Ande sempre em grupo.</strong> Evite ruas vazias e peça um transporte seguro para voltar.",
-
-t4:"<strong>No metrô e no ônibus, mochila na frente.</strong> Joias discretas e celular guardado ao caminhar.",
-
-t5:"<strong>Na praia, nunca deixe suas coisas na areia</strong> enquanto toma banho de mar. Os furtos são rápidos.",
-
-t6:"<strong>Se alguém tentar te distrair, se afaste.</strong> É o truque mais comum dos batedores de carteira.",
-
-t7:"<strong>Passaporte no cofre do hotel</strong> ou em pochete por dentro da roupa. Pague com cartão ou celular sempre que der.",
-
-s_zones:"Onde redobrar a atenção",
-
-z_intro:"À noite há muitos batedores de carteira e gente que se aproveita de turista distraído, principalmente aqui:",
-
-z_gothic:"Bairro Gótico", z_beaches:"As praias", z_metro:"Metrô L1 e L3",
-
-s_fines:"Novas multas 2026",
-
-f_intro:"Desde 15 de fevereiro de 2026 vale uma lei de conduta mais dura. A Guardia Urbana anda com maquininha e pode cobrar a multa na hora.",
-
-f1:"Andar sem camiseta ou de roupa de banho fora da praia",
-
-f2:"Beber álcool na rua perto de menores, ou à noite em áreas com restrição de ruído",
-
-f3:"Organizar ou divulgar rotas de bebedeira",
-
-f_caveat:"A polícia precisa avisar antes de multar; só aplica a multa se você insistir.",
-
-s_help:"Se precisar de ajuda",
-
-sos1:"Emergências", sos2:"Polícia Nacional", sos3:"Guarda Urbana",
-
-sos_hint:"Toque no número para ligar direto.",
-
-s_uber:"Uber e VTC",
-
-uber:"Use sempre Uber ou um VTC licenciado: o motorista te leva com segurança e dentro da lei. <span class=\"warn\">Nunca entre em veículo sem licença.</span>",
-
-s_video:"O vídeo", video:"Aqui vai o vídeo do Travely<br>(ainda falta subir no YouTube)",
-
-th_title:"Obrigado por viajar comigo!",
-
-th1:"Se a viagem foi boa, sua avaliação de <strong>5 estrelas</strong> me ajuda demais.",
-
-th2:"Gorjeta nunca é obrigatória, mas é sempre muito bem-vinda.",
-
-th_btn:"Deixar gorjeta", th_hint:"Escolha o método que preferir.", th_bizum_note:"Apenas de bancos espanhóis", th_copy:"Copiar número", th_copied:"Copiado!",
-
-s_ngo:"Ajudar quem precisa",
-
-ngo_q:"<strong>Prefere que esse dinheiro ajude outra pessoa?</strong>",
-
-ngo_t:"Você pode doar direto para uma instituição que trabalha com pessoas em situação de rua em Barcelona. O dinheiro vai inteiro para eles: não passa por mim em momento nenhum.",
-
-ngo_btn:"Doar para a instituição",
-
-foot:"Aproveite Barcelona e tenha uma estadia segura.",
-sos_thanks:"O Santiago agradece por ter olhado"
-
-},
-
-
-
-nl:{
-
-eyebrow:"Een initiatief van je chauffeur", byline:"Ik ben Santiago, je chauffeur. Deze pagina heb ik voor jou gemaakt.", hero_ask:"Bedankt voor de fooi. En als de rit goed ging, helpen jouw <strong>vijf sterren</strong> me enorm.", welcome:"Welkom in",
-
-lede:"Ga uit, geniet van de stad — maar blijf alert. Deze tips besparen je de ellende.",
-
-s_tips:"Veiligheidstips",
-
-t1:"<strong>Telefoon goed vast, rugzak dicht.</strong> Laat niets op de grond, op tafel of aan je stoel hangen.",
-
-t2:"<strong>Let op je drankje.</strong> Laat het nooit onbeheerd, neem geen drankjes aan van vreemden en als het raar smaakt, laat het staan.",
-
-t3:"<strong>Blijf altijd in een groep.</strong> Vermijd lege straten en regel veilig vervoer naar huis.",
-
-t4:"<strong>In metro en bus je tas voorop.</strong> Discrete sieraden en telefoon weg tijdens het lopen.",
-
-t5:"<strong>Laat op het strand nooit je spullen in het zand liggen</strong> terwijl je zwemt. Diefstal gaat razendsnel.",
-
-t6:"<strong>Als iemand je probeert af te leiden, loop door.</strong> Dat is de meest gebruikte truc van zakkenrollers.",
-
-t7:"<strong>Paspoort in de hotelkluis</strong> of in een verborgen heuptasje. Betaal met kaart of telefoon waar het kan.",
-
-s_zones:"Waar je extra moet opletten",
-
-z_intro:"'s Nachts zijn er veel zakkenrollers en mensen die afgeleide toeristen uitkiezen, vooral hier:",
-
-z_gothic:"Gotische Wijk", z_beaches:"De stranden", z_metro:"Metro L1 en L3",
-
-s_fines:"Nieuwe boetes 2026",
-
-f_intro:"Sinds 15 februari 2026 geldt een strengere gedragsverordening. De Guardia Urbana heeft pinapparaten bij zich en kan de boete meteen innen.",
-
-f1:"Zonder shirt of in badkleding buiten het strand",
-
-f2:"Alcohol drinken op straat in de buurt van minderjarigen, of 's nachts in geluidsbeperkte zones",
-
-f3:"Kroegentochten organiseren of promoten",
-
-f_caveat:"De politie moet je eerst waarschuwen; ze beboeten je alleen als je doorgaat.",
-
-s_help:"Als je hulp nodig hebt",
-
-sos1:"Noodgevallen", sos2:"Nationale Politie", sos3:"Stadspolitie",
-
-sos_hint:"Tik op het nummer om direct te bellen.",
-
-s_uber:"Uber en VTC",
-
-uber:"Gebruik altijd Uber of een VTC met vergunning: de chauffeur brengt je veilig en legaal. <span class=\"warn\">Stap nooit in een voertuig zonder vergunning.</span>",
-
-s_video:"De video", video:"Hier komt de video van Travely<br>(moet nog naar YouTube)",
-
-th_title:"Bedankt dat je met me meereed!",
-
-th1:"Als de rit goed ging, helpt jouw <strong>5 sterren</strong> me enorm.",
-
-th2:"Fooi is nooit verplicht, maar altijd enorm gewaardeerd.",
-
-th_btn:"Fooi geven", th_hint:"Kies wat voor jou het makkelijkst is.", th_bizum_note:"Alleen vanaf een Spaanse bank", th_copy:"Nummer kopiëren", th_copied:"Gekopieerd!",
-
-s_ngo:"Iemand in nood helpen",
-
-ngo_q:"<strong>Wil je liever dat dat geld iemand anders helpt?</strong>",
-
-ngo_t:"Je kunt rechtstreeks doneren aan een organisatie die in Barcelona met daklozen werkt. Het geld gaat volledig naar hen — het komt op geen enkel moment bij mij.",
-
-ngo_btn:"Doneer aan de organisatie",
-
-foot:"Geniet van Barcelona en heb een veilig verblijf.",
-sos_thanks:"Santiago bedankt je voor het kijken"
-
-},
-
-
-
-ru:{
-
-eyebrow:"Инициатива вашего водителя", byline:"Я Сантьяго, ваш водитель. Эту страницу я сделал для вас.", hero_ask:"Спасибо за чаевые. А если поездка прошла хорошо, ваши <strong>пять звёзд</strong> очень мне помогают.", welcome:"Добро пожаловать в",
-
-lede:"Гуляйте и наслаждайтесь городом — но не теряйте бдительности. Эти советы уберегут вас от неприятностей.",
-
-s_tips:"Советы по безопасности",
-
-t1:"<strong>Держите телефон крепко, рюкзак — закрытым.</strong> Не оставляйте вещи на полу, на столе и не вешайте на спинку стула.",
-
-t2:"<strong>Следите за своим бокалом.</strong> Не оставляйте его без присмотра, не берите напитки у незнакомцев, а если вкус странный — не пейте.",
-
-t3:"<strong>Всегда держитесь группой.</strong> Избегайте пустых улиц и вызывайте безопасный транспорт домой.",
-
-t4:"<strong>В метро и автобусе носите рюкзак спереди.</strong> Не надевайте заметные украшения, телефон убирайте при ходьбе.",
-
-t5:"<strong>На пляже никогда не оставляйте вещи на песке</strong>, пока купаетесь. Кражи происходят мгновенно.",
-
-t6:"<strong>Если кто-то пытается вас отвлечь — уходите.</strong> Это самый частый приём карманников.",
-
-t7:"<strong>Паспорт — в сейфе отеля</strong> или в поясной сумке под одеждой. По возможности платите картой или телефоном.",
-
-s_zones:"Где быть особенно внимательным",
-
-z_intro:"Ночью здесь много карманников и людей, которые пользуются невнимательностью туристов — особенно в этих районах:",
-
-z_gothic:"Готический квартал", z_beaches:"Пляжи", z_metro:"Метро L1 и L3",
-
-s_fines:"Новые штрафы 2026",
-
-f_intro:"С 15 февраля 2026 года действуют более строгие правила поведения. У городской полиции есть терминалы оплаты, и штраф можно взыскать на месте.",
-
-f1:"Без футболки или в купальнике вне пляжа",
-
-f2:"Распитие алкоголя на улице рядом с несовершеннолетними или ночью в зонах с ограничением шума",
-
-f3:"Организация или реклама алкогольных туров по барам",
-
-f_caveat:"Полиция обязана сначала предупредить; штрафуют только если вы продолжаете.",
-
-s_help:"Если нужна помощь",
-
-sos1:"Экстренные службы", sos2:"Национальная полиция", sos3:"Городская полиция",
-
-sos_hint:"Нажмите на номер, чтобы позвонить сразу.",
-
-s_uber:"Uber и VTC",
-
-uber:"Всегда пользуйтесь Uber или лицензированным VTC: водитель довезёт вас безопасно и легально. <span class=\"warn\">Никогда не садитесь в машину без лицензии.</span>",
-
-s_video:"Видео", video:"Здесь будет видео Travely<br>(ещё не загружено на YouTube)",
-
-th_title:"Спасибо, что поехали со мной!",
-
-th1:"Если поездка прошла хорошо, ваша оценка в <strong>5 звёзд</strong> очень мне помогает.",
-
-th2:"Чаевые никогда не обязательны, но им всегда очень рад.",
-
-th_btn:"Оставить чаевые", th_hint:"Выберите удобный способ.", th_bizum_note:"Только с испанского банковского счёта", th_copy:"Скопировать номер", th_copied:"Скопировано!",
-
-s_ngo:"Помочь тем, кому нужно",
-
-ngo_q:"<strong>Хотите, чтобы эти деньги помогли кому-то другому?</strong>",
-
-ngo_t:"Вы можете сделать пожертвование напрямую организации, которая работает с бездомными в Барселоне. Деньги полностью идут им — через меня они не проходят.",
-
-ngo_btn:"Пожертвовать организации",
-
-foot:"Наслаждайтесь Барселоной и берегите себя.",
-sos_thanks:"Сантьяго благодарит вас за внимание"
-
-},
-
-
-
-ja:{
-
-eyebrow:"ドライバーからのご案内", byline:"運転手のサンティアゴです。このページはお客様のためにご用意しました。", hero_ask:"チップをありがとうございます。快適な乗車でしたら、<strong>星5つ</strong>の評価がとても励みになります。", welcome:"ようこそ",
-
-lede:"街を思いきり楽しんでください。ただし油断は禁物です。以下の注意点で、嫌な思いをせずに済みます。",
-
-s_tips:"安全のためのアドバイス",
-
-t1:"<strong>スマホはしっかり持ち、カバンは必ず閉める。</strong> 床・テーブル・椅子の背もたれに荷物を置いたままにしないこと。",
-
-t2:"<strong>飲み物から目を離さない。</strong> 席を離れるときは持っていき、知らない人からの飲み物は受け取らない。味がおかしければ飲まないこと。",
-
-t3:"<strong>必ずグループで行動する。</strong> 人通りのない道は避け、帰りは安全な交通手段を手配してください。",
-
-t4:"<strong>地下鉄やバスではカバンを体の前に。</strong> 目立つ装飾品は避け、歩くときはスマホをしまいましょう。",
-
-t5:"<strong>ビーチでは泳いでいる間、砂の上に荷物を置かないでください。</strong> 盗難は一瞬です。",
-
-t6:"<strong>誰かが気を引こうとしてきたら、その場を離れる。</strong> スリの最も一般的な手口です。",
-
-t7:"<strong>パスポートはホテルの金庫へ</strong>、または衣類の内側のポーチに。できる限りカードやスマホで支払いを。",
-
-s_zones:"特に注意が必要な場所",
-
-z_intro:"夜間はスリが多く、油断した観光客を狙う人がいます。特に次のエリアです：",
-
-z_gothic:"ゴシック地区", z_beaches:"ビーチ", z_metro:"地下鉄 L1・L3",
-
-s_fines:"2026年の新しい罰金",
-
-f_intro:"2026年2月15日より、より厳しい条例が施行されています。市警はカード決済端末を携行しており、その場で罰金を徴収できます。",
-
-f1:"ビーチ以外で上半身裸、または水着のまま歩くこと",
-
-f2:"未成年者の近くでの路上飲酒、または夜間の騒音規制区域での飲酒",
-
-f3:"はしご酒ツアーの主催・宣伝",
-
-f_caveat:"警察はまず警告する義務があります。従わない場合にのみ罰金となります。",
-
-s_help:"助けが必要なとき",
-
-sos1:"緊急通報", sos2:"国家警察", sos3:"市警察",
-
-sos_hint:"番号をタップするとそのまま発信できます。",
-
-s_uber:"Uber・VTC について",
-
-uber:"必ず Uber か認可を受けた VTC を利用してください。安全かつ合法に目的地までお送りします。<span class=\"warn\">無認可の車には絶対に乗らないでください。</span>",
-
-s_video:"動画", video:"ここに Travely の動画が入ります<br>（YouTube へアップロード予定）",
-
-th_title:"ご乗車ありがとうございました！",
-
-th1:"快適な乗車だったなら、<strong>星5つ</strong>の評価がとても励みになります。",
-
-th2:"チップは決して必須ではありませんが、いただけるととても嬉しいです。",
-
-th_btn:"チップを渡す", th_hint:"お好きな方法をお選びください。", th_bizum_note:"スペインの銀行口座のみ", th_copy:"番号をコピー", th_copied:"コピーしました",
-
-s_ngo:"困っている人を支援する",
-
-ngo_q:"<strong>そのお金を、誰か別の人のために役立てませんか？</strong>",
-
-ngo_t:"バルセロナでホームレスの方々を支援する団体に直接寄付できます。お金は全額そのまま団体へ届き、私を経由することは一切ありません。",
-
-ngo_btn:"団体に寄付する",
-
-foot:"バルセロナを楽しみ、安全なご滞在を。",
-sos_thanks:"見ていただきありがとうございます — サンティアゴ"
-
-},
-
-
-
-zh:{
-
-eyebrow:"来自您司机的用心", byline:"我是圣地亚哥，您的司机。这个页面是我为您准备的。", hero_ask:"感谢您的小费。如果这趟行程还满意，您的<strong>五星好评</strong>对我帮助很大。", welcome:"欢迎来到",
-
-lede:"尽情享受这座城市，但请保持警惕。这些提醒能帮您避免不愉快。",
-
-s_tips:"安全提示",
-
-t1:"<strong>手机拿稳，背包拉好。</strong> 不要把东西放在地上、桌上，或挂在椅背上。",
-
-t2:"<strong>看好自己的酒杯。</strong> 不要让它离开视线，不要接受陌生人递来的饮料，如果味道不对就别喝。",
-
-t3:"<strong>始终结伴而行。</strong> 避开无人的街道，回程请叫安全的交通工具。",
-
-t4:"<strong>乘地铁和公交时，背包背在身前。</strong> 首饰低调，走路时把手机收好。",
-
-t5:"<strong>在海滩下水时，绝不要把东西留在沙滩上。</strong> 偷窃只需几秒。",
-
-t6:"<strong>如果有人试图分散您的注意力，请立刻走开。</strong> 这是扒手最常用的手法。",
-
-t7:"<strong>护照放在酒店保险箱</strong>或贴身腰包里。尽量使用银行卡或手机支付。",
-
-s_zones:"需要格外小心的区域",
-
-z_intro:"夜间扒手较多，专挑注意力分散的游客下手，尤其是以下区域：",
-
-z_gothic:"哥特区", z_beaches:"各处海滩", z_metro:"地铁 L1、L3 线",
-
-s_fines:"2026 年新规罚款",
-
-f_intro:"自 2026 年 2 月 15 日起，实施更严格的公共行为条例。市警配有刷卡机，可当场收取罚款。",
-
-f1:"在海滩以外的区域赤膊或只穿泳装",
-
-f2:"在未成年人附近的街头饮酒，或夜间在噪音管制区饮酒",
-
-f3:"组织或推广酒吧串饮活动",
-
-f_caveat:"警察必须先行警告；只有在您坚持不改时才会开罚单。",
-
-s_help:"需要帮助时",
-
-sos1:"紧急求助", sos2:"国家警察", sos3:"市政警察",
-
-sos_hint:"点击号码即可直接拨打。",
-
-s_uber:"Uber 与 VTC",
-
-uber:"请始终使用 Uber 或持牌 VTC：司机会安全合法地送您到达目的地。<span class=\"warn\">切勿乘坐无牌照车辆。</span>",
-
-s_video:"视频", video:"此处将放置 Travely 的视频<br>（尚未上传至 YouTube）",
-
-th_title:"感谢您的乘坐！",
-
-th1:"如果这趟行程还满意，您的 <strong>五星好评</strong> 对我帮助很大。",
-
-th2:"小费从来不是必须的，但收到时我总是非常感激。",
-
-th_btn:"给小费", th_hint:"选择您方便的方式。", th_bizum_note:"仅限西班牙银行账户", th_copy:"复制号码", th_copied:"已复制",
-
-s_ngo:"帮助需要帮助的人",
-
-ngo_q:"<strong>您是否更希望这笔钱去帮助别人？</strong>",
-
-ngo_t:"您可以直接捐给在巴塞罗那服务无家可归者的机构。款项全额归他们所有，完全不经过我。",
-
-ngo_btn:"向该机构捐款",
-
-foot:"祝您在巴塞罗那玩得开心、平安顺利。",
-sos_thanks:"圣地亚哥感谢您的关注"
-
-},
-
-
-
-"zh-Hant":{
-
-eyebrow:"來自您司機的用心", byline:"我是聖地亞哥，您的司機。這個頁面是我為您準備的。", hero_ask:"感謝您的小費。如果這趟行程還滿意，您的<strong>五星好評</strong>對我幫助很大。", welcome:"歡迎來到",
-
-lede:"盡情享受這座城市，但請保持警覺。這些提醒能幫您避免不愉快。",
-
-s_tips:"安全提示",
-
-t1:"<strong>手機拿穩，背包拉好。</strong> 不要把東西放在地上、桌上，或掛在椅背上。",
-
-t2:"<strong>看好自己的酒杯。</strong> 不要讓它離開視線，不要接受陌生人遞來的飲料，如果味道不對就別喝。",
-
-t3:"<strong>始終結伴而行。</strong> 避開無人的街道，回程請叫安全的交通工具。",
-
-t4:"<strong>乘地鐵和巴士時，背包背在身前。</strong> 首飾低調，走路時把手機收好。",
-
-t5:"<strong>在海灘下水時，絕不要把東西留在沙灘上。</strong> 偷竊只需幾秒。",
-
-t6:"<strong>如果有人試圖分散您的注意力，請立刻走開。</strong> 這是扒手最常用的手法。",
-
-t7:"<strong>護照放在酒店保險箱</strong>或貼身腰包裡。盡量使用銀行卡或手機支付。",
-
-s_zones:"需要格外小心的區域",
-
-z_intro:"夜間扒手較多，專挑注意力分散的遊客下手，尤其是以下區域：",
-
-z_gothic:"哥德區", z_beaches:"各處海灘", z_metro:"地鐵 L1、L3 線",
-
-s_fines:"2026 年新規罰款",
-
-f_intro:"自 2026 年 2 月 15 日起，實施更嚴格的公共行為條例。市警配有刷卡機，可當場收取罰款。",
-
-f1:"在海灘以外的區域赤膊或只穿泳裝",
-
-f2:"在未成年人附近的街頭飲酒，或夜間在噪音管制區飲酒",
-
-f3:"組織或推廣酒吧串飲活動",
-
-f_caveat:"警察必須先行警告；只有在您堅持不改時才會開罰單。",
-
-s_help:"需要幫助時",
-
-sos1:"緊急求助", sos2:"國家警察", sos3:"市政警察",
-
-sos_hint:"點擊號碼即可直接撥打。",
-
-s_uber:"Uber 與 VTC",
-
-uber:"請始終使用 Uber 或持牌 VTC：司機會安全合法地送您到達目的地。<span class=\"warn\">切勿乘坐無牌照車輛。</span>",
-
-s_video:"影片", video:"此處將放置 Travely 的影片<br>（尚未上傳至 YouTube）",
-
-th_title:"感謝您的乘坐！",
-
-th1:"如果這趟行程還滿意，您的 <strong>五星好評</strong> 對我幫助很大。",
-
-th2:"小費從來不是必須的，但收到時我總是非常感激。",
-
-th_btn:"給小費", th_hint:"選擇您方便的方式。", th_bizum_note:"僅限西班牙銀行帳戶", th_copy:"複製號碼", th_copied:"已複製",
-
-s_ngo:"幫助需要幫助的人",
-
-ngo_q:"<strong>您是否更希望這筆錢去幫助別人？</strong>",
-
-ngo_t:"您可以直接捐給在巴塞隆納服務無家可歸者的機構。款項全額歸他們所有，完全不經過我。",
-
-ngo_btn:"向該機構捐款",
-
-foot:"祝您在巴塞隆納玩得開心、平安順利。",
-sos_thanks:"聖地牙哥感謝您的關注"
-
-}
-
-
-
+ "es": {
+  "eyebrow": "Una iniciativa de tu conductor",
+  "byline": "Soy Santiago, tu conductor. He preparado esta página para ti.",
+  "hero_ask": "Gracias por las propinas. Y si el viaje ha ido bien, tus <strong>cinco estrellas</strong> me ayudan muchísimo.",
+  "welcome": "Bienvenido a",
+  "lede": "Sal de fiesta, disfruta la ciudad — pero siempre con cabeza. Estos consejos te ahorran el disgusto.",
+  "s_tips": "Consejos de seguridad",
+  "t1": "<strong>Móvil bien sujeto y mochila cerrada.</strong> No dejes nada en el suelo, en la mesa ni colgado de la silla.",
+  "t2": "<strong>Vigila tu copa.</strong> No la dejes sola, no aceptes bebidas de desconocidos y si algo sabe raro, déjala.",
+  "t3": "<strong>Ve siempre en grupo.</strong> Evita calles solas y pide transporte seguro para volver a casa.",
+  "t4": "<strong>En metro y bus, la mochila delante.</strong> Joyas discretas y el móvil guardado al caminar.",
+  "t5": "<strong>En la playa, nunca dejes tus cosas en la arena</strong> mientras te bañas. Los robos son rápidos.",
+  "t6": "<strong>Si alguien intenta distraerte, aléjate.</strong> Es la técnica más común de los carteristas.",
+  "t7": "<strong>Pasaporte en la caja fuerte del hotel</strong> o en riñonera interior. Paga con tarjeta o móvil siempre que puedas.",
+  "s_zones": "Dónde ir con más cuidado",
+  "z_intro": "Por la noche hay muchos carteristas y gente que se aprovecha de los despistes, sobre todo en estas zonas:",
+  "z_gothic": "Barrio Gótico",
+  "z_beaches": "Las playas",
+  "z_metro": "Metro L1 y L3",
+  "s_fines": "Multas nuevas 2026",
+  "f_intro": "Desde el 15 de febrero de 2026 rige una ordenanza de civismo más dura. La Guardia Urbana lleva datáfono y puede cobrarte la multa en el momento.",
+  "f1": "Ir sin camiseta o en bañador fuera de la playa",
+  "f2": "Beber alcohol en la calle con menores cerca, o de noche en zonas con restricción de ruido",
+  "f3": "Organizar o promocionar rutas de borrachera",
+  "f_caveat": "La policía debe avisarte antes de multar; solo sanciona si insistes.",
+  "s_help": "Si necesitas ayuda",
+  "sos1": "Emergencias",
+  "sos2": "Policía Nacional",
+  "sos3": "Guardia Urbana",
+  "sos_hint": "Toca el número para llamar directamente.",
+  "s_uber": "Uber y VTC",
+  "uber": "Usa siempre Uber o un VTC con licencia: el conductor te lleva de forma segura y legal. <span class=\"warn\">No subas nunca a un vehículo sin licencia.</span>",
+  "s_map": "Mapa de Barcelona",
+  "map_desc": "Sitios verificados uno a uno por Santiago, tu conductor. Restaurantes, playas, qué ver, seguridad y más.",
+  "sos_thanks": "Santiago te lo agradece por mirar",
+  "s_video": "El vídeo",
+  "video": "Aquí va el vídeo de Travely<br>(pendiente de subirlo a YouTube)",
+  "th_title": "¡Gracias por viajar conmigo!",
+  "th1": "Si el viaje te ha ido bien, tu valoración de <strong>5 estrellas</strong> me ayuda muchísimo.",
+  "th2": "Las propinas nunca son obligatorias, pero siempre se agradecen mucho.",
+  "th_btn": "Dejar propina",
+  "th_hint": "Elige el método que te vaya mejor.",
+  "th_bizum_note": "Solo desde un banco español",
+  "th_copy": "Copiar número",
+  "th_copied": "¡Copiado!",
+  "s_ngo": "Ayudar a quien lo necesita",
+  "ngo_q": "<strong>¿Prefieres que ese dinero ayude a otra persona?</strong>",
+  "ngo_t": "Puedes donar directamente a una entidad que trabaja con personas sin hogar en Barcelona. El dinero va íntegro a ellos: no pasa por mí en ningún momento.",
+  "ngo_btn": "Donar a la entidad",
+  "foot": "Disfruta de Barcelona y ten una estancia segura.",
+  "map_btn": "Ver el mapa"
+ },
+ "ca": {
+  "eyebrow": "Una iniciativa del teu conductor",
+  "byline": "Soc en Santiago, el teu conductor. He preparat aquesta pàgina per a tu.",
+  "hero_ask": "Gràcies per les propines. I si el viatge ha anat bé, les teves <strong>cinc estrelles</strong> m'ajuden moltíssim.",
+  "welcome": "Benvingut a",
+  "lede": "Surt de festa, gaudeix de la ciutat — però sempre amb cap. Aquests consells t'estalvien el disgust.",
+  "s_tips": "Consells de seguretat",
+  "t1": "<strong>Mòbil ben agafat i motxilla tancada.</strong> No deixis res a terra, a la taula ni penjat de la cadira.",
+  "t2": "<strong>Vigila la teva copa.</strong> No la deixis sola, no acceptis begudes de desconeguts i si té un gust estrany, deixa-la.",
+  "t3": "<strong>Vés sempre en grup.</strong> Evita carrers solitaris i demana transport segur per tornar a casa.",
+  "t4": "<strong>Al metro i al bus, la motxilla al davant.</strong> Joies discretes i el mòbil guardat mentre camines.",
+  "t5": "<strong>A la platja, no deixis mai les teves coses a la sorra</strong> mentre et banyes. Els robatoris són ràpids.",
+  "t6": "<strong>Si algú intenta distreure't, allunya't.</strong> És la tècnica més comuna dels carteristes.",
+  "t7": "<strong>Passaport a la caixa forta de l'hotel</strong> o en una ronyonera interior. Paga amb targeta o mòbil sempre que puguis.",
+  "s_zones": "On anar amb més compte",
+  "z_intro": "De nit hi ha molts carteristes i gent que s'aprofita dels despistats, sobretot en aquestes zones:",
+  "z_gothic": "Barri Gòtic",
+  "z_beaches": "Les platges",
+  "z_metro": "Metro L1 i L3",
+  "s_fines": "Multes noves 2026",
+  "f_intro": "Des del 15 de febrer de 2026 hi ha una ordenança de civisme més dura. La Guàrdia Urbana porta datàfon i et pot cobrar la multa a l'instant.",
+  "f1": "Anar sense samarreta o en banyador fora de la platja",
+  "f2": "Beure alcohol al carrer amb menors a prop, o de nit en zones amb restricció de soroll",
+  "f3": "Organitzar o promocionar rutes de borratxera",
+  "f_caveat": "La policia t'ha d'avisar abans de multar; només sanciona si insisteixes.",
+  "s_help": "Si necessites ajuda",
+  "sos1": "Emergències",
+  "sos2": "Policia Nacional",
+  "sos3": "Guàrdia Urbana",
+  "sos_hint": "Toca el número per trucar directament.",
+  "s_uber": "Uber i VTC",
+  "uber": "Fes servir sempre Uber o un VTC amb llicència: el conductor et porta de manera segura i legal. <span class=\"warn\">No pugis mai a un vehicle sense llicència.</span>",
+  "s_video": "El vídeo",
+  "video": "Aquí va el vídeo d'en Travely<br>(pendent de pujar-lo a YouTube)",
+  "th_title": "Gràcies per viatjar amb mi!",
+  "th1": "Si el viatge t'ha anat bé, la teva valoració de <strong>5 estrelles</strong> m'ajuda moltíssim.",
+  "th2": "Les propines no són mai obligatòries, però sempre s'agraeixen molt.",
+  "th_btn": "Deixar propina",
+  "th_hint": "Tria el mètode que et vagi millor.",
+  "th_bizum_note": "Només des d'un banc espanyol",
+  "th_copy": "Copiar número",
+  "th_copied": "Copiat!",
+  "s_ngo": "Ajudar qui ho necessita",
+  "ngo_q": "<strong>Prefereixes que aquests diners ajudin una altra persona?</strong>",
+  "ngo_t": "Pots donar directament a una entitat que treballa amb persones sense llar a Barcelona. Els diners hi van íntegrament: no passen per mi en cap moment.",
+  "ngo_btn": "Donar a l'entitat",
+  "foot": "Gaudeix de Barcelona i tingues una estada segura.",
+  "sos_thanks": "En Santiago t'ho agraeix per mirar-ho",
+  "s_map": "Mapa de Barcelona",
+  "map_desc": "Llocs verificats un a un per en Santiago, el teu conductor. Restaurants, platges, què veure, seguretat i més.",
+  "map_btn": "Veure el mapa"
+ },
+ "en": {
+  "eyebrow": "An initiative by your driver",
+  "byline": "I'm Santiago, your driver. I put this page together for you.",
+  "hero_ask": "Thank you for the tips. And if the ride went well, your <strong>five stars</strong> help me a lot.",
+  "welcome": "Welcome to",
+  "lede": "Go out, enjoy the city — but stay sharp. These tips save you the bad night.",
+  "s_tips": "Safety tips",
+  "t1": "<strong>Hold your phone tight, keep your bag zipped.</strong> Never leave anything on the floor, on the table or hanging off your chair.",
+  "t2": "<strong>Watch your drink.</strong> Never leave it unattended, don't accept drinks from strangers, and if it tastes odd, leave it.",
+  "t3": "<strong>Always stay in a group.</strong> Avoid empty streets and book a safe ride home.",
+  "t4": "<strong>On the metro and bus, wear your bag in front.</strong> Discreet jewelry, phone away while walking.",
+  "t5": "<strong>At the beach, never leave your things on the sand</strong> while you swim. Thefts are fast.",
+  "t6": "<strong>If someone tries to distract you, walk away.</strong> It's the most common pickpocket trick.",
+  "t7": "<strong>Passport in the hotel safe</strong> or a concealed belt. Pay by card or phone whenever you can.",
+  "s_zones": "Where to be extra careful",
+  "z_intro": "At night there are plenty of pickpockets and people who prey on distracted tourists, especially here:",
+  "z_gothic": "Gothic Quarter",
+  "z_beaches": "The beaches",
+  "z_metro": "Metro L1 &amp; L3",
+  "s_fines": "New 2026 fines",
+  "f_intro": "Since 15 February 2026 a stricter public-conduct by-law applies. The Guardia Urbana carries card readers and can charge you on the spot.",
+  "f1": "Going shirtless or in swimwear away from the beach",
+  "f2": "Drinking in the street near minors, or at night in noise-restricted areas",
+  "f3": "Organising or promoting pub-crawl drinking routes",
+  "f_caveat": "Police must warn you first; they only fine you if you persist.",
+  "s_help": "If you need help",
+  "sos1": "Emergency",
+  "sos2": "National Police",
+  "sos3": "Local Police",
+  "sos_hint": "Tap a number to call straight away.",
+  "s_uber": "Uber &amp; VTC",
+  "uber": "Always use Uber or a licensed VTC: the driver takes you safely and legally. <span class=\"warn\">Never get into an unlicensed vehicle.</span>",
+  "s_map": "Barcelona Map",
+  "map_desc": "Places checked one by one by Santiago, your driver. Restaurants, beaches, things to see, safety and more.",
+  "sos_thanks": "Santiago thanks you for looking",
+  "s_video": "The video",
+  "video": "Travely's video goes here<br>(pending YouTube upload)",
+  "th_title": "Thanks for riding with me!",
+  "th1": "If the ride went well, your <strong>5-star</strong> rating helps me a lot.",
+  "th2": "Tips are never required, but they're always hugely appreciated.",
+  "th_btn": "Leave a tip",
+  "th_hint": "Pick whichever works for you.",
+  "th_bizum_note": "Spanish bank accounts only",
+  "th_copy": "Copy number",
+  "th_copied": "Copied!",
+  "s_ngo": "Help someone in need",
+  "ngo_q": "<strong>Would you rather that money helped someone else?</strong>",
+  "ngo_t": "You can donate straight to an organisation working with homeless people in Barcelona. The money goes entirely to them — it never passes through me.",
+  "ngo_btn": "Donate to the charity",
+  "foot": "Enjoy Barcelona and have a safe stay.",
+  "map_btn": "Open the map"
+ },
+ "fr": {
+  "eyebrow": "Une initiative de votre chauffeur",
+  "byline": "Je suis Santiago, votre chauffeur. J'ai préparé cette page pour vous.",
+  "hero_ask": "Merci pour les pourboires. Et si le trajet s'est bien passé, vos <strong>cinq étoiles</strong> m'aident énormément.",
+  "welcome": "Bienvenue à",
+  "lede": "Sortez, profitez de la ville — mais gardez la tête froide. Ces conseils vous évitent la mauvaise soirée.",
+  "s_tips": "Conseils de sécurité",
+  "t1": "<strong>Téléphone bien tenu, sac fermé.</strong> Ne laissez rien par terre, sur la table ni accroché à la chaise.",
+  "t2": "<strong>Surveillez votre verre.</strong> Ne le laissez jamais sans surveillance, n'acceptez pas de boisson d'un inconnu et si le goût est bizarre, laissez-le.",
+  "t3": "<strong>Restez toujours en groupe.</strong> Évitez les rues désertes et réservez un transport sûr pour rentrer.",
+  "t4": "<strong>Dans le métro et le bus, sac devant vous.</strong> Bijoux discrets et téléphone rangé quand vous marchez.",
+  "t5": "<strong>À la plage, ne laissez jamais vos affaires sur le sable</strong> pendant que vous vous baignez. Les vols sont rapides.",
+  "t6": "<strong>Si quelqu'un cherche à vous distraire, éloignez-vous.</strong> C'est la technique la plus courante des pickpockets.",
+  "t7": "<strong>Passeport dans le coffre de l'hôtel</strong> ou dans une ceinture cachée. Payez par carte ou téléphone dès que possible.",
+  "s_zones": "Où redoubler de prudence",
+  "z_intro": "La nuit, il y a beaucoup de pickpockets et de personnes qui profitent des touristes distraits, surtout ici :",
+  "z_gothic": "Quartier Gothique",
+  "z_beaches": "Les plages",
+  "z_metro": "Métro L1 et L3",
+  "s_fines": "Nouvelles amendes 2026",
+  "f_intro": "Depuis le 15 février 2026, un règlement de civisme plus strict s'applique. La Guardia Urbana dispose de terminaux de paiement et peut encaisser l'amende sur place.",
+  "f1": "Être torse nu ou en maillot de bain hors de la plage",
+  "f2": "Boire de l'alcool dans la rue près de mineurs, ou la nuit dans les zones à restriction de bruit",
+  "f3": "Organiser ou promouvoir des tournées de beuverie",
+  "f_caveat": "La police doit vous avertir avant de verbaliser ; elle n'inflige l'amende que si vous insistez.",
+  "s_help": "Si vous avez besoin d'aide",
+  "sos1": "Urgences",
+  "sos2": "Police Nationale",
+  "sos3": "Police Municipale",
+  "sos_hint": "Touchez le numéro pour appeler directement.",
+  "s_uber": "Uber et VTC",
+  "uber": "Utilisez toujours Uber ou un VTC agréé : le chauffeur vous conduit en toute sécurité et en toute légalité. <span class=\"warn\">Ne montez jamais dans un véhicule sans licence.</span>",
+  "s_video": "La vidéo",
+  "video": "La vidéo de Travely arrive ici<br>(en attente de mise en ligne sur YouTube)",
+  "th_title": "Merci d'avoir voyagé avec moi !",
+  "th1": "Si le trajet s'est bien passé, votre note <strong>5 étoiles</strong> m'aide énormément.",
+  "th2": "Les pourboires ne sont jamais obligatoires, mais ils font toujours très plaisir.",
+  "th_btn": "Laisser un pourboire",
+  "th_hint": "Choisissez ce qui vous arrange.",
+  "th_bizum_note": "Uniquement depuis une banque espagnole",
+  "th_copy": "Copier le numéro",
+  "th_copied": "Copié !",
+  "s_ngo": "Aider ceux qui en ont besoin",
+  "ngo_q": "<strong>Vous préférez que cet argent aide quelqu'un d'autre ?</strong>",
+  "ngo_t": "Vous pouvez faire un don directement à une association qui travaille avec les personnes sans abri à Barcelone. L'argent leur revient intégralement : il ne passe jamais par moi.",
+  "ngo_btn": "Faire un don à l'association",
+  "foot": "Profitez de Barcelone et passez un séjour en toute sécurité.",
+  "sos_thanks": "Santiago vous remercie d'avoir regardé",
+  "s_map": "Carte de Barcelone",
+  "map_desc": "Lieux vérifiés un par un par Santiago, votre chauffeur. Restaurants, plages, à voir, sécurité et plus.",
+  "map_btn": "Voir la carte"
+ },
+ "de": {
+  "eyebrow": "Eine Initiative deines Fahrers",
+  "byline": "Ich bin Santiago, dein Fahrer. Diese Seite habe ich für dich gemacht.",
+  "hero_ask": "Danke für das Trinkgeld. Und wenn die Fahrt gut war, helfen mir deine <strong>fünf Sterne</strong> sehr.",
+  "welcome": "Willkommen in",
+  "lede": "Geh aus, genieß die Stadt — aber bleib wachsam. Diese Tipps ersparen dir den Ärger.",
+  "s_tips": "Sicherheitstipps",
+  "t1": "<strong>Handy gut festhalten, Rucksack geschlossen.</strong> Lass nichts auf dem Boden, auf dem Tisch oder über der Stuhllehne liegen.",
+  "t2": "<strong>Pass auf dein Getränk auf.</strong> Lass es nie unbeaufsichtigt, nimm keine Getränke von Fremden an, und wenn es komisch schmeckt, lass es stehen.",
+  "t3": "<strong>Geh immer in der Gruppe.</strong> Meide leere Straßen und buche eine sichere Fahrt nach Hause.",
+  "t4": "<strong>In Metro und Bus den Rucksack vorne tragen.</strong> Dezenter Schmuck, Handy weg beim Gehen.",
+  "t5": "<strong>Am Strand nie deine Sachen im Sand liegen lassen</strong>, während du schwimmst. Diebstähle gehen schnell.",
+  "t6": "<strong>Wenn dich jemand ablenken will, geh weiter.</strong> Das ist der häufigste Trick der Taschendiebe.",
+  "t7": "<strong>Reisepass in den Hotelsafe</strong> oder in eine verdeckte Gürteltasche. Zahl mit Karte oder Handy, wann immer es geht.",
+  "s_zones": "Wo besondere Vorsicht gilt",
+  "z_intro": "Nachts sind viele Taschendiebe unterwegs, die abgelenkte Touristen ausnutzen — vor allem hier:",
+  "z_gothic": "Gotisches Viertel",
+  "z_beaches": "Die Strände",
+  "z_metro": "Metro L1 und L3",
+  "s_fines": "Neue Bußgelder 2026",
+  "f_intro": "Seit dem 15. Februar 2026 gilt eine strengere Verordnung. Die Guardia Urbana hat Kartenlesegeräte dabei und kann das Bußgeld sofort kassieren.",
+  "f1": "Ohne T-Shirt oder in Badekleidung abseits des Strandes",
+  "f2": "Alkohol auf der Straße in der Nähe von Minderjährigen oder nachts in lärmgeschützten Zonen",
+  "f3": "Sauftouren organisieren oder bewerben",
+  "f_caveat": "Die Polizei muss dich erst verwarnen; ein Bußgeld gibt es nur, wenn du weitermachst.",
+  "s_help": "Wenn du Hilfe brauchst",
+  "sos1": "Notruf",
+  "sos2": "Nationalpolizei",
+  "sos3": "Stadtpolizei",
+  "sos_hint": "Tippe auf die Nummer, um direkt anzurufen.",
+  "s_uber": "Uber und VTC",
+  "uber": "Nutze immer Uber oder einen lizenzierten VTC: Der Fahrer bringt dich sicher und legal ans Ziel. <span class=\"warn\">Steig nie in ein Fahrzeug ohne Lizenz.</span>",
+  "s_video": "Das Video",
+  "video": "Hier kommt das Travely-Video hin<br>(YouTube-Upload steht noch aus)",
+  "th_title": "Danke, dass du mitgefahren bist!",
+  "th1": "Wenn die Fahrt gut war, hilft mir deine <strong>5-Sterne-Bewertung</strong> enorm.",
+  "th2": "Trinkgeld ist nie Pflicht, aber ich freue mich immer riesig darüber.",
+  "th_btn": "Trinkgeld geben",
+  "th_hint": "Wähl, was für dich am einfachsten ist.",
+  "th_bizum_note": "Nur von spanischen Banken",
+  "th_copy": "Nummer kopieren",
+  "th_copied": "Kopiert!",
+  "s_ngo": "Jemandem in Not helfen",
+  "ngo_q": "<strong>Soll das Geld lieber jemand anderem helfen?</strong>",
+  "ngo_t": "Du kannst direkt an eine Organisation spenden, die sich in Barcelona um Obdachlose kümmert. Das Geld geht vollständig an sie — es läuft zu keinem Zeitpunkt über mich.",
+  "ngo_btn": "An die Organisation spenden",
+  "foot": "Genieß Barcelona und hab einen sicheren Aufenthalt.",
+  "sos_thanks": "Santiago dankt dir fürs Anschauen",
+  "s_map": "Barcelona-Karte",
+  "map_desc": "Orte, die Santiago, dein Fahrer, einzeln geprüft hat. Restaurants, Strände, Sehenswürdigkeiten, Sicherheit und mehr.",
+  "map_btn": "Karte öffnen"
+ },
+ "it": {
+  "eyebrow": "Un'iniziativa del tuo autista",
+  "byline": "Sono Santiago, il tuo autista. Ho preparato questa pagina per te.",
+  "hero_ask": "Grazie per le mance. E se il viaggio è andato bene, le tue <strong>cinque stelle</strong> mi aiutano moltissimo.",
+  "welcome": "Benvenuto a",
+  "lede": "Esci, goditi la città — ma sempre con la testa. Questi consigli ti evitano il dispiacere.",
+  "s_tips": "Consigli di sicurezza",
+  "t1": "<strong>Cellulare ben stretto e zaino chiuso.</strong> Non lasciare niente per terra, sul tavolo o appeso alla sedia.",
+  "t2": "<strong>Tieni d'occhio il tuo drink.</strong> Non lasciarlo mai incustodito, non accettare bevande da sconosciuti e se ha un sapore strano, lascialo.",
+  "t3": "<strong>Vai sempre in gruppo.</strong> Evita le strade deserte e prenota un trasporto sicuro per tornare.",
+  "t4": "<strong>In metro e sul bus, zaino davanti.</strong> Gioielli discreti e cellulare riposto mentre cammini.",
+  "t5": "<strong>In spiaggia non lasciare mai le tue cose sulla sabbia</strong> mentre fai il bagno. I furti sono rapidi.",
+  "t6": "<strong>Se qualcuno cerca di distrarti, allontanati.</strong> È la tecnica più comune dei borseggiatori.",
+  "t7": "<strong>Passaporto nella cassaforte dell'hotel</strong> o in un marsupio interno. Paga con carta o cellulare quando puoi.",
+  "s_zones": "Dove fare più attenzione",
+  "z_intro": "Di notte ci sono molti borseggiatori e persone che approfittano dei turisti distratti, soprattutto qui:",
+  "z_gothic": "Quartiere Gotico",
+  "z_beaches": "Le spiagge",
+  "z_metro": "Metro L1 e L3",
+  "s_fines": "Nuove multe 2026",
+  "f_intro": "Dal 15 febbraio 2026 è in vigore un regolamento più severo. La Guardia Urbana ha il POS e può farti pagare la multa sul posto.",
+  "f1": "Girare senza maglietta o in costume fuori dalla spiaggia",
+  "f2": "Bere alcolici per strada vicino a minori, o di notte in zone con limiti di rumore",
+  "f3": "Organizzare o promuovere giri di locali per ubriacarsi",
+  "f_caveat": "La polizia deve avvisarti prima di multare; sanziona solo se insisti.",
+  "s_help": "Se hai bisogno di aiuto",
+  "sos1": "Emergenze",
+  "sos2": "Polizia Nazionale",
+  "sos3": "Polizia Locale",
+  "sos_hint": "Tocca il numero per chiamare subito.",
+  "s_uber": "Uber e VTC",
+  "uber": "Usa sempre Uber o un VTC autorizzato: l'autista ti porta in modo sicuro e legale. <span class=\"warn\">Non salire mai su un veicolo senza licenza.</span>",
+  "s_video": "Il video",
+  "video": "Qui andrà il video di Travely<br>(in attesa di caricarlo su YouTube)",
+  "th_title": "Grazie per aver viaggiato con me!",
+  "th1": "Se il viaggio è andato bene, la tua valutazione a <strong>5 stelle</strong> mi aiuta moltissimo.",
+  "th2": "Le mance non sono mai obbligatorie, ma fanno sempre molto piacere.",
+  "th_btn": "Lascia una mancia",
+  "th_hint": "Scegli il metodo che preferisci.",
+  "th_bizum_note": "Solo da una banca spagnola",
+  "th_copy": "Copia il numero",
+  "th_copied": "Copiato!",
+  "s_ngo": "Aiutare chi ne ha bisogno",
+  "ngo_q": "<strong>Preferisci che quei soldi aiutino un'altra persona?</strong>",
+  "ngo_t": "Puoi donare direttamente a un'associazione che lavora con le persone senza dimora a Barcellona. Il denaro va interamente a loro: non passa mai da me.",
+  "ngo_btn": "Dona all'associazione",
+  "foot": "Goditi Barcellona e fai un soggiorno sicuro.",
+  "sos_thanks": "Santiago ti ringrazia per aver guardato",
+  "s_map": "Mappa di Barcellona",
+  "map_desc": "Luoghi verificati uno a uno da Santiago, il tuo autista. Ristoranti, spiagge, cosa vedere, sicurezza e altro.",
+  "map_btn": "Apri la mappa"
+ },
+ "pt": {
+  "eyebrow": "Uma iniciativa do seu motorista",
+  "byline": "Sou o Santiago, seu motorista. Preparei esta página para você.",
+  "hero_ask": "Obrigado pelas gorjetas. E se a viagem foi boa, suas <strong>cinco estrelas</strong> me ajudam demais.",
+  "welcome": "Bem-vindo a",
+  "lede": "Saia, aproveite a cidade — mas sempre com cabeça. Estas dicas evitam o perrengue.",
+  "s_tips": "Dicas de segurança",
+  "t1": "<strong>Celular bem seguro e mochila fechada.</strong> Não deixe nada no chão, na mesa nem pendurado na cadeira.",
+  "t2": "<strong>Fique de olho no seu copo.</strong> Nunca deixe sozinho, não aceite bebida de estranhos e se o gosto estiver estranho, largue.",
+  "t3": "<strong>Ande sempre em grupo.</strong> Evite ruas vazias e peça um transporte seguro para voltar.",
+  "t4": "<strong>No metrô e no ônibus, mochila na frente.</strong> Joias discretas e celular guardado ao caminhar.",
+  "t5": "<strong>Na praia, nunca deixe suas coisas na areia</strong> enquanto toma banho de mar. Os furtos são rápidos.",
+  "t6": "<strong>Se alguém tentar te distrair, se afaste.</strong> É o truque mais comum dos batedores de carteira.",
+  "t7": "<strong>Passaporte no cofre do hotel</strong> ou em pochete por dentro da roupa. Pague com cartão ou celular sempre que der.",
+  "s_zones": "Onde redobrar a atenção",
+  "z_intro": "À noite há muitos batedores de carteira e gente que se aproveita de turista distraído, principalmente aqui:",
+  "z_gothic": "Bairro Gótico",
+  "z_beaches": "As praias",
+  "z_metro": "Metrô L1 e L3",
+  "s_fines": "Novas multas 2026",
+  "f_intro": "Desde 15 de fevereiro de 2026 vale uma lei de conduta mais dura. A Guardia Urbana anda com maquininha e pode cobrar a multa na hora.",
+  "f1": "Andar sem camiseta ou de roupa de banho fora da praia",
+  "f2": "Beber álcool na rua perto de menores, ou à noite em áreas com restrição de ruído",
+  "f3": "Organizar ou divulgar rotas de bebedeira",
+  "f_caveat": "A polícia precisa avisar antes de multar; só aplica a multa se você insistir.",
+  "s_help": "Se precisar de ajuda",
+  "sos1": "Emergências",
+  "sos2": "Polícia Nacional",
+  "sos3": "Guarda Urbana",
+  "sos_hint": "Toque no número para ligar direto.",
+  "s_uber": "Uber e VTC",
+  "uber": "Use sempre Uber ou um VTC licenciado: o motorista te leva com segurança e dentro da lei. <span class=\"warn\">Nunca entre em veículo sem licença.</span>",
+  "s_video": "O vídeo",
+  "video": "Aqui vai o vídeo do Travely<br>(ainda falta subir no YouTube)",
+  "th_title": "Obrigado por viajar comigo!",
+  "th1": "Se a viagem foi boa, sua avaliação de <strong>5 estrelas</strong> me ajuda demais.",
+  "th2": "Gorjeta nunca é obrigatória, mas é sempre muito bem-vinda.",
+  "th_btn": "Deixar gorjeta",
+  "th_hint": "Escolha o método que preferir.",
+  "th_bizum_note": "Apenas de bancos espanhóis",
+  "th_copy": "Copiar número",
+  "th_copied": "Copiado!",
+  "s_ngo": "Ajudar quem precisa",
+  "ngo_q": "<strong>Prefere que esse dinheiro ajude outra pessoa?</strong>",
+  "ngo_t": "Você pode doar direto para uma instituição que trabalha com pessoas em situação de rua em Barcelona. O dinheiro vai inteiro para eles: não passa por mim em momento nenhum.",
+  "ngo_btn": "Doar para a instituição",
+  "foot": "Aproveite Barcelona e tenha uma estadia segura.",
+  "sos_thanks": "O Santiago agradece por ter olhado",
+  "s_map": "Mapa de Barcelona",
+  "map_desc": "Locais verificados um a um pelo Santiago, o teu motorista. Restaurantes, praias, o que ver, segurança e mais.",
+  "map_btn": "Ver o mapa"
+ },
+ "nl": {
+  "eyebrow": "Een initiatief van je chauffeur",
+  "byline": "Ik ben Santiago, je chauffeur. Deze pagina heb ik voor jou gemaakt.",
+  "hero_ask": "Bedankt voor de fooi. En als de rit goed ging, helpen jouw <strong>vijf sterren</strong> me enorm.",
+  "welcome": "Welkom in",
+  "lede": "Ga uit, geniet van de stad — maar blijf alert. Deze tips besparen je de ellende.",
+  "s_tips": "Veiligheidstips",
+  "t1": "<strong>Telefoon goed vast, rugzak dicht.</strong> Laat niets op de grond, op tafel of aan je stoel hangen.",
+  "t2": "<strong>Let op je drankje.</strong> Laat het nooit onbeheerd, neem geen drankjes aan van vreemden en als het raar smaakt, laat het staan.",
+  "t3": "<strong>Blijf altijd in een groep.</strong> Vermijd lege straten en regel veilig vervoer naar huis.",
+  "t4": "<strong>In metro en bus je tas voorop.</strong> Discrete sieraden en telefoon weg tijdens het lopen.",
+  "t5": "<strong>Laat op het strand nooit je spullen in het zand liggen</strong> terwijl je zwemt. Diefstal gaat razendsnel.",
+  "t6": "<strong>Als iemand je probeert af te leiden, loop door.</strong> Dat is de meest gebruikte truc van zakkenrollers.",
+  "t7": "<strong>Paspoort in de hotelkluis</strong> of in een verborgen heuptasje. Betaal met kaart of telefoon waar het kan.",
+  "s_zones": "Waar je extra moet opletten",
+  "z_intro": "'s Nachts zijn er veel zakkenrollers en mensen die afgeleide toeristen uitkiezen, vooral hier:",
+  "z_gothic": "Gotische Wijk",
+  "z_beaches": "De stranden",
+  "z_metro": "Metro L1 en L3",
+  "s_fines": "Nieuwe boetes 2026",
+  "f_intro": "Sinds 15 februari 2026 geldt een strengere gedragsverordening. De Guardia Urbana heeft pinapparaten bij zich en kan de boete meteen innen.",
+  "f1": "Zonder shirt of in badkleding buiten het strand",
+  "f2": "Alcohol drinken op straat in de buurt van minderjarigen, of 's nachts in geluidsbeperkte zones",
+  "f3": "Kroegentochten organiseren of promoten",
+  "f_caveat": "De politie moet je eerst waarschuwen; ze beboeten je alleen als je doorgaat.",
+  "s_help": "Als je hulp nodig hebt",
+  "sos1": "Noodgevallen",
+  "sos2": "Nationale Politie",
+  "sos3": "Stadspolitie",
+  "sos_hint": "Tik op het nummer om direct te bellen.",
+  "s_uber": "Uber en VTC",
+  "uber": "Gebruik altijd Uber of een VTC met vergunning: de chauffeur brengt je veilig en legaal. <span class=\"warn\">Stap nooit in een voertuig zonder vergunning.</span>",
+  "s_video": "De video",
+  "video": "Hier komt de video van Travely<br>(moet nog naar YouTube)",
+  "th_title": "Bedankt dat je met me meereed!",
+  "th1": "Als de rit goed ging, helpt jouw <strong>5 sterren</strong> me enorm.",
+  "th2": "Fooi is nooit verplicht, maar altijd enorm gewaardeerd.",
+  "th_btn": "Fooi geven",
+  "th_hint": "Kies wat voor jou het makkelijkst is.",
+  "th_bizum_note": "Alleen vanaf een Spaanse bank",
+  "th_copy": "Nummer kopiëren",
+  "th_copied": "Gekopieerd!",
+  "s_ngo": "Iemand in nood helpen",
+  "ngo_q": "<strong>Wil je liever dat dat geld iemand anders helpt?</strong>",
+  "ngo_t": "Je kunt rechtstreeks doneren aan een organisatie die in Barcelona met daklozen werkt. Het geld gaat volledig naar hen — het komt op geen enkel moment bij mij.",
+  "ngo_btn": "Doneer aan de organisatie",
+  "foot": "Geniet van Barcelona en heb een veilig verblijf.",
+  "sos_thanks": "Santiago bedankt je voor het kijken",
+  "s_map": "Kaart van Barcelona",
+  "map_desc": "Plekken één voor één gecheckt door Santiago, je chauffeur. Restaurants, stranden, bezienswaardigheden, veiligheid en meer.",
+  "map_btn": "Bekijk de kaart"
+ },
+ "ru": {
+  "eyebrow": "Инициатива вашего водителя",
+  "byline": "Я Сантьяго, ваш водитель. Эту страницу я сделал для вас.",
+  "hero_ask": "Спасибо за чаевые. А если поездка прошла хорошо, ваши <strong>пять звёзд</strong> очень мне помогают.",
+  "welcome": "Добро пожаловать в",
+  "lede": "Гуляйте и наслаждайтесь городом — но не теряйте бдительности. Эти советы уберегут вас от неприятностей.",
+  "s_tips": "Советы по безопасности",
+  "t1": "<strong>Держите телефон крепко, рюкзак — закрытым.</strong> Не оставляйте вещи на полу, на столе и не вешайте на спинку стула.",
+  "t2": "<strong>Следите за своим бокалом.</strong> Не оставляйте его без присмотра, не берите напитки у незнакомцев, а если вкус странный — не пейте.",
+  "t3": "<strong>Всегда держитесь группой.</strong> Избегайте пустых улиц и вызывайте безопасный транспорт домой.",
+  "t4": "<strong>В метро и автобусе носите рюкзак спереди.</strong> Не надевайте заметные украшения, телефон убирайте при ходьбе.",
+  "t5": "<strong>На пляже никогда не оставляйте вещи на песке</strong>, пока купаетесь. Кражи происходят мгновенно.",
+  "t6": "<strong>Если кто-то пытается вас отвлечь — уходите.</strong> Это самый частый приём карманников.",
+  "t7": "<strong>Паспорт — в сейфе отеля</strong> или в поясной сумке под одеждой. По возможности платите картой или телефоном.",
+  "s_zones": "Где быть особенно внимательным",
+  "z_intro": "Ночью здесь много карманников и людей, которые пользуются невнимательностью туристов — особенно в этих районах:",
+  "z_gothic": "Готический квартал",
+  "z_beaches": "Пляжи",
+  "z_metro": "Метро L1 и L3",
+  "s_fines": "Новые штрафы 2026",
+  "f_intro": "С 15 февраля 2026 года действуют более строгие правила поведения. У городской полиции есть терминалы оплаты, и штраф можно взыскать на месте.",
+  "f1": "Без футболки или в купальнике вне пляжа",
+  "f2": "Распитие алкоголя на улице рядом с несовершеннолетними или ночью в зонах с ограничением шума",
+  "f3": "Организация или реклама алкогольных туров по барам",
+  "f_caveat": "Полиция обязана сначала предупредить; штрафуют только если вы продолжаете.",
+  "s_help": "Если нужна помощь",
+  "sos1": "Экстренные службы",
+  "sos2": "Национальная полиция",
+  "sos3": "Городская полиция",
+  "sos_hint": "Нажмите на номер, чтобы позвонить сразу.",
+  "s_uber": "Uber и VTC",
+  "uber": "Всегда пользуйтесь Uber или лицензированным VTC: водитель довезёт вас безопасно и легально. <span class=\"warn\">Никогда не садитесь в машину без лицензии.</span>",
+  "s_video": "Видео",
+  "video": "Здесь будет видео Travely<br>(ещё не загружено на YouTube)",
+  "th_title": "Спасибо, что поехали со мной!",
+  "th1": "Если поездка прошла хорошо, ваша оценка в <strong>5 звёзд</strong> очень мне помогает.",
+  "th2": "Чаевые никогда не обязательны, но им всегда очень рад.",
+  "th_btn": "Оставить чаевые",
+  "th_hint": "Выберите удобный способ.",
+  "th_bizum_note": "Только с испанского банковского счёта",
+  "th_copy": "Скопировать номер",
+  "th_copied": "Скопировано!",
+  "s_ngo": "Помочь тем, кому нужно",
+  "ngo_q": "<strong>Хотите, чтобы эти деньги помогли кому-то другому?</strong>",
+  "ngo_t": "Вы можете сделать пожертвование напрямую организации, которая работает с бездомными в Барселоне. Деньги полностью идут им — через меня они не проходят.",
+  "ngo_btn": "Пожертвовать организации",
+  "foot": "Наслаждайтесь Барселоной и берегите себя.",
+  "sos_thanks": "Сантьяго благодарит вас за внимание",
+  "s_map": "Карта Барселоны",
+  "map_desc": "Места, проверенные лично Сантьяго, вашим водителем. Рестораны, пляжи, что посмотреть, безопасность и другое.",
+  "map_btn": "Открыть карту"
+ },
+ "ja": {
+  "eyebrow": "ドライバーからのご案内",
+  "byline": "運転手のサンティアゴです。このページはお客様のためにご用意しました。",
+  "hero_ask": "チップをありがとうございます。快適な乗車でしたら、<strong>星5つ</strong>の評価がとても励みになります。",
+  "welcome": "ようこそ",
+  "lede": "街を思いきり楽しんでください。ただし油断は禁物です。以下の注意点で、嫌な思いをせずに済みます。",
+  "s_tips": "安全のためのアドバイス",
+  "t1": "<strong>スマホはしっかり持ち、カバンは必ず閉める。</strong> 床・テーブル・椅子の背もたれに荷物を置いたままにしないこと。",
+  "t2": "<strong>飲み物から目を離さない。</strong> 席を離れるときは持っていき、知らない人からの飲み物は受け取らない。味がおかしければ飲まないこと。",
+  "t3": "<strong>必ずグループで行動する。</strong> 人通りのない道は避け、帰りは安全な交通手段を手配してください。",
+  "t4": "<strong>地下鉄やバスではカバンを体の前に。</strong> 目立つ装飾品は避け、歩くときはスマホをしまいましょう。",
+  "t5": "<strong>ビーチでは泳いでいる間、砂の上に荷物を置かないでください。</strong> 盗難は一瞬です。",
+  "t6": "<strong>誰かが気を引こうとしてきたら、その場を離れる。</strong> スリの最も一般的な手口です。",
+  "t7": "<strong>パスポートはホテルの金庫へ</strong>、または衣類の内側のポーチに。できる限りカードやスマホで支払いを。",
+  "s_zones": "特に注意が必要な場所",
+  "z_intro": "夜間はスリが多く、油断した観光客を狙う人がいます。特に次のエリアです：",
+  "z_gothic": "ゴシック地区",
+  "z_beaches": "ビーチ",
+  "z_metro": "地下鉄 L1・L3",
+  "s_fines": "2026年の新しい罰金",
+  "f_intro": "2026年2月15日より、より厳しい条例が施行されています。市警はカード決済端末を携行しており、その場で罰金を徴収できます。",
+  "f1": "ビーチ以外で上半身裸、または水着のまま歩くこと",
+  "f2": "未成年者の近くでの路上飲酒、または夜間の騒音規制区域での飲酒",
+  "f3": "はしご酒ツアーの主催・宣伝",
+  "f_caveat": "警察はまず警告する義務があります。従わない場合にのみ罰金となります。",
+  "s_help": "助けが必要なとき",
+  "sos1": "緊急通報",
+  "sos2": "国家警察",
+  "sos3": "市警察",
+  "sos_hint": "番号をタップするとそのまま発信できます。",
+  "s_uber": "Uber・VTC について",
+  "uber": "必ず Uber か認可を受けた VTC を利用してください。安全かつ合法に目的地までお送りします。<span class=\"warn\">無認可の車には絶対に乗らないでください。</span>",
+  "s_video": "動画",
+  "video": "ここに Travely の動画が入ります<br>（YouTube へアップロード予定）",
+  "th_title": "ご乗車ありがとうございました！",
+  "th1": "快適な乗車だったなら、<strong>星5つ</strong>の評価がとても励みになります。",
+  "th2": "チップは決して必須ではありませんが、いただけるととても嬉しいです。",
+  "th_btn": "チップを渡す",
+  "th_hint": "お好きな方法をお選びください。",
+  "th_bizum_note": "スペインの銀行口座のみ",
+  "th_copy": "番号をコピー",
+  "th_copied": "コピーしました",
+  "s_ngo": "困っている人を支援する",
+  "ngo_q": "<strong>そのお金を、誰か別の人のために役立てませんか？</strong>",
+  "ngo_t": "バルセロナでホームレスの方々を支援する団体に直接寄付できます。お金は全額そのまま団体へ届き、私を経由することは一切ありません。",
+  "ngo_btn": "団体に寄付する",
+  "foot": "バルセロナを楽しみ、安全なご滞在を。",
+  "sos_thanks": "見ていただきありがとうございます — サンティアゴ",
+  "s_map": "バルセロナの地図",
+  "map_desc": "運転手のサンティアゴが一つずつ確認した場所。レストラン、ビーチ、見どころ、安全情報など。",
+  "map_btn": "地図を見る"
+ },
+ "zh": {
+  "eyebrow": "来自您司机的用心",
+  "byline": "我是圣地亚哥，您的司机。这个页面是我为您准备的。",
+  "hero_ask": "感谢您的小费。如果这趟行程还满意，您的<strong>五星好评</strong>对我帮助很大。",
+  "welcome": "欢迎来到",
+  "lede": "尽情享受这座城市，但请保持警惕。这些提醒能帮您避免不愉快。",
+  "s_tips": "安全提示",
+  "t1": "<strong>手机拿稳，背包拉好。</strong> 不要把东西放在地上、桌上，或挂在椅背上。",
+  "t2": "<strong>看好自己的酒杯。</strong> 不要让它离开视线，不要接受陌生人递来的饮料，如果味道不对就别喝。",
+  "t3": "<strong>始终结伴而行。</strong> 避开无人的街道，回程请叫安全的交通工具。",
+  "t4": "<strong>乘地铁和公交时，背包背在身前。</strong> 首饰低调，走路时把手机收好。",
+  "t5": "<strong>在海滩下水时，绝不要把东西留在沙滩上。</strong> 偷窃只需几秒。",
+  "t6": "<strong>如果有人试图分散您的注意力，请立刻走开。</strong> 这是扒手最常用的手法。",
+  "t7": "<strong>护照放在酒店保险箱</strong>或贴身腰包里。尽量使用银行卡或手机支付。",
+  "s_zones": "需要格外小心的区域",
+  "z_intro": "夜间扒手较多，专挑注意力分散的游客下手，尤其是以下区域：",
+  "z_gothic": "哥特区",
+  "z_beaches": "各处海滩",
+  "z_metro": "地铁 L1、L3 线",
+  "s_fines": "2026 年新规罚款",
+  "f_intro": "自 2026 年 2 月 15 日起，实施更严格的公共行为条例。市警配有刷卡机，可当场收取罚款。",
+  "f1": "在海滩以外的区域赤膊或只穿泳装",
+  "f2": "在未成年人附近的街头饮酒，或夜间在噪音管制区饮酒",
+  "f3": "组织或推广酒吧串饮活动",
+  "f_caveat": "警察必须先行警告；只有在您坚持不改时才会开罚单。",
+  "s_help": "需要帮助时",
+  "sos1": "紧急求助",
+  "sos2": "国家警察",
+  "sos3": "市政警察",
+  "sos_hint": "点击号码即可直接拨打。",
+  "s_uber": "Uber 与 VTC",
+  "uber": "请始终使用 Uber 或持牌 VTC：司机会安全合法地送您到达目的地。<span class=\"warn\">切勿乘坐无牌照车辆。</span>",
+  "s_video": "视频",
+  "video": "此处将放置 Travely 的视频<br>（尚未上传至 YouTube）",
+  "th_title": "感谢您的乘坐！",
+  "th1": "如果这趟行程还满意，您的 <strong>五星好评</strong> 对我帮助很大。",
+  "th2": "小费从来不是必须的，但收到时我总是非常感激。",
+  "th_btn": "给小费",
+  "th_hint": "选择您方便的方式。",
+  "th_bizum_note": "仅限西班牙银行账户",
+  "th_copy": "复制号码",
+  "th_copied": "已复制",
+  "s_ngo": "帮助需要帮助的人",
+  "ngo_q": "<strong>您是否更希望这笔钱去帮助别人？</strong>",
+  "ngo_t": "您可以直接捐给在巴塞罗那服务无家可归者的机构。款项全额归他们所有，完全不经过我。",
+  "ngo_btn": "向该机构捐款",
+  "foot": "祝您在巴塞罗那玩得开心、平安顺利。",
+  "sos_thanks": "圣地亚哥感谢您的关注",
+  "s_map": "巴塞罗那地图",
+  "map_desc": "由您的司机圣地亚哥逐一核实的地点。餐厅、海滩、景点、安全提示等。",
+  "map_btn": "查看地图"
+ },
+ "zh-Hant": {
+  "eyebrow": "來自您司機的用心",
+  "byline": "我是聖地亞哥，您的司機。這個頁面是我為您準備的。",
+  "hero_ask": "感謝您的小費。如果這趟行程還滿意，您的<strong>五星好評</strong>對我幫助很大。",
+  "welcome": "歡迎來到",
+  "lede": "盡情享受這座城市，但請保持警覺。這些提醒能幫您避免不愉快。",
+  "s_tips": "安全提示",
+  "t1": "<strong>手機拿穩，背包拉好。</strong> 不要把東西放在地上、桌上，或掛在椅背上。",
+  "t2": "<strong>看好自己的酒杯。</strong> 不要讓它離開視線，不要接受陌生人遞來的飲料，如果味道不對就別喝。",
+  "t3": "<strong>始終結伴而行。</strong> 避開無人的街道，回程請叫安全的交通工具。",
+  "t4": "<strong>乘地鐵和巴士時，背包背在身前。</strong> 首飾低調，走路時把手機收好。",
+  "t5": "<strong>在海灘下水時，絕不要把東西留在沙灘上。</strong> 偷竊只需幾秒。",
+  "t6": "<strong>如果有人試圖分散您的注意力，請立刻走開。</strong> 這是扒手最常用的手法。",
+  "t7": "<strong>護照放在酒店保險箱</strong>或貼身腰包裡。盡量使用銀行卡或手機支付。",
+  "s_zones": "需要格外小心的區域",
+  "z_intro": "夜間扒手較多，專挑注意力分散的遊客下手，尤其是以下區域：",
+  "z_gothic": "哥德區",
+  "z_beaches": "各處海灘",
+  "z_metro": "地鐵 L1、L3 線",
+  "s_fines": "2026 年新規罰款",
+  "f_intro": "自 2026 年 2 月 15 日起，實施更嚴格的公共行為條例。市警配有刷卡機，可當場收取罰款。",
+  "f1": "在海灘以外的區域赤膊或只穿泳裝",
+  "f2": "在未成年人附近的街頭飲酒，或夜間在噪音管制區飲酒",
+  "f3": "組織或推廣酒吧串飲活動",
+  "f_caveat": "警察必須先行警告；只有在您堅持不改時才會開罰單。",
+  "s_help": "需要幫助時",
+  "sos1": "緊急求助",
+  "sos2": "國家警察",
+  "sos3": "市政警察",
+  "sos_hint": "點擊號碼即可直接撥打。",
+  "s_uber": "Uber 與 VTC",
+  "uber": "請始終使用 Uber 或持牌 VTC：司機會安全合法地送您到達目的地。<span class=\"warn\">切勿乘坐無牌照車輛。</span>",
+  "s_video": "影片",
+  "video": "此處將放置 Travely 的影片<br>（尚未上傳至 YouTube）",
+  "th_title": "感謝您的乘坐！",
+  "th1": "如果這趟行程還滿意，您的 <strong>五星好評</strong> 對我幫助很大。",
+  "th2": "小費從來不是必須的，但收到時我總是非常感激。",
+  "th_btn": "給小費",
+  "th_hint": "選擇您方便的方式。",
+  "th_bizum_note": "僅限西班牙銀行帳戶",
+  "th_copy": "複製號碼",
+  "th_copied": "已複製",
+  "s_ngo": "幫助需要幫助的人",
+  "ngo_q": "<strong>您是否更希望這筆錢去幫助別人？</strong>",
+  "ngo_t": "您可以直接捐給在巴塞隆納服務無家可歸者的機構。款項全額歸他們所有，完全不經過我。",
+  "ngo_btn": "向該機構捐款",
+  "foot": "祝您在巴塞隆納玩得開心、平安順利。",
+  "sos_thanks": "聖地牙哥感謝您的關注",
+  "s_map": "巴塞隆納地圖",
+  "map_desc": "由您的司機聖地牙哥逐一確認的地點。餐廳、海灘、景點、安全提示等。",
+  "map_btn": "查看地圖"
+ }
 };
 
 
