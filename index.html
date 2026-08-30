@@ -1218,14 +1218,23 @@ function aplicarIdiomaMapa(l){
   if(!TM[l]) l = 'es';
   idiomaMapa = l;
   document.documentElement.lang = l;
-  document.querySelectorAll('[data-t]').forEach(function(el){
-    var v = TM[l][el.getAttribute('data-t')];
-    if(v) el.textContent = v;
-  });
-  var vac = document.getElementById('vacio');
-  if(vac && vac.textContent.trim()) vac.textContent = TM[l].vacio;
-  var s = document.getElementById('selIdiomaMapa'); if(s) s.value = l;
-  try{ localStorage.setItem('travely-lang', l); }catch(e){}
+  var els = document.querySelectorAll('[data-t]');
+  var idx = 0, batchSize = 50;
+  function batch(){
+    var end = Math.min(idx + batchSize, els.length);
+    for(; idx < end; idx++){
+      var el = els[idx], v = TM[l][el.getAttribute('data-t')];
+      if(v) el.textContent = v;
+    }
+    if(idx < els.length) requestAnimationFrame(batch);
+    else {
+      var vac = document.getElementById('vacio');
+      if(vac && vac.textContent.trim()) vac.textContent = TM[l].vacio;
+      var s = document.getElementById('selIdiomaMapa'); if(s) s.value = l;
+      try{ localStorage.setItem('travely-lang', l); }catch(e){}
+    }
+  }
+  batch();
 }
 document.getElementById('selIdiomaMapa').addEventListener('change', function(){ aplicarIdiomaMapa(this.value); });
 (function(){
