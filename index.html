@@ -1244,7 +1244,7 @@ document.getElementById('selIdiomaMapa').addEventListener('change', function(){ 
   var g = null; try{ g = localStorage.getItem('travely-lang'); }catch(e){}
   var n = (navigator.language||'en').toLowerCase();
   var auto = g || (n.indexOf('zh-t')===0||n.indexOf('zh-hant')===0||n.indexOf('zh-tw')===0 ? 'zh-Hant' : n.split('-')[0]);
-  aplicarIdiomaMapa(TM[auto] ? auto : 'es');
+  aplicarIdiomaMapa(TM[auto] ? auto : 'en');
 })();
 </script>
 </body>
