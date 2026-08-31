@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
 <title>Barcelona en el Mapa — Ubera</title>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TRAVELITY"></script>
+<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-TRAVELITY', {anonymize_ip: true});</script>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
@@ -186,16 +188,17 @@ footer .sig{font-family:var(--display);font-weight:700;letter-spacing:.14em;
 .pago .cp{flex:none;font-size:11.5px;font-weight:700;font-family:var(--display);
   color:var(--amber);padding:6px 10px;border-radius:8px;background:rgba(242,179,61,.12)}
 .pago .cp.ok{color:var(--ground);background:var(--barato)}
-.barra-idioma{padding:20px 0 0;text-align:right}
-.barra-idioma select{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:10px 14px;font-size:14px;
-  padding:8px 14px;color:var(--txt);font-family:var(--body);font-weight:600;font-size:13.5px;cursor:pointer}
+.barra-idioma{padding:12px 16px 0 0;text-align:right;position:relative;z-index:1000}
+.barra-idioma select{background:var(--amber);border:2px solid var(--amber-deep);border-radius:12px;padding:12px 16px;font-size:15px;font-weight:700;color:var(--ground);cursor:pointer;transition:all .2s;min-width:140px}
+.barra-idioma select:hover{background:var(--amber-deep);border-color:var(--amber-deep);transform:scale(1.05)}
+.barra-idioma select:active{transform:scale(0.98)}
 .barra-idioma select:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
 </style>
 </head>
 <body>
 
 <div class="wrap">
-  <div class="barra-idioma"><select id="selIdiomaMapa" aria-label="Idioma"><option value="es">Español</option><option value="ca">Català</option><option value="en">English</option><option value="fr">Français</option><option value="de">Deutsch</option><option value="it">Italiano</option><option value="pt">Português</option><option value="nl">Nederlands</option><option value="ru">Русский</option><option value="ja">日本語</option><option value="zh">简体中文</option><option value="zh-Hant">繁體中文</option></select></div>
+  <div class="barra-idioma"><select id="selIdiomaMapa" aria-label="Idioma"><option value="en">English</option><option value="es">Español</option><option value="ca">Català</option><option value="fr">Français</option><option value="de">Deutsch</option><option value="it">Italiano</option><option value="pt">Português</option><option value="nl">Nederlands</option><option value="ru">Русский</option><option value="ja">日本語</option><option value="zh">简体中文</option><option value="zh-Hant">繁體中文</option></select></div>
   <header>
     <p style="text-align:left;margin-bottom:14px"><a href="ubera/" style="display:inline-block;padding:9px 16px;border-radius:999px;background:var(--surface);border:1px solid var(--amber);color:var(--amber);text-decoration:none;font-family:var(--display);font-weight:700;font-size:13px" data-t="volver">← Volver a la guía De Santiago</a></p>
     <p class="eyebrow" data-t="eyebrow">Barcelona · Ubera</p>
@@ -1213,7 +1216,7 @@ var TM = {
   "volver2": "← 返回聖地牙哥的指南"
  }
 };
-var idiomaMapa = 'en';
+var idiomaMapa = 'en'; gtag('event', 'page_load', {language: idiomaMapa, page_title: document.title});
 function aplicarIdiomaMapa(l){
   if(!TM[l]) l = 'es';
   idiomaMapa = l;
