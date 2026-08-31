@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
@@ -186,8 +186,8 @@ footer .sig{font-family:var(--display);font-weight:700;letter-spacing:.14em;
 .pago .cp{flex:none;font-size:11.5px;font-weight:700;font-family:var(--display);
   color:var(--amber);padding:6px 10px;border-radius:8px;background:rgba(242,179,61,.12)}
 .pago .cp.ok{color:var(--ground);background:var(--barato)}
-.barra-idioma{padding:12px 0 0;text-align:right}
-.barra-idioma select{background:var(--surface);border:1px solid var(--line);border-radius:999px;
+.barra-idioma{padding:20px 0 0;text-align:right}
+.barra-idioma select{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:10px 14px;font-size:14px;
   padding:8px 14px;color:var(--txt);font-family:var(--body);font-weight:600;font-size:13.5px;cursor:pointer}
 .barra-idioma select:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
 </style>
@@ -1213,7 +1213,7 @@ var TM = {
   "volver2": "← 返回聖地牙哥的指南"
  }
 };
-var idiomaMapa = 'es';
+var idiomaMapa = 'en';
 function aplicarIdiomaMapa(l){
   if(!TM[l]) l = 'es';
   idiomaMapa = l;
@@ -1239,7 +1239,7 @@ function aplicarIdiomaMapa(l){
 document.getElementById('selIdiomaMapa').addEventListener('change', function(){ aplicarIdiomaMapa(this.value); });
 (function(){
   var g = null; try{ g = localStorage.getItem('travely-lang'); }catch(e){}
-  var n = (navigator.language||'es').toLowerCase();
+  var n = (navigator.language||'en').toLowerCase();
   var auto = g || (n.indexOf('zh-t')===0||n.indexOf('zh-hant')===0||n.indexOf('zh-tw')===0 ? 'zh-Hant' : n.split('-')[0]);
   aplicarIdiomaMapa(TM[auto] ? auto : 'es');
 })();
