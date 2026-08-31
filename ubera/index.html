@@ -260,15 +260,15 @@ footer .sig{font-family:var(--display);font-weight:700;letter-spacing:.14em;
 
       <div class="pays">
         <button class="btn btn-primary pay" data-copy="640236547">
-          <span>Bizum</span><span class="pv">640 236 547</span>
+          <span data-t="bizum">Bizum</span><span class="pv">640 236 547</span>
         </button>
         <a class="btn btn-secondary pay" href="https://paypal.me/santiagotriguero" target="_blank" rel="noopener">
-          <span>PayPal</span><span class="pv">paypal.me/santiagotriguero</span>
+          <span data-t="paypal">PayPal</span><span class="pv">paypal.me/santiagotriguero</span>
         </a>
       </div>
 
-      <p class="hint">Env&iacute;alo como <strong>Amigos y familiares</strong> / <strong>Friends and family</strong> &mdash; as&iacute; no hay comisi&oacute;n.</p>
-      <p class="hint">&iquest;Sin Bizum ni PayPal? Deja la propina en la <strong>app de Uber</strong> / <strong>Uber app</strong>.</p>
+      <p class="hint" data-t="th_hint1">Env&iacute;alo como <strong>Amigos y familiares</strong> / <strong>Friends and family</strong> &mdash; as&iacute; no hay comisi&oacute;n.</p>
+      <p class="hint" data-t="th_hint2">&iquest;Sin Bizum ni PayPal? Deja la propina en la <strong>app de Uber</strong> / <strong>Uber app</strong>.</p>
     </div>
   </section>
   <footer>
@@ -281,7 +281,7 @@ footer .sig{font-family:var(--display);font-weight:700;letter-spacing:.14em;
       <span style="line-height:1">SOS</span>
       <span style="font-size:14px;font-weight:600;letter-spacing:0;text-transform:none;line-height:1.35;text-align:center" data-t="sos_thanks"></span>
     </a>
-    <p style="margin-top:24px"><a href="#" onclick="window.scrollTo(0,0);return false" style="color:var(--amber);text-decoration:none;font-weight:600;font-size:14px">↑ Volver al inicio</a></p>
+    <p style="margin-top:24px"><a href="#" onclick="window.scrollTo(0,0);return false" style="color:var(--amber);text-decoration:none;font-weight:600;font-size:14px"><span data-t="back_to_top">↑ Volver al inicio</span></a></p>
   </div>
 
 </div>
@@ -355,7 +355,12 @@ const T = {
   "ngo_t": "Puedes donar directamente a una entidad que trabaja con personas sin hogar en Barcelona. El dinero va íntegro a ellos: no pasa por mí en ningún momento.",
   "ngo_btn": "Donar a la entidad",
   "foot": "Disfruta de Barcelona y ten una estancia segura.",
-  "map_btn": "Ver el mapa"
+  "map_btn": "Ver el mapa",
+  "bizum": "Bizum",
+  "paypal": "PayPal",
+  "th_hint1": "Envíalo como <strong>Amigos y familiares</strong> / <strong>Friends and family</strong> — así no hay comisión.",
+  "th_hint2": "¿Sin Bizum ni PayPal? Deja la propina en la <strong>app de Uber</strong> / <strong>Uber app</strong>.",
+  "back_to_top": "↑ Volver al inicio"
  },
  "ca": {
   "eyebrow": "Una iniciativa del teu conductor",
@@ -407,7 +412,12 @@ const T = {
   "sos_thanks": "Cada ajuda compta",
   "s_map": "Mapa de Barcelona",
   "map_desc": "Llocs verificats un a un per en El conductor, la teva guia. Restaurants, platges, què veure, seguretat i més.",
-  "map_btn": "Veure el mapa"
+  "map_btn": "Veure el mapa",
+  "bizum": "Bizum",
+  "paypal": "PayPal",
+  "th_hint1": "Envia-ho com <strong>Amics i família</strong> / <strong>Friends and family</strong> — així no hi ha comissió.",
+  "th_hint2": "Sense Bizum ni PayPal? Deixa la propina a l'<strong>app d'Uber</strong> / <strong>Uber app</strong>.",
+  "back_to_top": "↑ Tornar a l'inici"
  },
  "en": {
   "eyebrow": "An initiative by your driver",
@@ -459,7 +469,12 @@ const T = {
   "ngo_t": "You can donate straight to an organisation working with homeless people in Barcelona. The money goes entirely to them — it never passes through me.",
   "ngo_btn": "Donate to the charity",
   "foot": "Enjoy Barcelona and have a safe stay.",
-  "map_btn": "Open the map"
+  "map_btn": "Open the map",
+  "bizum": "Bizum",
+  "paypal": "PayPal",
+  "th_hint1": "Send it as <strong>Friends and family</strong> — no fees.",
+  "th_hint2": "No Bizum or PayPal? Leave the tip in the <strong>Uber app</strong>.",
+  "back_to_top": "↑ Back to top"
  },
  "fr": {
   "eyebrow": "Une initiative de votre chauffeur",
@@ -511,7 +526,12 @@ const T = {
   "sos_thanks": "Chaque aide compte",
   "s_map": "Carte de Barcelone",
   "map_desc": "Lieux vérifiés un par un par le chauffeur, votre chauffeur. Restaurants, plages, à voir, sécurité et plus.",
-  "map_btn": "Voir la carte"
+  "map_btn": "Voir la carte",
+  "bizum": "Bizum",
+  "paypal": "PayPal",
+  "th_hint1": "Envoyez-le comme <strong>Amis et famille</strong> — pas de frais.",
+  "th_hint2": "Pas de Bizum ni PayPal ? Laissez le pourboire sur l'<strong>app Uber</strong>.",
+  "back_to_top": "↑ Retour au début"
  },
  "de": {
   "eyebrow": "Eine Initiative deines Fahrers",
@@ -563,7 +583,12 @@ const T = {
   "sos_thanks": "Jede Hilfe zählt",
   "s_map": "Barcelona-Karte",
   "map_desc": "Orte, die Dein Fahrer ist dein Leitfaden, einzeln geprüft hat. Restaurants, Strände, Sehenswürdigkeiten, Sicherheit und mehr.",
-  "map_btn": "Karte öffnen"
+  "map_btn": "Karte öffnen",
+  "bizum": "Bizum",
+  "paypal": "PayPal",
+  "th_hint1": "Senden Sie es als <strong>Freunde und Familie</strong> — keine Gebühren.",
+  "th_hint2": "Kein Bizum oder PayPal? Geben Sie das Trinkgeld in der <strong>Uber-App</strong>.",
+  "back_to_top": "↑ Zurück zum Anfang"
  },
  "it": {
   "eyebrow": "Un'iniziativa del tuo autista",
@@ -615,7 +640,12 @@ const T = {
   "sos_thanks": "Ogni aiuto conta",
   "s_map": "Mappa di Barcellona",
   "map_desc": "Luoghi verificati uno a uno da Il conducente, la tua guida. Ristoranti, spiagge, cosa vedere, sicurezza e altro.",
-  "map_btn": "Apri la mappa"
+  "map_btn": "Apri la mappa",
+  "bizum": "Bizum",
+  "paypal": "PayPal",
+  "th_hint1": "Invialo come <strong>Amici e famiglia</strong> — nessuna commissione.",
+  "th_hint2": "Nessun Bizum o PayPal? Lascia la mancia nell'<strong>app Uber</strong>.",
+  "back_to_top": "↑ Torna all'inizio"
  },
  "pt": {
   "eyebrow": "Uma iniciativa do seu motorista",
@@ -667,7 +697,12 @@ const T = {
   "sos_thanks": "Cada ajuda conta",
   "s_map": "Mapa de Barcelona",
   "map_desc": "Locais verificados um a um pelo motorista, o teu motorista. Restaurantes, praias, o que ver, segurança e mais.",
-  "map_btn": "Ver o mapa"
+  "map_btn": "Ver o mapa",
+  "bizum": "Bizum",
+  "paypal": "PayPal",
+  "th_hint1": "Envie como <strong>Amigos e família</strong> — sem taxas.",
+  "th_hint2": "Sem Bizum nem PayPal? Deixe a gorjeta no <strong>app Uber</strong>.",
+  "back_to_top": "↑ Voltar ao topo"
  },
  "nl": {
   "eyebrow": "Een initiatief van je chauffeur",
@@ -719,7 +754,12 @@ const T = {
   "sos_thanks": "Elke hulp telt",
   "s_map": "Kaart van Barcelona",
   "map_desc": "Plekken één voor één gecheckt door de chauffeur, je chauffeur. Restaurants, stranden, bezienswaardigheden, veiligheid en meer.",
-  "map_btn": "Bekijk de kaart"
+  "map_btn": "Bekijk de kaart",
+  "bizum": "Bizum",
+  "paypal": "PayPal",
+  "th_hint1": "Stuur het als <strong>Vrienden en familie</strong> — geen vergoedingen.",
+  "th_hint2": "Geen Bizum of PayPal? Laat de fooi achter in de <strong>Uber-app</strong>.",
+  "back_to_top": "↑ Terug naar boven"
  },
  "ru": {
   "eyebrow": "Инициатива вашего водителя",
@@ -771,7 +811,12 @@ const T = {
   "sos_thanks": "Сантьяго благодарит вас за внимание",
   "s_map": "Карта Барселоны",
   "map_desc": "Места, проверенные лично Сантьяго, вашим водителем. Рестораны, пляжи, что посмотреть, безопасность и другое.",
-  "map_btn": "Открыть карту"
+  "map_btn": "Открыть карту",
+  "bizum": "Bizum",
+  "paypal": "PayPal",
+  "th_hint1": "Отправьте как <strong>Друзья и семья</strong> — без комиссии.",
+  "th_hint2": "Нет Bizum или PayPal? Оставьте чаевые в <strong>приложении Uber</strong>.",
+  "back_to_top": "↑ В начало"
  },
  "ar": {
   "eyebrow": "مبادرة من سائقك",
@@ -870,7 +915,12 @@ const T = {
   "sos_thanks": "見ていただきありがとうございます — サンティアゴ",
   "s_map": "バルセロナの地図",
   "map_desc": "運転手のサンティアゴが一つずつ確認した場所。レストラン、ビーチ、見どころ、安全情報など。",
-  "map_btn": "地図を見る"
+  "map_btn": "地図を見る",
+  "bizum": "Bizum",
+  "paypal": "PayPal",
+  "th_hint1": "<strong>友人と家族</strong>として送信してください—手数料なし。",
+  "th_hint2": "BizumやPayPalがありませんか？<strong>Uberアプリ</strong>でチップを残してください。",
+  "back_to_top": "↑ トップに戻る"
  },
  "zh": {
   "eyebrow": "来自您司机的用心",
@@ -922,7 +972,12 @@ const T = {
   "sos_thanks": "圣地亚哥感谢您的关注",
   "s_map": "巴塞罗那地图",
   "map_desc": "由您的司机圣地亚哥逐一核实的地点。餐厅、海滩、景点、安全提示等。",
-  "map_btn": "查看地图"
+  "map_btn": "查看地图",
+  "bizum": "Bizum",
+  "paypal": "PayPal",
+  "th_hint1": "以<strong>朋友和家人</strong>的名义发送—无手续费。",
+  "th_hint2": "没有 Bizum 或 PayPal？在 <strong>Uber 应用</strong>中留下小费。",
+  "back_to_top": "↑ 返回顶部"
  },
  "zh-Hant": {
   "eyebrow": "來自您司機的用心",
@@ -974,7 +1029,12 @@ const T = {
   "sos_thanks": "聖地牙哥感謝您的關注",
   "s_map": "巴塞隆納地圖",
   "map_desc": "由您的司機聖地牙哥逐一確認的地點。餐廳、海灘、景點、安全提示等。",
-  "map_btn": "查看地圖"
+  "map_btn": "查看地圖",
+  "bizum": "Bizum",
+  "paypal": "PayPal",
+  "th_hint1": "以<strong>朋友和家人</strong>的名義發送—無手續費。",
+  "th_hint2": "沒有 Bizum 或 PayPal？在 <strong>Uber 應用</strong>中留下小費。",
+  "back_to_top": "↑ 回到頂部"
  }
 };
 
