@@ -1,0 +1,51 @@
+═══════════════════════════════════════════════════════════════════════════════
+TRAVELITY: CREDENCIALES OFICIALES
+═══════════════════════════════════════════════════════════════════════════════
+
+📧 CUENTA GOOGLE (OFICIAL)
+   Email: travelityapp@gmail.com
+   Teléfono recuperación: 640 23 65 47
+   Uso: Analytics, Search Console, YouTube, GCP, OAuth
+
+📍 DOMINIO (PENDIENTE HOY)
+   Dominio: travelity.es
+   Registrador recomendado: NOMINALIA.com
+   Precio: 11,95€/año (incluye Whois Privacy)
+   Email contacto: santiagotriguero@gmail.com
+
+🎨 PROYECTO INTERNO
+   Nombre interno: Ubera
+   URL GitHub: https://github.com/tetesanti/ubera-barcelona
+   Rama: main
+   Status: Inglés por defecto ✅, Selector mejorado ✅, Analytics prep ✅
+
+═══════════════════════════════════════════════════════════════════════════════
+
+✅ PRÓXIMOS PASOS:
+
+1. Registrar travelity.es (HOY - 15 min)
+   └─ Nominalia.com → Email santiagotriguero@gmail.com → Pago
+
+2. Configurar Google Analytics (HOY)
+   └─ Cuenta: travelityapp@gmail.com
+   └─ Propiedad: travelity.es
+   └─ Código GA instalado en index.html ✅
+
+3. Vincular dominio a GitHub Pages (HOY)
+   └─ CNAME: travelity.es
+   └─ Configurar DNS en Nominalia
+   └─ Verificar en Google Search Console
+
+4. Crear YouTube Channel (MAÑANA)
+   └─ Cuenta: travelityapp@gmail.com
+   └─ Nombre: "Travelity" o "Barcelona en el Mapa"
+   └─ Vinculada a travelity.es
+
+5. Registrar marca OEPM (CUANDO INGRESOS > 2K€)
+   └─ Nombre: Travelity
+   └─ Clases: 35 (Marketing) + 39 (Viajes)
+   └─ Costo: ~300€
+
+═══════════════════════════════════════════════════════════════════════════════
+Actualizado: 2026-08-31 16:58 | Listo para registrar dominio
+═══════════════════════════════════════════════════════════════════════════════
