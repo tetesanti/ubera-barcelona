@@ -155,7 +155,10 @@ h2{font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.16e
 .hint{font-size:13px;color:var(--dim);margin-top:10px;text-wrap:pretty}
 .pays .btn{width:100%;border:0;cursor:pointer;font-family:var(--display)}
 .pay{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.pay .pv{font-weight:600;font-variant-numeric:tabular-nums;opacity:.82;font-size:15px}
+/* DATOS_PRIVADOS_OCULTOS_TEMP - oculta el numero Bizum y el usuario PayPal.
+   El boton sigue visible y al pulsarlo copia el dato al portapapeles.
+   Reactivar: quitar "display:none;" de la regla siguiente. */
+.pay .pv{display:none;font-weight:600;font-variant-numeric:tabular-nums;opacity:.82;font-size:15px}
 .pay.ok{background:#31D0A5}
 
 footer{margin-top:44px;padding-top:20px;border-top:1px solid var(--line);
@@ -270,8 +273,7 @@ footer .sig{font-family:var(--display);font-weight:700;letter-spacing:.14em;
       <p data-t="th1"></p>
       <p data-t="th2"></p>
 
-      <!-- BIZUM_PAYPAL_OCULTO_TEMP - reactivar: quitar style="display:none" del div.pays -->
-      <div class="pays" style="display:none">
+      <div class="pays">
         <button class="btn btn-primary pay" data-copy="640236547">
           <span data-t="bizum">Bizum</span><span class="pv">640 236 547</span>
         </button>
