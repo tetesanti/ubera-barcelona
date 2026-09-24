@@ -1,0 +1,28 @@
+{
+  "_nota": "Formato PROPUESTO: el formato real de TITAN_TASKS no es accesible desde la nube; adáptalo antes de encolar. Todas las tareas son de solo lectura o escriben únicamente archivos nuevos.",
+  "creado": "2026-09-24T06:45+02:00",
+  "origen": "claude-nube session_01UvknEcq1zNHU95KpBLzeLs",
+  "tareas": [
+    {"id": "RC-01", "agente": "tool_executor", "seguro": true, "accion": "verificar_archivo",
+     "detalle": "Comprobar si existe I:\\CEREBRO\\hermes\\hermes_cerebro.py.BACKUP_20260922_2100 (tamaño y fecha). NO crear ni modificar."},
+    {"id": "RC-02", "agente": "tool_executor", "seguro": true, "accion": "inventario",
+     "detalle": "Listar %USERPROFILE%\\.claude\\projects\\**\\*.jsonl (ruta, tamaño, fecha). Solo lectura."},
+    {"id": "RC-03", "agente": "opencode", "seguro": true, "accion": "ejecutar_simulacion",
+     "comando": "py I:\\CEREBRO\\claude_rescate\\rescate_claude.py rescate --vault I:\\CEREBRO\\obsidian_vault --vault I:\\CEREBRO\\obsidian_vault_titan --buscar I:\\CEREBRO --informe I:\\CEREBRO\\claude_rescate\\simulacion.json",
+     "detalle": "Simulación: no escribe en Obsidian. Devuelve el conteo YA_ESTA/PARCIAL/NO_ESTA/NO_RECUPERABLE."},
+    {"id": "RC-04", "agente": "usuario", "seguro": false, "accion": "decidir_vault_destino",
+     "detalle": "Elegir obsidian_vault u obsidian_vault_titan como destino de CLAUDE_HISTORICO. NO fusionar."},
+    {"id": "RC-05", "agente": "opencode", "depende_de": ["RC-03", "RC-04"], "seguro": true, "accion": "rescate_real",
+     "comando": "py I:\\CEREBRO\\claude_rescate\\rescate_claude.py rescate --vault I:\\CEREBRO\\obsidian_vault --vault I:\\CEREBRO\\obsidian_vault_titan --destino <VAULT_ELEGIDO> --buscar I:\\CEREBRO --escribir",
+     "detalle": "Solo crea notas nuevas en <VAULT>\\CLAUDE_HISTORICO. Nunca sobrescribe (usa __v2...)."},
+    {"id": "RC-06", "agente": "usuario", "depende_de": ["RC-04"], "seguro": false, "accion": "aprobar_autoguardado",
+     "comando": "py I:\\CEREBRO\\claude_rescate\\rescate_claude.py instalar-hooks --destino <VAULT_ELEGIDO>",
+     "detalle": "Modifica %USERPROFILE%\\.claude\\settings.json (con backup previo). Requiere aprobación."},
+    {"id": "RC-07", "agente": "hermes", "depende_de": ["RC-05"], "seguro": true, "accion": "organizar_contexto",
+     "detalle": "Por cada nota en CLAUDE_HISTORICO/sesiones con secciones '(revisar)', proponer DECISIONES/PENDIENTES/BLOQUEOS en un archivo NUEVO <nota>__hermes.md citando las líneas del transcript. No editar la nota original. No tocar la DB de Hermes."},
+    {"id": "RC-08", "agente": "ollama", "modo": "TEXT_ONLY", "depende_de": ["RC-05"], "seguro": true, "accion": "resumir",
+     "detalle": "Resumen de 10 líneas por sesión en <nota>__resumen.md. Prohibido añadir hechos que no estén en la nota."},
+    {"id": "RC-09", "agente": "dispatcher", "depende_de": ["RC-07", "RC-08"], "seguro": true, "accion": "actualizar_maestro",
+     "detalle": "Crear CLAUDE_ESTADO_MAESTRO_<fecha>.md NUEVO (no sobrescribir el del 24SEP) pasando a CONFIRMADO solo lo verificado."}
+  ]
+}
