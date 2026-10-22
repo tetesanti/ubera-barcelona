@@ -275,6 +275,13 @@ footer .sig{font-family:var(--display);font-weight:700;letter-spacing:.14em;
     </div>
   </section>
 
+  <!-- SOS_GRANDE_DESACTIVADO_TEMP - reactivar: quitar display:none de la section -->
+  <section class="sos-block" style="display:none">
+    <a href="../ayuda/" class="sos-btn">
+      <span class="sos-etiq">SOS</span>
+      <span class="sos-gracias" data-t="sos_gracias">El conductor te lo agradece por mirar</span>
+    </a>
+  </section>
 
   <footer>
     <p data-t="foot1">Los horarios cambian. Confirma en Google antes de ir.</p>
@@ -1264,6 +1271,9 @@ document.getElementById('selIdiomaMapa').addEventListener('change', function(){ 
     output.textContent = value.toLocaleString('es-ES');
   }).catch(function(){ output.textContent = 'No disponible'; });
 })();
-</script>\n<!-- GPS opcional: solicita permiso solo al pulsar y no envía coordenadas al servidor. -->\n<script defer src="geo-localizacion.js?v=20261022-3"></script>
+</script>
+<!-- GPS opcional: solicita permiso solo al pulsar y no envía coordenadas al servidor. -->
+<script defer src="geo-localizacion.js?v=20261022-4"></script>
 </body>
 </html>
+
