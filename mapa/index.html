@@ -1252,6 +1252,12 @@ document.getElementById('selIdiomaMapa').addEventListener('change', function(){ 
   aplicarIdiomaMapa(TM[auto] ? auto : 'en');
 })();
 </script>
-<img src="https://visitor-badge.laobi.icu/badge?page_id=travely-bcn.mapa" alt="" style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none">
+<div aria-label="Contador total de aperturas registradas" style="display:flex;align-items:center;justify-content:center;gap:10px;margin:28px auto 8px;color:#aeb6c8;font:12px system-ui,sans-serif;letter-spacing:.04em">
+  <span>Aperturas registradas</span>
+  <img src="https://visitor-badge.laobi.icu/badge?page_id=travely-bcn.total" alt="Contador total de aperturas registradas" style="height:20px;width:auto">
+</div>
+<!-- GPS opcional: solicita permiso solo al pulsar y no envía coordenadas al servidor. -->
+<script defer src="geo-localizacion.js"></script>
 </body>
 </html>
+
