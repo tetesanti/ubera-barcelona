@@ -18,7 +18,7 @@
     var locating = false;
     var GEO_TEXTS = {
       es: {
-        button: '⌖ Mi ubicación', locating: '⌖ Localizando…', popup: 'Tu ubicación aproximada',
+        button: '⌖ Mi ubicación', aria: 'Mostrar mi ubicación actual en el mapa', locating: '⌖ Localizando…', popup: 'Tu ubicación aproximada',
         invalid: 'El navegador devolvió una ubicación no válida.',
         denied: 'Permite el acceso a la ubicación en tu navegador y vuelve a pulsar el botón.',
         timeout: 'La ubicación tardó demasiado. Comprueba que la ubicación del dispositivo esté activada y vuelve a intentarlo.',
@@ -26,7 +26,7 @@
         unsupported: 'Este navegador no ofrece geolocalización.'
       },
       ca: {
-        button: '⌖ La meva ubicació', locating: '⌖ Localitzant…', popup: 'La teva ubicació aproximada',
+        button: '⌖ La meva ubicació', aria: 'Mostrar la meva ubicació actual al mapa', locating: '⌖ Localitzant…', popup: 'La teva ubicació aproximada',
         invalid: 'El navegador ha retornat una ubicació no vàlida.',
         denied: "Permet l'accés a la ubicació al navegador i torna a prémer el botó.",
         timeout: 'La ubicació ha trigat massa. Comprova que la ubicació del dispositiu estigui activada i torna-ho a provar.',
@@ -34,7 +34,7 @@
         unsupported: 'Aquest navegador no ofereix geolocalització.'
       },
       en: {
-        button: '⌖ My location', locating: '⌖ Locating…', popup: 'Your approximate location',
+        button: '⌖ My location', aria: 'Show my current location on the map', locating: '⌖ Locating…', popup: 'Your approximate location',
         invalid: 'The browser returned an invalid location.',
         denied: 'Allow location access in your browser, then press the button again.',
         timeout: 'Location took too long. Check that device location is enabled and try again.',
@@ -42,7 +42,7 @@
         unsupported: 'This browser does not offer geolocation.'
       },
       fr: {
-        button: '⌖ Ma position', locating: '⌖ Localisation…', popup: 'Votre position approximative',
+        button: '⌖ Ma position', aria: 'Afficher ma position actuelle sur la carte', locating: '⌖ Localisation…', popup: 'Votre position approximative',
         invalid: 'Le navigateur a renvoyé une position invalide.',
         denied: "Autorisez l'accès à la position dans votre navigateur, puis réessayez.",
         timeout: 'La localisation a pris trop de temps. Vérifiez que la position de l’appareil est activée, puis réessayez.',
@@ -50,7 +50,7 @@
         unsupported: 'Ce navigateur ne propose pas la géolocalisation.'
       },
       de: {
-        button: '⌖ Mein Standort', locating: '⌖ Standort wird gesucht…', popup: 'Dein ungefährer Standort',
+        button: '⌖ Mein Standort', aria: 'Meinen aktuellen Standort auf der Karte anzeigen', locating: '⌖ Standort wird gesucht…', popup: 'Dein ungefährer Standort',
         invalid: 'Der Browser hat einen ungültigen Standort zurückgegeben.',
         denied: 'Erlaube den Standortzugriff im Browser und drücke die Schaltfläche erneut.',
         timeout: 'Die Standortsuche dauerte zu lange. Aktiviere die Gerätestandortbestimmung und versuche es erneut.',
@@ -58,7 +58,7 @@
         unsupported: 'Dieser Browser bietet keine Geolokalisierung.'
       },
       it: {
-        button: '⌖ La mia posizione', locating: '⌖ Ricerca posizione…', popup: 'La tua posizione approssimativa',
+        button: '⌖ La mia posizione', aria: 'Mostra la mia posizione attuale sulla mappa', locating: '⌖ Ricerca posizione…', popup: 'La tua posizione approssimativa',
         invalid: 'Il browser ha restituito una posizione non valida.',
         denied: 'Consenti l’accesso alla posizione nel browser e premi di nuovo il pulsante.',
         timeout: 'La localizzazione ha impiegato troppo tempo. Attiva la posizione del dispositivo e riprova.',
@@ -66,7 +66,7 @@
         unsupported: 'Questo browser non offre la geolocalizzazione.'
       },
       pt: {
-        button: '⌖ Minha localização', locating: '⌖ Localizando…', popup: 'A sua localização aproximada',
+        button: '⌖ Minha localização', aria: 'Mostrar a minha localização atual no mapa', locating: '⌖ Localizando…', popup: 'A sua localização aproximada',
         invalid: 'O navegador devolveu uma localização inválida.',
         denied: 'Permita o acesso à localização no navegador e prima novamente o botão.',
         timeout: 'A localização demorou demasiado. Verifique se a localização do dispositivo está ativa e tente novamente.',
@@ -74,7 +74,7 @@
         unsupported: 'Este navegador não oferece geolocalização.'
       },
       nl: {
-        button: '⌖ Mijn locatie', locating: '⌖ Locatie zoeken…', popup: 'Je geschatte locatie',
+        button: '⌖ Mijn locatie', aria: 'Mijn huidige locatie op de kaart tonen', locating: '⌖ Locatie zoeken…', popup: 'Je geschatte locatie',
         invalid: 'De browser gaf een ongeldige locatie terug.',
         denied: 'Sta locatietoegang toe in je browser en druk opnieuw op de knop.',
         timeout: 'Het ophalen van de locatie duurde te lang. Schakel de locatie van je apparaat in en probeer opnieuw.',
@@ -82,7 +82,7 @@
         unsupported: 'Deze browser ondersteunt geen geolocatie.'
       },
       ru: {
-        button: '⌖ Моё местоположение', locating: '⌖ Определение местоположения…', popup: 'Ваше примерное местоположение',
+        button: '⌖ Моё местоположение', aria: 'Показать моё текущее местоположение на карте', locating: '⌖ Определение местоположения…', popup: 'Ваше примерное местоположение',
         invalid: 'Браузер вернул недействительное местоположение.',
         denied: 'Разрешите доступ к местоположению в браузере и нажмите кнопку ещё раз.',
         timeout: 'Определение местоположения заняло слишком много времени. Включите геолокацию устройства и повторите попытку.',
@@ -90,7 +90,7 @@
         unsupported: 'Этот браузер не поддерживает геолокацию.'
       },
       ja: {
-        button: '⌖ 現在地', locating: '⌖ 現在地を取得中…', popup: 'おおよその現在地',
+        button: '⌖ 現在地', aria: '現在地を地図に表示', locating: '⌖ 現在地を取得中…', popup: 'おおよその現在地',
         invalid: 'ブラウザから無効な位置情報が返されました。',
         denied: 'ブラウザで位置情報へのアクセスを許可して、もう一度ボタンを押してください。',
         timeout: '位置情報の取得に時間がかかりすぎました。端末の位置情報を有効にして再試行してください。',
@@ -98,7 +98,7 @@
         unsupported: 'このブラウザは位置情報に対応していません。'
       },
       zh: {
-        button: '⌖ 我的位置', locating: '⌖ 正在定位…', popup: '您的大致位置',
+        button: '⌖ 我的位置', aria: '在地图上显示我的当前位置', locating: '⌖ 正在定位…', popup: '您的大致位置',
         invalid: '浏览器返回的位置无效。',
         denied: '请在浏览器中允许访问位置信息，然后再次点击按钮。',
         timeout: '获取位置超时。请确认设备定位已开启，然后重试。',
@@ -106,7 +106,7 @@
         unsupported: '此浏览器不支持地理定位。'
       },
       'zh-Hant': {
-        button: '⌖ 我的位置', locating: '⌖ 正在定位…', popup: '您的大約位置',
+        button: '⌖ 我的位置', aria: '在地圖上顯示我的目前位置', locating: '⌖ 正在定位…', popup: '您的大約位置',
         invalid: '瀏覽器傳回的位置無效。',
         denied: '請在瀏覽器中允許存取位置，然後再次按下按鈕。',
         timeout: '取得位置逾時。請確認裝置定位已開啟，然後重試。',
@@ -140,6 +140,7 @@
     function updateLanguage() {
       var texts = getTexts();
       button.textContent = locating ? texts.locating : texts.button;
+      button.setAttribute('aria-label', texts.aria);
       if (marker && marker.setPopupContent) marker.setPopupContent(texts.popup);
     }
 
