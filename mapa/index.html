@@ -1245,6 +1245,10 @@ document.getElementById('selIdiomaMapa').addEventListener('change', function(){ 
   aplicarIdiomaMapa(TM[auto] ? auto : 'en');
 })();
 </script>
-<div aria-label="Contador total de aperturas registradas" style="display:flex;align-items:center;justify-content:center;gap:10px;margin:28px auto 8px;color:#aeb6c8;font:12px system-ui,sans-serif;letter-spacing:.04em">\n  <span>Aperturas registradas</span>\n  <img src="https://visitor-badge.laobi.icu/badge?page_id=travely-bcn.total" alt="Contador total de aperturas registradas" style="height:20px;width:auto">\n</div>\n<!-- GPS opcional: solicita permiso solo al pulsar y no envía coordenadas al servidor. -->\n<script defer src="geo-localizacion.js"></script>
+<div aria-label="Contador total de aperturas registradas" style="display:flex;align-items:center;justify-content:center;gap:10px;margin:28px auto 8px;color:#aeb6c8;font:12px system-ui,sans-serif;letter-spacing:.04em">
+  <span>Aperturas registradas</span>
+  <strong id="total-page-views" aria-live="polite">Cargando…</strong>
+</div>
+<script src="../contador.js"></script>\n<!-- GPS opcional: solicita permiso solo al pulsar y no envía coordenadas al servidor. -->\n<script defer src="geo-localizacion.js"></script>
 </body>
 </html>
