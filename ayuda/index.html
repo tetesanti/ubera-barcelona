@@ -728,6 +728,21 @@ document.getElementById('btnComp').addEventListener('click',function(){
   <span>Aperturas registradas</span>
   <strong id="total-page-views" aria-live="polite">Cargando…</strong>
 </div>
-<script src="../contador.js"></script>
+<script>
+(function(){
+  var output = document.getElementById('total-page-views');
+  if (!output || !window.fetch) return;
+  fetch('https://abacus.jasoncameron.dev/hit/travelity-es/total', {
+    mode:'cors', cache:'no-store', credentials:'omit', keepalive:true, referrerPolicy:'no-referrer'
+  }).then(function(response){
+    if(!response.ok) throw new Error('counter request failed');
+    return response.json();
+  }).then(function(data){
+    var value = Number(data && data.value);
+    if(!isFinite(value) || value < 0) throw new Error('invalid counter value');
+    output.textContent = value.toLocaleString('es-ES');
+  }).catch(function(){ output.textContent = 'No disponible'; });
+})();
+</script>
 </body>
 </html>
