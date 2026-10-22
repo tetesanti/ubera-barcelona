@@ -724,6 +724,10 @@ document.getElementById('btnComp').addEventListener('click',function(){
   if(navigator.share){ navigator.share(datos).catch(function(){}); }
 });
 </script>
-<div aria-label="Contador total de aperturas registradas" style="display:flex;align-items:center;justify-content:center;gap:10px;margin:28px auto 8px;color:#aeb6c8;font:12px system-ui,sans-serif;letter-spacing:.04em">\n  <span>Aperturas registradas</span>\n  <img src="https://visitor-badge.laobi.icu/badge?page_id=travely-bcn.total" alt="Contador total de aperturas registradas" style="height:20px;width:auto">\n</div>
+<div aria-label="Contador total de aperturas registradas" style="display:flex;align-items:center;justify-content:center;gap:10px;margin:28px auto 8px;color:#aeb6c8;font:12px system-ui,sans-serif;letter-spacing:.04em">
+  <span>Aperturas registradas</span>
+  <strong id="total-page-views" aria-live="polite">Cargando…</strong>
+</div>
+<script src="../contador.js"></script>
 </body>
 </html>
